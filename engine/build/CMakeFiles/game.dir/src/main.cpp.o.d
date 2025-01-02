@@ -246,4 +246,9 @@ CMakeFiles/game.dir/src/main.cpp.o: \
  /usr/include/c++/14.2.1/bits/fs_ops.h /usr/include/c++/14.2.1/iostream \
  /usr/include/c++/14.2.1/chrono /usr/include/c++/14.2.1/thread \
  /usr/include/c++/14.2.1/bits/std_thread.h \
- /usr/include/c++/14.2.1/bits/this_thread_sleep.h
+ /usr/include/c++/14.2.1/bits/this_thread_sleep.h \
+ /usr/include/c++/14.2.1/numeric \
+ /usr/include/c++/14.2.1/bits/stl_numeric.h \
+ /usr/include/c++/14.2.1/pstl/glue_numeric_defs.h \
+ /usr/include/c++/14.2.1/deque /usr/include/c++/14.2.1/bits/stl_deque.h \
+ /usr/include/c++/14.2.1/bits/deque.tcc

@@ -6,11 +6,13 @@
 #include <chrono>
 #include <thread>
 #include <iomanip>
+#include <numeric>
+#include <deque>
 
-const int WINDOW_WIDTH = 800;
-const int WINDOW_HEIGHT = 600;
-const float FPS = 30.0f;
-const float FRAME_TIME = 1.0f / FPS;
+const int WINDOW_WIDTH = 1024;
+const int WINDOW_HEIGHT = 768;
+const float TARGET_FPS = 30.0f;
+const float FRAME_TIME = 1.0f / TARGET_FPS;
 
 int main() {
     // Create window
@@ -51,25 +53,52 @@ int main() {
     int currentFrame = 0;
     sf::Clock clock;
     float accumulator = 0.0f;
-
+    
+    // For FPS calculation
+    std::deque<float> frameTimes;
+    const size_t FPS_SAMPLE_SIZE = 30;  // Calculate FPS over last 30 frames
+    
     // Game loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+                window.close();
         }
 
-        // Update frame with smoother timing
+        // Update frame timing
         float elapsed = clock.restart().asSeconds();
         accumulator += elapsed;
         
+        // Store frame time for FPS calculation
+        frameTimes.push_back(elapsed);
+        if (frameTimes.size() > FPS_SAMPLE_SIZE) {
+            frameTimes.pop_front();
+        }
+        
+        // Calculate and display FPS
+        if (!frameTimes.empty()) {
+            float avgFrameTime = std::accumulate(frameTimes.begin(), frameTimes.end(), 0.0f) / frameTimes.size();
+            float currentFPS = 1.0f / avgFrameTime;
+            
+            // Check for dropped frames (if frame took significantly longer than target frame time)
+            if (elapsed > FRAME_TIME * 1.2f) {  // 20% tolerance
+                std::cout << "WARNING: Dropped frame! Frame time: " << std::fixed << std::setprecision(3) 
+                          << elapsed * 1000.0f << "ms (target: " << FRAME_TIME * 1000.0f << "ms)" << std::endl;
+            }
+            
+            // Print FPS every 30 frames
+            if (currentFrame % 30 == 0) {
+                std::cout << "FPS: " << std::fixed << std::setprecision(1) << currentFPS 
+                          << " (Frame time: " << avgFrameTime * 1000.0f << "ms)" << std::endl;
+            }
+        }
+        
         if (accumulator >= FRAME_TIME) {
-            accumulator -= FRAME_TIME;  // Only subtract the frame time we've used
-            int previousFrame = currentFrame;
+            accumulator -= FRAME_TIME;
             currentFrame = (currentFrame + 1) % frames.size();
-            std::cout << "Frame transition: " << previousFrame << " -> " << currentFrame 
-                      << " (dt: " << elapsed << "s)" << std::endl;
         }
 
         // Render
