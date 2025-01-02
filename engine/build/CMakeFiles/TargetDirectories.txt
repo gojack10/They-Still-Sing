@@ -1,3 +1,0 @@
-/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles/game.dir
-/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles/edit_cache.dir
-/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles/rebuild_cache.dir

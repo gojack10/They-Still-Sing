@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/game.dir/link.d CMakeFiles/game.dir/src/main.cpp.o -o game  /usr/lib/libsfml-graphics.so.2.6.2 /usr/lib/libsfml-window.so.2.6.2 /usr/lib/libsfml-system.so.2.6.2
