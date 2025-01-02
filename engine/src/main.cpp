@@ -9,8 +9,8 @@
 #include <numeric>
 #include <deque>
 
-const int WINDOW_WIDTH = 1024;
-const int WINDOW_HEIGHT = 768;
+const int WINDOW_WIDTH = 1280;
+const int WINDOW_HEIGHT = 720;
 const float TARGET_FPS = 30.0f;
 const float FRAME_TIME = 1.0f / TARGET_FPS;
 
