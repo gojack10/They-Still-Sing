@@ -169,6 +169,7 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/c++/14.2.1/bits/hash_bytes.h \
   /usr/include/c++/14.2.1/bits/invoke.h \
   /usr/include/c++/14.2.1/bits/ios_base.h \
+  /usr/include/c++/14.2.1/bits/istream.tcc \
   /usr/include/c++/14.2.1/bits/locale_classes.h \
   /usr/include/c++/14.2.1/bits/locale_classes.tcc \
   /usr/include/c++/14.2.1/bits/locale_conv.h \
@@ -191,6 +192,7 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/c++/14.2.1/bits/range_access.h \
   /usr/include/c++/14.2.1/bits/refwrap.h \
   /usr/include/c++/14.2.1/bits/requires_hosted.h \
+  /usr/include/c++/14.2.1/bits/sstream.tcc \
   /usr/include/c++/14.2.1/bits/std_abs.h \
   /usr/include/c++/14.2.1/bits/stl_algo.h \
   /usr/include/c++/14.2.1/bits/stl_algobase.h \
@@ -241,6 +243,7 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/c++/14.2.1/initializer_list \
   /usr/include/c++/14.2.1/ios \
   /usr/include/c++/14.2.1/iosfwd \
+  /usr/include/c++/14.2.1/istream \
   /usr/include/c++/14.2.1/iterator \
   /usr/include/c++/14.2.1/locale \
   /usr/include/c++/14.2.1/map \
@@ -249,6 +252,7 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/c++/14.2.1/pstl/execution_defs.h \
   /usr/include/c++/14.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/14.2.1/pstl/pstl_config.h \
+  /usr/include/c++/14.2.1/sstream \
   /usr/include/c++/14.2.1/stdexcept \
   /usr/include/c++/14.2.1/streambuf \
   /usr/include/c++/14.2.1/string \
@@ -421,8 +425,6 @@ TheyStillSing: /usr/lib/libc.so \
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/os_defines.h:
 
-/usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/messages_members.h:
-
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/gthr-default.h:
 
 /usr/lib32/libfreetype.so.6:
@@ -450,6 +452,10 @@ TheyStillSing: /usr/lib/libc.so \
 /usr/include/bits/types/__mbstate_t.h:
 
 /usr/include/bits/stdio_lim.h:
+
+/usr/include/c++/14.2.1/tuple:
+
+/usr/include/bits/timex.h:
 
 /usr/include/bits/errno.h:
 
@@ -577,11 +583,23 @@ TheyStillSing: /usr/lib/libc.so \
 
 /usr/include/c++/14.2.1/bits/stream_iterator.h:
 
+/usr/include/c++/14.2.1/type_traits:
+
+/usr/include/SFML/Graphics/Drawable.hpp:
+
 /usr/include/sys/cdefs.h:
 
 /usr/include/SFML/Graphics/RenderTexture.hpp:
 
 /usr/include/SFML/Config.hpp:
+
+/usr/include/libintl.h:
+
+/usr/include/c++/14.2.1/typeinfo:
+
+/usr/include/bits/endianness.h:
+
+/usr/include/SFML/System/String.hpp:
 
 /usr/include/SFML/System/ThreadLocalPtr.hpp:
 
@@ -623,6 +641,10 @@ TheyStillSing: /usr/lib/libc.so \
 
 /usr/include/SFML/Graphics/CircleShape.hpp:
 
+/usr/include/c++/14.2.1/vector:
+
+/usr/include/bits/floatn-common.h:
+
 /usr/include/SFML/System/Export.hpp:
 
 /usr/include/SFML/System/Thread.hpp:
@@ -632,10 +654,6 @@ TheyStillSing: /usr/lib/libc.so \
 /usr/include/c++/14.2.1/bits/memoryfwd.h:
 
 /usr/include/c++/14.2.1/bits/requires_hosted.h:
-
-/usr/include/SFML/Window/VideoMode.hpp:
-
-/usr/include/SFML/Graphics/Font.hpp:
 
 /usr/include/SFML/Graphics/RectangleShape.hpp:
 
@@ -654,10 +672,6 @@ TheyStillSing: /usr/lib/libc.so \
 /usr/include/c++/14.2.1/bits/predefined_ops.h:
 
 /usr/include/SFML/Graphics/RenderStates.hpp:
-
-/usr/include/bits/floatn-common.h:
-
-/usr/include/c++/14.2.1/vector:
 
 /usr/include/SFML/System/Err.hpp:
 
@@ -684,10 +698,6 @@ TheyStillSing: /usr/lib/libc.so \
 /usr/include/SFML/System/Utf.hpp:
 
 /usr/include/c++/14.2.1/bits/concept_check.h:
-
-/usr/include/SFML/Graphics/Drawable.hpp:
-
-/usr/include/c++/14.2.1/type_traits:
 
 /usr/include/SFML/Graphics/VertexArray.hpp:
 
@@ -724,6 +734,12 @@ TheyStillSing: /usr/lib/libc.so \
 /usr/lib32/libbrotlicommon.so.1:
 
 /usr/include/SFML/Window/WindowBase.hpp:
+
+/usr/include/SFML/Window/VideoMode.hpp:
+
+/usr/include/SFML/Graphics/Font.hpp:
+
+/usr/include/c++/14.2.1/istream:
 
 /usr/include/c++/14.2.1/string_view:
 
@@ -827,8 +843,6 @@ TheyStillSing: /usr/lib/libc.so \
 
 /usr/include/c++/14.2.1/bits/algorithmfwd.h:
 
-/usr/include/c++/14.2.1/bits/alloc_traits.h:
-
 /usr/lib/libbz2.so.1.0:
 
 /usr/include/SFML/System/InputStream.hpp:
@@ -870,6 +884,8 @@ TheyStillSing: /usr/lib/libc.so \
 /usr/include/c++/14.2.1/bits/ios_base.h:
 
 /usr/include/c++/14.2.1/map:
+
+/usr/include/c++/14.2.1/bits/istream.tcc:
 
 /usr/include/c++/14.2.1/bits/locale_classes.h:
 
@@ -924,6 +940,10 @@ TheyStillSing: /usr/lib/libc.so \
 /usr/lib32/libpcre2-8.so.0:
 
 /usr/include/c++/14.2.1/bits/refwrap.h:
+
+/usr/include/c++/14.2.1/bits/alloc_traits.h:
+
+/usr/include/c++/14.2.1/bits/sstream.tcc:
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
 
@@ -995,14 +1015,6 @@ TheyStillSing: /usr/lib/libc.so \
 
 /usr/include/c++/14.2.1/ext/alloc_traits.h:
 
-/usr/include/libintl.h:
-
-/usr/include/bits/endianness.h:
-
-/usr/include/SFML/System/String.hpp:
-
-/usr/include/c++/14.2.1/typeinfo:
-
 /usr/include/c++/14.2.1/ext/numeric_traits.h:
 
 /usr/include/SFML/Graphics/Transform.hpp:
@@ -1023,6 +1035,6 @@ TheyStillSing: /usr/lib/libc.so \
 
 /usr/include/c++/14.2.1/pstl/pstl_config.h:
 
-/usr/include/bits/timex.h:
+/usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/messages_members.h:
 
-/usr/include/c++/14.2.1/tuple:
+/usr/include/c++/14.2.1/sstream:
