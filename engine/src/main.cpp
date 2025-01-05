@@ -1,6 +1,8 @@
 #include <SFML/Graphics.hpp>
 #include <sstream>
 #include <cmath>
+#include "states/WarningState.hpp"
+#include "config/AssetPaths.hpp"
 
 int main() {
     // Create a window with 1280x720 resolution
@@ -11,7 +13,7 @@ int main() {
 
     // Load a font
     sf::Font font;
-    if (!font.loadFromFile("engine/assets/fonts/DejaVuSans.ttf")) {
+    if (!font.loadFromFile(AssetPaths::FONTS + "/DejaVuSans.ttf")) {
         // Fallback to default system font if loading fails
         return -1;
     }
@@ -21,30 +23,51 @@ int main() {
     fpsText.setFont(font);
     fpsText.setCharacterSize(24);
     fpsText.setFillColor(sf::Color::White);
+
+    // Create warning state
+    WarningState warningState;
+    
+    // Clock for delta time calculation
+    sf::Clock deltaClock;
     
     // Clock for FPS calculation
-    sf::Clock clock;
-    float lastTime = 0;
+    sf::Clock fpsClock;
     
     // Main game loop
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            // Close window if ESC key is pressed or window is closed
-            if (event.type == sf::Event::Closed ||
-                (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)) {
+            if (event.type == sf::Event::Closed)
                 window.close();
+        }
+        
+        // Calculate delta time
+        float deltaTime = deltaClock.restart().asSeconds();
+        
+        // Calculate FPS with smoothing
+        float currentTime = fpsClock.getElapsedTime().asSeconds();
+        static float lastTime = currentTime;
+        static float fpsAccum = 0.0f;
+        static int fpsFrames = 0;
+        static int displayFps = 30;
+        
+        fpsFrames++;
+        fpsAccum += 1.0f / (currentTime - lastTime);
+        lastTime = currentTime;
+        
+        // Update displayed FPS every 0.5 seconds
+        if (fpsFrames >= 15) {  // At 30 FPS, this is roughly 0.5 seconds
+            displayFps = static_cast<int>(std::round(fpsAccum / fpsFrames));
+            // Clamp to 30 if we're very close
+            if (std::abs(displayFps - 30.0f) < 2.0f) {
+                displayFps = 30;
             }
+            fpsFrames = 0;
+            fpsAccum = 0.0f;
         }
 
-        // Calculate FPS
-        float currentTime = clock.restart().asSeconds();
-        float fps = 1.f / currentTime;
-        // Round to nearest integer and clamp to 30 if we're very close
-        int displayFps = static_cast<int>(std::round(fps));
-        if (std::abs(fps - 30.0f) < 0.5f) {
-            displayFps = 30;
-        }
+        // Clear the window
+        window.clear();
 
         // Update FPS text
         std::stringstream ss;
@@ -53,14 +76,13 @@ int main() {
         
         // Position FPS counter in top right corner with some padding
         fpsText.setPosition(window.getSize().x - fpsText.getGlobalBounds().width - 10, 10);
-
-        // Clear the window with black color
-        window.clear(sf::Color::Black);
         
-        // Draw FPS counter
+        warningState.handleInput(window);
+        warningState.update(deltaTime);
+        warningState.draw(window);
+        
+        // Draw FPS counter on top
         window.draw(fpsText);
-        
-        // Display the frame
         window.display();
     }
 

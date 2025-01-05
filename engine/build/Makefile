@@ -153,6 +153,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/states/WarningState.o: src/states/WarningState.cpp.o
+.PHONY : src/states/WarningState.o
+
+# target to build an object file
+src/states/WarningState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o
+.PHONY : src/states/WarningState.cpp.o
+
+src/states/WarningState.i: src/states/WarningState.cpp.i
+.PHONY : src/states/WarningState.i
+
+# target to preprocess a source file
+src/states/WarningState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.i
+.PHONY : src/states/WarningState.cpp.i
+
+src/states/WarningState.s: src/states/WarningState.cpp.s
+.PHONY : src/states/WarningState.s
+
+# target to generate assembly for a file
+src/states/WarningState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.s
+.PHONY : src/states/WarningState.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -165,6 +189,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/states/WarningState.o"
+	@echo "... src/states/WarningState.i"
+	@echo "... src/states/WarningState.s"
 .PHONY : help
 
 

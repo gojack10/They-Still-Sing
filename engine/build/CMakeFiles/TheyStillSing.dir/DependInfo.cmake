@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jack10/gamedev/They-Still-Sing/engine/src/main.cpp" "CMakeFiles/TheyStillSing.dir/src/main.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/main.cpp.o.d"
+  "/home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.cpp" "CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o.d"
   "" "TheyStillSing" "gcc" "CMakeFiles/TheyStillSing.dir/link.d"
   )
 

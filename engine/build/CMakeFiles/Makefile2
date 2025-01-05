@@ -85,12 +85,12 @@ clean: CMakeFiles/TheyStillSing.dir/clean
 CMakeFiles/TheyStillSing.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=1,2 "Built target TheyStillSing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=1,2,3 "Built target TheyStillSing"
 .PHONY : CMakeFiles/TheyStillSing.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TheyStillSing.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TheyStillSing.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles 0
 .PHONY : CMakeFiles/TheyStillSing.dir/rule
@@ -102,7 +102,7 @@ TheyStillSing: CMakeFiles/TheyStillSing.dir/rule
 # codegen rule for target.
 CMakeFiles/TheyStillSing.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=1,2 "Finished codegen for target TheyStillSing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target TheyStillSing"
 .PHONY : CMakeFiles/TheyStillSing.dir/codegen
 
 # clean rule for target.

@@ -1,10 +1,12 @@
-CMakeFiles/TheyStillSing.dir/src/main.cpp.o: \
- /home/jack10/gamedev/They-Still-Sing/engine/src/main.cpp \
- /usr/include/stdc-predef.h /usr/include/SFML/Graphics.hpp \
- /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp \
- /usr/include/SFML/Config.hpp /usr/include/SFML/System/Clock.hpp \
- /usr/include/SFML/System/Export.hpp /usr/include/SFML/System/Time.hpp \
- /usr/include/SFML/System/Err.hpp /usr/include/c++/14.2.1/ostream \
+CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.cpp \
+ /usr/include/stdc-predef.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.hpp \
+ /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
+ /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
+ /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
+ /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp \
+ /usr/include/c++/14.2.1/ostream \
  /usr/include/c++/14.2.1/bits/requires_hosted.h \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -228,11 +230,11 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
- /usr/include/c++/14.2.1/sstream /usr/include/c++/14.2.1/istream \
- /usr/include/c++/14.2.1/bits/istream.tcc \
- /usr/include/c++/14.2.1/bits/sstream.tcc /usr/include/c++/14.2.1/cmath \
- /usr/include/math.h /usr/include/bits/math-vector.h \
- /usr/include/bits/libm-simd-decl-stubs.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/GameState.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/../core/StateManager.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/../config/AssetPaths.hpp \
+ /usr/include/c++/14.2.1/cmath /usr/include/math.h \
+ /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
  /usr/include/bits/fp-fast.h \
  /usr/include/bits/mathcalls-helper-functions.h \
@@ -249,7 +251,4 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: \
  /usr/include/c++/14.2.1/tr1/modified_bessel_func.tcc \
  /usr/include/c++/14.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/14.2.1/tr1/poly_laguerre.tcc \
- /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc \
- /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/src/states/GameState.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/src/config/AssetPaths.hpp
+ /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc

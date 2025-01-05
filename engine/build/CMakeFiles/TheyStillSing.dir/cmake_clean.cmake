@@ -2,6 +2,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/TheyStillSing.dir/link.d"
   "CMakeFiles/TheyStillSing.dir/src/main.cpp.o"
   "CMakeFiles/TheyStillSing.dir/src/main.cpp.o.d"
+  "CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o"
+  "CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o.d"
   "TheyStillSing"
   "TheyStillSing.pdb"
 )
