@@ -11,12 +11,8 @@ int main() {
     // Set frame limit to 30 FPS
     window.setFramerateLimit(30);
 
-    // Load a font
-    sf::Font font;
-    if (!font.loadFromFile(AssetPaths::FONTS + "/DejaVuSans.ttf")) {
-        // Fallback to default system font if loading fails
-        return -1;
-    }
+    // Load font from embedded assets
+    sf::Font font = AssetPaths::getDejaVuSans();
 
     // Create FPS text
     sf::Text fpsText;

@@ -8,10 +8,7 @@ WarningState::WarningState() {
 }
 
 void WarningState::init() {
-    if (!warningTexture.loadFromFile(AssetPaths::UI_TEXTURES + "/warning.jpg")) {
-        // Handle error
-        return;
-    }
+    warningTexture = AssetPaths::getWarningTexture();
     warningSprite.setTexture(warningTexture);
     
     // Center the sprite
