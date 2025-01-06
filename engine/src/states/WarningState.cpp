@@ -21,15 +21,9 @@ void WarningState::init() {
     
     warningSprite.setTexture(warningTexture);
     
-    // Center the sprite
+    // Center the origin of the sprite
     sf::Vector2u textureSize = warningTexture.getSize();
     warningSprite.setOrigin(textureSize.x / 2.0f, textureSize.y / 2.0f);
-    warningSprite.setPosition(1280 / 2.0f, 720 / 2.0f);
-    
-    // Scale to fit 1280x720 if needed
-    float scaleX = 1280.0f / textureSize.x;
-    float scaleY = 720.0f / textureSize.y;
-    warningSprite.setScale(scaleX, scaleY);
     
     timer.restart();
     opacity = 255.0f;
@@ -71,5 +65,21 @@ void WarningState::update(float deltaTime) {
 }
 
 void WarningState::draw(sf::RenderWindow& window) {
+    // Get current window size
+    sf::Vector2u windowSize = window.getSize();
+    sf::Vector2u textureSize = warningTexture.getSize();
+
+    // Calculate scale to fill window completely (no black borders)
+    float scaleX = static_cast<float>(windowSize.x) / static_cast<float>(textureSize.x);
+    float scaleY = static_cast<float>(windowSize.y) / static_cast<float>(textureSize.y);
+    float scale = std::max(scaleX, scaleY); // Use max to ensure no black borders
+    
+    // Update sprite scale and position
+    warningSprite.setScale(scale, scale);
+    warningSprite.setPosition(
+        static_cast<float>(windowSize.x) / 2.0f,
+        static_cast<float>(windowSize.y) / 2.0f
+    );
+    
     window.draw(warningSprite);
 } 

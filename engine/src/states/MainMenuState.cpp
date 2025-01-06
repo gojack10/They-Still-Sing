@@ -127,10 +127,16 @@ void MainMenuState::draw(sf::RenderWindow& window) {
             sf::Vector2u textureSize = texture->getSize();
             sf::Vector2u windowSize = window.getSize();
             
-            // Calculate scale to fit window while maintaining aspect ratio
+            // Calculate scale to fill window completely (no black borders)
             float scaleX = static_cast<float>(windowSize.x) / static_cast<float>(textureSize.x);
             float scaleY = static_cast<float>(windowSize.y) / static_cast<float>(textureSize.y);
-            float scale = std::min(scaleX, scaleY);
+            float scale = std::max(scaleX, scaleY); // Use max instead of min to ensure no black borders
+            
+            // Set sprite origin to center
+            sprite.setOrigin(
+                static_cast<float>(textureSize.x) / 2.f,
+                static_cast<float>(textureSize.y) / 2.f
+            );
             
             // Set sprite scale
             DEBUG_LOCATION("MainMenuState::draw - Setting sprite properties");

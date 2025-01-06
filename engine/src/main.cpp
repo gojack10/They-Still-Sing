@@ -8,13 +8,25 @@
 #include "config/AssetPaths.hpp"
 #include "utils/Debug.hpp"
 
+const unsigned int BASE_WIDTH = 1280;
+const unsigned int BASE_HEIGHT = 720;
+
+void updateView(sf::RenderWindow& window) {
+    // Create a view that covers the entire window
+    sf::View view;
+    view.setSize(window.getSize().x, window.getSize().y);
+    view.setCenter(window.getSize().x / 2.0f, window.getSize().y / 2.0f);
+    window.setView(view);
+}
+
 int main() {
     // Install signal handlers for debugging
     Debug::installSignalHandlers();
     
     try {
         // Create a window with 1280x720 resolution
-        sf::RenderWindow window(sf::VideoMode(1280, 720), "They Still Sing");
+        sf::RenderWindow window(sf::VideoMode(BASE_WIDTH, BASE_HEIGHT), "They Still Sing", sf::Style::Default | sf::Style::Resize);
+        bool isFullscreen = false;
         
         // Set frame limit to 30 FPS
         window.setFramerateLimit(30);
@@ -44,8 +56,28 @@ int main() {
         while (window.isOpen()) {
             sf::Event event;
             while (window.pollEvent(event)) {
-                if (event.type == sf::Event::Closed)
+                if (event.type == sf::Event::Closed) {
                     window.close();
+                }
+                else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F) {
+                    isFullscreen = !isFullscreen;
+                    if (isFullscreen) {
+                        // Switch to fullscreen
+                        window.create(sf::VideoMode::getDesktopMode(), "They Still Sing", sf::Style::Fullscreen);
+                    } else {
+                        // Switch back to windowed mode
+                        window.create(sf::VideoMode(BASE_WIDTH, BASE_HEIGHT), "They Still Sing", sf::Style::Default | sf::Style::Resize);
+                    }
+                    window.setFramerateLimit(30); // Need to set this again after recreating the window
+                    updateView(window); // Update view after changing window mode
+                }
+                else if (event.type == sf::Event::Resized) {
+                    updateView(window);
+                    
+                    // Scale the FPS text based on the window width
+                    float scaleFactor = window.getSize().x / static_cast<float>(BASE_WIDTH);
+                    fpsText.setCharacterSize(static_cast<unsigned int>(24 * scaleFactor));
+                }
             }
             
             // Calculate delta time
