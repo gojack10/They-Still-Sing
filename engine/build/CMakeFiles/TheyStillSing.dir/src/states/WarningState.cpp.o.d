@@ -2,6 +2,7 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.cpp \
  /usr/include/stdc-predef.h \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/GameState.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -230,28 +231,22 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/src/states/GameState.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/../core/StateManager.hpp \
+ /usr/include/c++/14.2.1/memory \
+ /usr/include/c++/14.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/14.2.1/bits/align.h \
+ /usr/include/c++/14.2.1/bits/unique_ptr.h \
+ /usr/include/c++/14.2.1/bits/shared_ptr.h \
+ /usr/include/c++/14.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/14.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/14.2.1/ext/concurrence.h \
+ /usr/include/c++/14.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/14.2.1/bits/atomic_base.h \
+ /usr/include/c++/14.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/14.2.1/backward/auto_ptr.h \
+ /usr/include/c++/14.2.1/pstl/glue_memory_defs.h \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/../config/AssetPaths.hpp \
- /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
- /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
- /usr/include/SFML/Audio/Music.hpp \
- /usr/include/SFML/Audio/SoundStream.hpp \
- /usr/include/SFML/Audio/SoundSource.hpp \
- /usr/include/SFML/Audio/AlResource.hpp \
- /usr/include/SFML/Audio/OutputSoundFile.hpp \
- /usr/include/SFML/Audio/Sound.hpp \
- /usr/include/SFML/Audio/SoundBuffer.hpp /usr/include/c++/14.2.1/set \
- /usr/include/c++/14.2.1/bits/stl_set.h \
- /usr/include/c++/14.2.1/bits/stl_multiset.h \
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
- /usr/include/SFML/Audio/SoundRecorder.hpp \
- /usr/include/SFML/Audio/SoundFileFactory.hpp \
- /usr/include/SFML/Audio/SoundFileFactory.inl \
- /usr/include/SFML/Audio/SoundFileReader.hpp \
- /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/assets/fonts/DejaVuSans.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/assets/textures/ui/warning.hpp \
  /usr/include/c++/14.2.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -270,4 +265,6 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: \
  /usr/include/c++/14.2.1/tr1/modified_bessel_func.tcc \
  /usr/include/c++/14.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/14.2.1/tr1/poly_laguerre.tcc \
- /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc
+ /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc \
+ /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
+ /usr/include/c++/14.2.1/bits/istream.tcc

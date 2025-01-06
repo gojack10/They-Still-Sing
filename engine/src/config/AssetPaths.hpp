@@ -1,39 +1,21 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-#include <stdexcept>
-
-// Include generated asset headers
-#include "assets/fonts/DejaVuSans.hpp"
-#include "assets/textures/ui/warning.hpp"
+#include <string>
 
 namespace AssetPaths {
-    // Helper functions to load assets from memory
-    inline sf::Font loadFont(const unsigned char* data, std::size_t size) {
-        sf::Font font;
-        if (!font.loadFromMemory(data, size)) {
-            throw std::runtime_error("Failed to load font from memory");
-        }
-        return font;
-    }
-
-    inline sf::Texture loadTexture(const unsigned char* data, std::size_t size) {
-        sf::Texture texture;
-        if (!texture.loadFromMemory(data, size)) {
-            throw std::runtime_error("Failed to load texture from memory");
-        }
-        return texture;
-    }
-
-    // Functions to get specific assets
-    inline sf::Font getDejaVuSans() {
-        return loadFont(EmbeddedAssets::fonts_dejavusans_ttf, 
-                       EmbeddedAssets::fonts_dejavusans_ttf_size);
-    }
-
-    inline sf::Texture getWarningTexture() {
-        return loadTexture(EmbeddedAssets::textures_ui_warning_jpg,
-                          EmbeddedAssets::textures_ui_warning_jpg_size);
-    }
+    // Base paths
+    const std::string ASSETS_DIR = "assets";
+    const std::string TEXTURES_DIR = ASSETS_DIR + "/textures";
+    const std::string FONTS_DIR = ASSETS_DIR + "/fonts";
+    
+    // Animation paths
+    const std::string ANIMATIONS_DIR = TEXTURES_DIR + "/animations";
+    const std::string MAIN_MENU_ANIM = ANIMATIONS_DIR + "/main-menu-anim";
+    
+    // UI paths
+    const std::string UI_DIR = TEXTURES_DIR + "/ui";
+    const std::string WARNING_TEXTURE = UI_DIR + "/warning.jpg";
+    
+    // Font paths
+    const std::string DEJAVU_SANS = FONTS_DIR + "/DejaVuSans.ttf";
 } 

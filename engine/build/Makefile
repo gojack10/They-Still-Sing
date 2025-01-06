@@ -153,6 +153,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/states/MainMenuState.o: src/states/MainMenuState.cpp.o
+.PHONY : src/states/MainMenuState.o
+
+# target to build an object file
+src/states/MainMenuState.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o
+.PHONY : src/states/MainMenuState.cpp.o
+
+src/states/MainMenuState.i: src/states/MainMenuState.cpp.i
+.PHONY : src/states/MainMenuState.i
+
+# target to preprocess a source file
+src/states/MainMenuState.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.i
+.PHONY : src/states/MainMenuState.cpp.i
+
+src/states/MainMenuState.s: src/states/MainMenuState.cpp.s
+.PHONY : src/states/MainMenuState.s
+
+# target to generate assembly for a file
+src/states/MainMenuState.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.s
+.PHONY : src/states/MainMenuState.cpp.s
+
 src/states/WarningState.o: src/states/WarningState.cpp.o
 .PHONY : src/states/WarningState.o
 
@@ -177,6 +201,54 @@ src/states/WarningState.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.s
 .PHONY : src/states/WarningState.cpp.s
 
+src/systems/animation/Animation.o: src/systems/animation/Animation.cpp.o
+.PHONY : src/systems/animation/Animation.o
+
+# target to build an object file
+src/systems/animation/Animation.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o
+.PHONY : src/systems/animation/Animation.cpp.o
+
+src/systems/animation/Animation.i: src/systems/animation/Animation.cpp.i
+.PHONY : src/systems/animation/Animation.i
+
+# target to preprocess a source file
+src/systems/animation/Animation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.i
+.PHONY : src/systems/animation/Animation.cpp.i
+
+src/systems/animation/Animation.s: src/systems/animation/Animation.cpp.s
+.PHONY : src/systems/animation/Animation.s
+
+# target to generate assembly for a file
+src/systems/animation/Animation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.s
+.PHONY : src/systems/animation/Animation.cpp.s
+
+src/systems/animation/AnimationManager.o: src/systems/animation/AnimationManager.cpp.o
+.PHONY : src/systems/animation/AnimationManager.o
+
+# target to build an object file
+src/systems/animation/AnimationManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o
+.PHONY : src/systems/animation/AnimationManager.cpp.o
+
+src/systems/animation/AnimationManager.i: src/systems/animation/AnimationManager.cpp.i
+.PHONY : src/systems/animation/AnimationManager.i
+
+# target to preprocess a source file
+src/systems/animation/AnimationManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.i
+.PHONY : src/systems/animation/AnimationManager.cpp.i
+
+src/systems/animation/AnimationManager.s: src/systems/animation/AnimationManager.cpp.s
+.PHONY : src/systems/animation/AnimationManager.s
+
+# target to generate assembly for a file
+src/systems/animation/AnimationManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s
+.PHONY : src/systems/animation/AnimationManager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -189,9 +261,18 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/states/MainMenuState.o"
+	@echo "... src/states/MainMenuState.i"
+	@echo "... src/states/MainMenuState.s"
 	@echo "... src/states/WarningState.o"
 	@echo "... src/states/WarningState.i"
 	@echo "... src/states/WarningState.s"
+	@echo "... src/systems/animation/Animation.o"
+	@echo "... src/systems/animation/Animation.i"
+	@echo "... src/systems/animation/Animation.s"
+	@echo "... src/systems/animation/AnimationManager.o"
+	@echo "... src/systems/animation/AnimationManager.i"
+	@echo "... src/systems/animation/AnimationManager.s"
 .PHONY : help
 
 

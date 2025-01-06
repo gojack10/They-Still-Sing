@@ -250,25 +250,51 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: \
  /usr/include/c++/14.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/14.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc \
+ /usr/include/c++/14.2.1/memory \
+ /usr/include/c++/14.2.1/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/14.2.1/bits/align.h \
+ /usr/include/c++/14.2.1/bits/unique_ptr.h \
+ /usr/include/c++/14.2.1/bits/shared_ptr.h \
+ /usr/include/c++/14.2.1/bits/shared_ptr_base.h \
+ /usr/include/c++/14.2.1/bits/allocated_ptr.h \
+ /usr/include/c++/14.2.1/ext/concurrence.h \
+ /usr/include/c++/14.2.1/bits/shared_ptr_atomic.h \
+ /usr/include/c++/14.2.1/bits/atomic_base.h \
+ /usr/include/c++/14.2.1/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/14.2.1/backward/auto_ptr.h \
+ /usr/include/c++/14.2.1/pstl/glue_memory_defs.h \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/GameState.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/core/StateManager.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/src/config/AssetPaths.hpp \
- /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
- /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
- /usr/include/SFML/Audio/Music.hpp \
- /usr/include/SFML/Audio/SoundStream.hpp \
- /usr/include/SFML/Audio/SoundSource.hpp \
- /usr/include/SFML/Audio/AlResource.hpp \
- /usr/include/SFML/Audio/OutputSoundFile.hpp \
- /usr/include/SFML/Audio/Sound.hpp \
- /usr/include/SFML/Audio/SoundBuffer.hpp /usr/include/c++/14.2.1/set \
- /usr/include/c++/14.2.1/bits/stl_set.h \
- /usr/include/c++/14.2.1/bits/stl_multiset.h \
- /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
- /usr/include/SFML/Audio/SoundRecorder.hpp \
- /usr/include/SFML/Audio/SoundFileFactory.hpp \
- /usr/include/SFML/Audio/SoundFileFactory.inl \
- /usr/include/SFML/Audio/SoundFileReader.hpp \
- /usr/include/SFML/Audio/SoundFileWriter.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/assets/fonts/DejaVuSans.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/assets/textures/ui/warning.hpp
+ /home/jack10/gamedev/They-Still-Sing/engine/src/utils/Debug.hpp \
+ /usr/include/execinfo.h /usr/include/signal.h \
+ /usr/include/bits/signum-generic.h /usr/include/bits/signum-arch.h \
+ /usr/include/bits/types/sig_atomic_t.h \
+ /usr/include/bits/types/siginfo_t.h /usr/include/bits/types/__sigval_t.h \
+ /usr/include/bits/siginfo-arch.h /usr/include/bits/siginfo-consts.h \
+ /usr/include/bits/siginfo-consts-arch.h \
+ /usr/include/bits/types/sigval_t.h /usr/include/bits/types/sigevent_t.h \
+ /usr/include/bits/sigevent-consts.h /usr/include/bits/sigaction.h \
+ /usr/include/bits/sigcontext.h /usr/include/bits/types/stack_t.h \
+ /usr/include/sys/ucontext.h /usr/include/bits/sigstack.h \
+ /usr/include/bits/sigstksz.h /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h /usr/include/bits/ss_flags.h \
+ /usr/include/bits/types/struct_sigstack.h /usr/include/bits/sigthread.h \
+ /usr/include/bits/signal_ext.h /usr/include/string.h \
+ /usr/include/strings.h /usr/include/c++/14.2.1/cxxabi.h \
+ /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/cxxabi_tweaks.h \
+ /usr/include/c++/14.2.1/iostream /usr/include/dlfcn.h \
+ /usr/include/bits/dlfcn.h /usr/include/bits/dl_find_object.h \
+ /usr/include/c++/14.2.1/iomanip \
+ /usr/include/c++/14.2.1/bits/quoted_string.h \
+ /usr/include/c++/14.2.1/chrono /usr/include/c++/14.2.1/bits/chrono.h \
+ /usr/include/c++/14.2.1/ratio /usr/include/c++/14.2.1/cstdint \
+ /usr/include/c++/14.2.1/bits/parse_numbers.h \
+ /usr/include/c++/14.2.1/thread /usr/include/c++/14.2.1/bits/std_thread.h \
+ /usr/include/c++/14.2.1/bits/this_thread_sleep.h \
+ /usr/include/c++/14.2.1/mutex /usr/include/c++/14.2.1/bits/std_mutex.h \
+ /usr/include/c++/14.2.1/bits/unique_lock.h

@@ -100,24 +100,73 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.cpp -o CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.s
 
+CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o: CMakeFiles/TheyStillSing.dir/flags.make
+CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o: /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.cpp
+CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o -MF CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o.d -o CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o -c /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.cpp
+
+CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.cpp > CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.i
+
+CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.cpp -o CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.s
+
+CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o: CMakeFiles/TheyStillSing.dir/flags.make
+CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o: /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/Animation.cpp
+CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o -MF CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o.d -o CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o -c /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/Animation.cpp
+
+CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/Animation.cpp > CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.i
+
+CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/Animation.cpp -o CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.s
+
+CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: CMakeFiles/TheyStillSing.dir/flags.make
+CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/AnimationManager.cpp
+CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o -MF CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o.d -o CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o -c /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/AnimationManager.cpp
+
+CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/AnimationManager.cpp > CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.i
+
+CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/AnimationManager.cpp -o CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s
+
 # Object files for target TheyStillSing
 TheyStillSing_OBJECTS = \
 "CMakeFiles/TheyStillSing.dir/src/main.cpp.o" \
-"CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o"
+"CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o" \
+"CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o" \
+"CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o" \
+"CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o"
 
 # External object files for target TheyStillSing
 TheyStillSing_EXTERNAL_OBJECTS =
 
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/main.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o
+TheyStillSing: CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o
+TheyStillSing: CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o
+TheyStillSing: CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/build.make
 TheyStillSing: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
 TheyStillSing: /usr/lib/libsfml-graphics.so.2.6.2
 TheyStillSing: /usr/lib/libsfml-window.so.2.6.2
 TheyStillSing: /usr/lib/libsfml-system.so.2.6.2
 TheyStillSing: CMakeFiles/TheyStillSing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable TheyStillSing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable TheyStillSing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TheyStillSing.dir/link.txt --verbose=$(VERBOSE)
+	/usr/bin/cmake -E copy_directory /home/jack10/gamedev/They-Still-Sing/engine/assets /home/jack10/gamedev/They-Still-Sing/engine/build/assets
 
 # Rule to build all files generated by this target.
 CMakeFiles/TheyStillSing.dir/build: TheyStillSing
