@@ -4,7 +4,7 @@
 
 namespace AssetPaths {
     // Base paths
-    const std::string ASSETS_DIR = "assets";
+    const std::string ASSETS_DIR = "engine/assets";
     const std::string TEXTURES_DIR = ASSETS_DIR + "/textures";
     const std::string FONTS_DIR = ASSETS_DIR + "/fonts";
     
