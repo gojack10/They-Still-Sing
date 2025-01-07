@@ -19,6 +19,7 @@ namespace AssetPaths {
     
     // Font paths
     const std::string DEJAVU_SANS = FONTS_DIR + "/DejaVuSans.ttf";
+    const std::string OCRAEXT = FONTS_DIR + "/OCRAEXT.ttf";
     
     // UI Elements
     constexpr const char* UI_SELECTOR = "engine/assets/textures/ui/selector.png";

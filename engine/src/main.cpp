@@ -35,14 +35,14 @@ int main() {
 
         // Load font from embedded assets
         sf::Font font;
-        if (!font.loadFromFile(AssetPaths::DEJAVU_SANS)) {
-            throw std::runtime_error("Failed to load DejaVu Sans font");
+        if (!font.loadFromFile(AssetPaths::OCRAEXT)) {
+            throw std::runtime_error("Failed to load OCRAEXT font");
         }
 
         // Create FPS text
         sf::Text fpsText;
         fpsText.setFont(font);
-        fpsText.setCharacterSize(24);
+        fpsText.setCharacterSize(20);
         fpsText.setFillColor(sf::Color::White);
 
         // Initialize state manager with warning state
