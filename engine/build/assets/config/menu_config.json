@@ -5,27 +5,31 @@
       "w": 255,
       "h": 61,
       "x": 70,
-      "y": 333
+      "y": 333,
+      "anchor": "TopLeft"
     },
     {
       "name": "CONTINUE",
       "w": 253,
       "h": 52,
       "x": 70,
-      "y": 458
+      "y": 458,
+      "anchor": "TopLeft"
     },
     {
       "name": "OPTIONS",
       "w": 228,
       "h": 55,
       "x": 70,
-      "y": 575
+      "y": 575,
+      "anchor": "TopLeft"
     }
   ],
   "fps-counter": [
     {
       "x": 1137,
-      "y": 20
+      "y": 20,
+      "anchor": "TopRight"
     }
   ]
 }

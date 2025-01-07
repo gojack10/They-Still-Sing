@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <string>
 
 namespace Engine {
 
@@ -22,6 +23,7 @@ public:
     static constexpr unsigned int BASE_HEIGHT = 720;
 
     static ScalingManager& getInstance();
+    static Anchor getAnchorFromString(const std::string& str);
 
     void updateWindowSize(unsigned int width, unsigned int height);
     sf::Vector2f convertNormalizedToScreen(float x, float y, Anchor anchor = Anchor::TopLeft) const;

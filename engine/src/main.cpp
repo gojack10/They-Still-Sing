@@ -131,12 +131,17 @@ int main() {
             ss << "FPS: " << displayFps;
             fpsText.setString(ss.str());
             
-            // Position FPS text using normalized coordinates
+            // Convert absolute coordinates from menu_config.json to normalized coordinates
+            sf::Vector2f normalizedPos = Engine::ScalingManager::absoluteToNormalized(1137.0f, 20.0f);
             sf::Vector2f fpsPos = Engine::ScalingManager::getInstance().convertNormalizedToScreen(
-                0.98f, 0.02f, Engine::Anchor::TopRight
+                normalizedPos.x, normalizedPos.y, Engine::Anchor::TopLeft
             );
-            fpsText.setPosition(fpsPos.x - fpsText.getGlobalBounds().width, fpsPos.y);
+            fpsText.setPosition(fpsPos);
             
+            std::cout << "FPS Text - Content: '" << fpsText.getString().toAnsiString() 
+                      << "', Position: (" << fpsText.getPosition().x << ", " << fpsText.getPosition().y 
+                      << ")" << std::endl;
+
             // Update and draw current state
             auto& stateManager = StateManager::getInstance();
             if (auto* state = stateManager.getCurrentState()) {

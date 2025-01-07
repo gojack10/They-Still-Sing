@@ -27,9 +27,49 @@ void ScalingManager::updateScaleFactors() {
 }
 
 sf::Vector2f ScalingManager::convertNormalizedToScreen(float x, float y, Anchor anchor) const {
-    sf::Vector2f anchorOffset = getAnchorOffset(anchor);
-    float screenX = (x + anchorOffset.x) * currentWidth;
-    float screenY = (y + anchorOffset.y) * currentHeight;
+    float screenX, screenY;
+    switch (anchor) {
+        case Anchor::TopLeft:
+            screenX = x * currentWidth;
+            screenY = y * currentHeight;
+            break;
+        case Anchor::TopRight:
+            screenX = currentWidth - x * currentWidth;
+            screenY = y * currentHeight;
+            break;
+        case Anchor::TopCenter:
+            screenX = (currentWidth * 0.5f) + (x * currentWidth - currentWidth * 0.5f);
+            screenY = y * currentHeight;
+            break;
+        case Anchor::CenterLeft:
+            screenX = x * currentWidth;
+            screenY = (currentHeight * 0.5f) + (y * currentHeight - currentHeight * 0.5f);
+            break;
+        case Anchor::Center:
+            screenX = (currentWidth * 0.5f) + (x * currentWidth - currentWidth * 0.5f);
+            screenY = (currentHeight * 0.5f) + (y * currentHeight - currentHeight * 0.5f);
+            break;
+        case Anchor::CenterRight:
+            screenX = currentWidth - x * currentWidth;
+            screenY = (currentHeight * 0.5f) + (y * currentHeight - currentHeight * 0.5f);
+            break;
+        case Anchor::BottomLeft:
+            screenX = x * currentWidth;
+            screenY = currentHeight - y * currentHeight;
+            break;
+        case Anchor::BottomCenter:
+            screenX = (currentWidth * 0.5f) + (x * currentWidth - currentWidth * 0.5f);
+            screenY = currentHeight - y * currentHeight;
+            break;
+        case Anchor::BottomRight:
+            screenX = currentWidth - x * currentWidth;
+            screenY = currentHeight - y * currentHeight;
+            break;
+        default:
+            screenX = x * currentWidth;
+            screenY = y * currentHeight;
+            break;
+    }
     return sf::Vector2f(screenX, screenY);
 }
 
@@ -108,6 +148,19 @@ void ScalingManager::scaleSpriteWithAspectRatio(sf::Sprite& sprite, bool fillScr
     sprite.setOrigin(textureSize.x / 2.f, textureSize.y / 2.f);
     sprite.setScale(scale, scale);
     sprite.setPosition(currentWidth / 2.f, currentHeight / 2.f);
+}
+
+Anchor ScalingManager::getAnchorFromString(const std::string& str) {
+    if (str == "TopLeft") return Anchor::TopLeft;
+    if (str == "TopCenter") return Anchor::TopCenter;
+    if (str == "TopRight") return Anchor::TopRight;
+    if (str == "CenterLeft") return Anchor::CenterLeft;
+    if (str == "Center") return Anchor::Center;
+    if (str == "CenterRight") return Anchor::CenterRight;
+    if (str == "BottomLeft") return Anchor::BottomLeft;
+    if (str == "BottomCenter") return Anchor::BottomCenter;
+    if (str == "BottomRight") return Anchor::BottomRight;
+    return Anchor::TopLeft; // Default
 }
 
 } // namespace Engine 
