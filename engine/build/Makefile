@@ -249,6 +249,54 @@ src/systems/animation/AnimationManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s
 .PHONY : src/systems/animation/AnimationManager.cpp.s
 
+src/ui/MenuHitbox.o: src/ui/MenuHitbox.cpp.o
+.PHONY : src/ui/MenuHitbox.o
+
+# target to build an object file
+src/ui/MenuHitbox.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o
+.PHONY : src/ui/MenuHitbox.cpp.o
+
+src/ui/MenuHitbox.i: src/ui/MenuHitbox.cpp.i
+.PHONY : src/ui/MenuHitbox.i
+
+# target to preprocess a source file
+src/ui/MenuHitbox.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.i
+.PHONY : src/ui/MenuHitbox.cpp.i
+
+src/ui/MenuHitbox.s: src/ui/MenuHitbox.cpp.s
+.PHONY : src/ui/MenuHitbox.s
+
+# target to generate assembly for a file
+src/ui/MenuHitbox.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.s
+.PHONY : src/ui/MenuHitbox.cpp.s
+
+src/ui/MenuManager.o: src/ui/MenuManager.cpp.o
+.PHONY : src/ui/MenuManager.o
+
+# target to build an object file
+src/ui/MenuManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o
+.PHONY : src/ui/MenuManager.cpp.o
+
+src/ui/MenuManager.i: src/ui/MenuManager.cpp.i
+.PHONY : src/ui/MenuManager.i
+
+# target to preprocess a source file
+src/ui/MenuManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.i
+.PHONY : src/ui/MenuManager.cpp.i
+
+src/ui/MenuManager.s: src/ui/MenuManager.cpp.s
+.PHONY : src/ui/MenuManager.s
+
+# target to generate assembly for a file
+src/ui/MenuManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.s
+.PHONY : src/ui/MenuManager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +321,12 @@ help:
 	@echo "... src/systems/animation/AnimationManager.o"
 	@echo "... src/systems/animation/AnimationManager.i"
 	@echo "... src/systems/animation/AnimationManager.s"
+	@echo "... src/ui/MenuHitbox.o"
+	@echo "... src/ui/MenuHitbox.i"
+	@echo "... src/ui/MenuHitbox.s"
+	@echo "... src/ui/MenuManager.o"
+	@echo "... src/ui/MenuManager.i"
+	@echo "... src/ui/MenuManager.s"
 .PHONY : help
 
 

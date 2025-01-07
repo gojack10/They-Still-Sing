@@ -290,4 +290,10 @@ CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o: \
  /usr/include/bits/dlfcn.h /usr/include/bits/dl_find_object.h \
  /usr/include/c++/14.2.1/chrono /usr/include/c++/14.2.1/thread \
  /usr/include/c++/14.2.1/bits/std_thread.h \
- /usr/include/c++/14.2.1/bits/this_thread_sleep.h
+ /usr/include/c++/14.2.1/bits/this_thread_sleep.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/../utils/UIScaler.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/../ui/MenuManager.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/../ui/MenuHitbox.hpp \
+ /usr/include/c++/14.2.1/functional \
+ /usr/include/c++/14.2.1/bits/std_function.h \
+ /usr/include/c++/14.2.1/array /usr/include/c++/14.2.1/compare

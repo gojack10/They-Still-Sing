@@ -2,15 +2,28 @@
 #include "../config/AssetPaths.hpp"
 #include "../systems/animation/AnimationManager.hpp"
 #include "../utils/Debug.hpp"
+#include "../utils/UIScaler.hpp"
+#include "../ui/MenuManager.hpp"
 #include <iostream>
 #include <filesystem>
 
 MainMenuState::MainMenuState() {
     init();
+    // Initialize menu hitboxes
+    MenuManager::getInstance().loadFromJson(AssetPaths::MENU_CONFIG);
 }
 
 void MainMenuState::init() {
     std::cout << "MainMenuState: Initializing..." << std::endl;
+    
+    // Load menu text texture
+    if (!menuTextTexture.loadFromFile(AssetPaths::MENU_TEXT_TEXTURE)) {
+        std::cerr << "MainMenuState: Failed to load menu text texture!" << std::endl;
+    } else {
+        menuTextSprite.setTexture(menuTextTexture);
+        // Store base position - will be scaled in draw()
+        menuTextBasePosition = sf::Vector2f(80.f, 68.f);
+    }
     
     auto& animManager = AnimationManager::getInstance();
     
@@ -67,7 +80,13 @@ void MainMenuState::init() {
 }
 
 void MainMenuState::handleInput(sf::RenderWindow& window) {
-    // Handle menu input here
+    MenuManager::getInstance().handleInput(window);
+    
+    // Check if NEW_GAME is selected and clicked
+    if (MenuManager::getInstance().getHoveredButton() == "NEW_GAME" && 
+        sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        // Handle new game action
+    }
 }
 
 void MainMenuState::update(float deltaTime) {
@@ -100,7 +119,6 @@ void MainMenuState::update(float deltaTime) {
 void MainMenuState::draw(sf::RenderWindow& window) {
     try {
         DEBUG_LOCATION("MainMenuState::draw - Start");
-        // Clear the window with black color first
         window.clear(sf::Color::Black);
         
         if (auto* anim = AnimationManager::getInstance().getAnimation("main_menu")) {
@@ -151,7 +169,14 @@ void MainMenuState::draw(sf::RenderWindow& window) {
             // Draw the sprite
             DEBUG_LOCATION("MainMenuState::draw - Drawing sprite");
             window.draw(sprite);
+            
+            // Scale and draw the menu text
+            UIScaler::scaleSprite(menuTextSprite, window, menuTextBasePosition);
+            window.draw(menuTextSprite);
         }
+        
+        // Draw menu hitboxes and selector
+        MenuManager::getInstance().draw(window);
     } catch (const std::exception& e) {
         std::cerr << "MainMenuState: Error during draw: " << e.what() << std::endl;
     }

@@ -11,6 +11,16 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -rdynamic")
 # Enable backtracing
 add_definitions(-DBACKTRACE_ENABLE)
 
+# Include FetchContent for downloading dependencies
+include(FetchContent)
+
+# Add nlohmann_json
+FetchContent_Declare(
+    json
+    URL https://github.com/nlohmann/json/releases/download/v3.11.2/json.tar.xz
+)
+FetchContent_MakeAvailable(json)
+
 # Find SFML
 find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
 
@@ -26,7 +36,10 @@ set(SOURCES
     src/states/MainMenuState.cpp
     src/systems/animation/Animation.cpp
     src/systems/animation/AnimationManager.cpp
+    src/utils/UIScaler.hpp
     ${ASSET_HEADERS}
+    src/ui/MenuHitbox.cpp
+    src/ui/MenuManager.cpp
 )
 
 # Add executable
@@ -38,11 +51,12 @@ target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-# Link SFML
+# Link libraries
 target_link_libraries(${PROJECT_NAME} 
     sfml-graphics 
     sfml-window 
     sfml-system
+    nlohmann_json::nlohmann_json
 )
 
 # Copy assets to build directory

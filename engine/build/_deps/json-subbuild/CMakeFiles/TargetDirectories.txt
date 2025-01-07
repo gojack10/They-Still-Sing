@@ -1,0 +1,3 @@
+/home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-subbuild/CMakeFiles/json-populate.dir
+/home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-subbuild/CMakeFiles/edit_cache.dir
+/home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-subbuild/CMakeFiles/rebuild_cache.dir

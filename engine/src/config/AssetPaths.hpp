@@ -15,7 +15,12 @@ namespace AssetPaths {
     // UI paths
     const std::string UI_DIR = TEXTURES_DIR + "/ui";
     const std::string WARNING_TEXTURE = UI_DIR + "/warning.jpg";
+    const std::string MENU_TEXT_TEXTURE = UI_DIR + "/menu-text.png";
     
     // Font paths
     const std::string DEJAVU_SANS = FONTS_DIR + "/DejaVuSans.ttf";
+    
+    // UI Elements
+    constexpr const char* UI_SELECTOR = "engine/assets/textures/ui/selector.png";
+    constexpr const char* MENU_CONFIG = "engine/assets/config/menu_config.json";
 } 

@@ -10,6 +10,10 @@ file(REMOVE_RECURSE
   "CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o.d"
   "CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o"
   "CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o.d"
+  "CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o"
+  "CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o.d"
+  "CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o"
+  "CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o.d"
   "TheyStillSing"
   "TheyStillSing.pdb"
 )

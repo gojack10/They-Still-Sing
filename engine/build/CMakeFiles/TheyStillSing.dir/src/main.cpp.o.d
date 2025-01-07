@@ -297,4 +297,14 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: \
  /usr/include/c++/14.2.1/thread /usr/include/c++/14.2.1/bits/std_thread.h \
  /usr/include/c++/14.2.1/bits/this_thread_sleep.h \
  /usr/include/c++/14.2.1/mutex /usr/include/c++/14.2.1/bits/std_mutex.h \
- /usr/include/c++/14.2.1/bits/unique_lock.h
+ /usr/include/c++/14.2.1/bits/unique_lock.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuManager.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuHitbox.hpp \
+ /usr/include/c++/14.2.1/functional \
+ /usr/include/c++/14.2.1/bits/std_function.h \
+ /usr/include/c++/14.2.1/unordered_map \
+ /usr/include/c++/14.2.1/bits/unordered_map.h \
+ /usr/include/c++/14.2.1/bits/hashtable.h \
+ /usr/include/c++/14.2.1/bits/hashtable_policy.h \
+ /usr/include/c++/14.2.1/bits/enable_special_members.h \
+ /usr/include/c++/14.2.1/array /usr/include/c++/14.2.1/compare

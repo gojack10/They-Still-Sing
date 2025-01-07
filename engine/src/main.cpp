@@ -7,6 +7,7 @@
 #include "core/StateManager.hpp"
 #include "config/AssetPaths.hpp"
 #include "utils/Debug.hpp"
+#include "ui/MenuManager.hpp"
 
 const unsigned int BASE_WIDTH = 1280;
 const unsigned int BASE_HEIGHT = 720;
@@ -27,6 +28,7 @@ int main() {
         // Create a window with 1280x720 resolution
         sf::RenderWindow window(sf::VideoMode(BASE_WIDTH, BASE_HEIGHT), "They Still Sing", sf::Style::Default | sf::Style::Resize);
         bool isFullscreen = false;
+        bool showHitboxes = false;
         
         // Set frame limit to 30 FPS
         window.setFramerateLimit(30);
@@ -59,25 +61,31 @@ int main() {
                 if (event.type == sf::Event::Closed) {
                     window.close();
                 }
-                else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
-                    window.close();
-                }
-                else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::F) {
-                    isFullscreen = !isFullscreen;
-                    if (isFullscreen) {
-                        // Switch to fullscreen
-                        window.create(sf::VideoMode::getDesktopMode(), "They Still Sing", sf::Style::Fullscreen);
-                    } else {
-                        // Switch back to windowed mode
-                        window.create(sf::VideoMode(BASE_WIDTH, BASE_HEIGHT), "They Still Sing", sf::Style::Default | sf::Style::Resize);
+                else if (event.type == sf::Event::KeyPressed) {
+                    switch (event.key.code) {
+                        case sf::Keyboard::Escape:
+                            window.close();
+                            break;
+                        case sf::Keyboard::F:
+                            isFullscreen = !isFullscreen;
+                            if (isFullscreen) {
+                                window.create(sf::VideoMode::getDesktopMode(), "They Still Sing", sf::Style::Fullscreen);
+                            } else {
+                                window.create(sf::VideoMode(BASE_WIDTH, BASE_HEIGHT), "They Still Sing", sf::Style::Default | sf::Style::Resize);
+                            }
+                            window.setFramerateLimit(30);
+                            updateView(window);
+                            break;
+                        case sf::Keyboard::D:
+                            showHitboxes = !showHitboxes;
+                            MenuManager::getInstance().toggleDebugMode();
+                            break;
+                        default:
+                            break;
                     }
-                    window.setFramerateLimit(30); // Need to set this again after recreating the window
-                    updateView(window); // Update view after changing window mode
                 }
                 else if (event.type == sf::Event::Resized) {
                     updateView(window);
-                    
-                    // Scale the FPS text based on the window width
                     float scaleFactor = window.getSize().x / static_cast<float>(BASE_WIDTH);
                     fpsText.setCharacterSize(static_cast<unsigned int>(24 * scaleFactor));
                 }
@@ -97,10 +105,8 @@ int main() {
             fpsAccum += 1.0f / (currentTime - lastTime);
             lastTime = currentTime;
             
-            // Update displayed FPS every 0.5 seconds
-            if (fpsFrames >= 15) {  // At 30 FPS, this is roughly 0.5 seconds
+            if (fpsFrames >= 15) {
                 displayFps = static_cast<int>(std::round(fpsAccum / fpsFrames));
-                // Clamp to 30 if we're very close
                 if (std::abs(displayFps - 30.0f) < 2.0f) {
                     displayFps = 30;
                 }
@@ -115,8 +121,6 @@ int main() {
             std::stringstream ss;
             ss << "FPS: " << displayFps;
             fpsText.setString(ss.str());
-            
-            // Position FPS counter in top right corner with some padding
             fpsText.setPosition(window.getSize().x - fpsText.getGlobalBounds().width - 10, 10);
             
             // Update and draw current state
