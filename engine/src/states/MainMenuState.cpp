@@ -94,15 +94,7 @@ void MainMenuState::update(float deltaTime) {
         DEBUG_LOCATION("MainMenuState::update - Updating animation");
         AnimationManager::getInstance().update(cappedDeltaTime);
         
-        // Print debug info every second
-        if (timeAccumulator >= 1.0f) {
-            if (auto* anim = AnimationManager::getInstance().getAnimation("main_menu")) {
-                std::cout << "MainMenuState: Animation is " 
-                          << (anim->isPlaying() ? "playing" : "not playing") 
-                          << " (frame count: " << anim->getFrameCount() << ")" << std::endl;
-            }
-            timeAccumulator = 0.0f;
-        }
+        timeAccumulator = 0.0f;
     } catch (const std::exception& e) {
         std::cerr << "MainMenuState: Error during update: " << e.what() << std::endl;
     }

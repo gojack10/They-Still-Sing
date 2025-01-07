@@ -6,5 +6,5 @@ CXX_DEFINES = -DBACKTRACE_ENABLE
 
 CXX_INCLUDES = -I/home/jack10/gamedev/They-Still-Sing/engine/src -I/home/jack10/gamedev/They-Still-Sing/engine -I/home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include
 
-CXX_FLAGS = -g -g -rdynamic -std=gnu++17
+CXX_FLAGS = -std=gnu++17
 

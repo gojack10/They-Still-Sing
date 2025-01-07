@@ -138,10 +138,6 @@ int main() {
             );
             fpsText.setPosition(fpsPos);
             
-            std::cout << "FPS Text - Content: '" << fpsText.getString().toAnsiString() 
-                      << "', Position: (" << fpsText.getPosition().x << ", " << fpsText.getPosition().y 
-                      << ")" << std::endl;
-
             // Update and draw current state
             auto& stateManager = StateManager::getInstance();
             if (auto* state = stateManager.getCurrentState()) {

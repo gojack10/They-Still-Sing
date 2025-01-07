@@ -253,9 +253,24 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: \
  /usr/include/c++/14.2.1/bits/enable_special_members.h \
  /usr/include/c++/14.2.1/array /usr/include/c++/14.2.1/compare \
  /home/jack10/gamedev/They-Still-Sing/engine/src/ui/../config/AssetPaths.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/src/ui/../systems/ui/ScalingManager.hpp \
- /usr/include/c++/14.2.1/fstream /usr/include/c++/14.2.1/istream \
+ /usr/include/c++/14.2.1/filesystem /usr/include/c++/14.2.1/bits/fs_fwd.h \
+ /usr/include/c++/14.2.1/cstdint /usr/include/c++/14.2.1/bits/chrono.h \
+ /usr/include/c++/14.2.1/ratio /usr/include/c++/14.2.1/limits \
+ /usr/include/c++/14.2.1/bits/parse_numbers.h \
+ /usr/include/c++/14.2.1/bits/fs_path.h /usr/include/c++/14.2.1/iomanip \
+ /usr/include/c++/14.2.1/bits/quoted_string.h \
+ /usr/include/c++/14.2.1/sstream /usr/include/c++/14.2.1/istream \
  /usr/include/c++/14.2.1/bits/istream.tcc \
+ /usr/include/c++/14.2.1/bits/sstream.tcc /usr/include/c++/14.2.1/codecvt \
+ /usr/include/c++/14.2.1/bits/fs_dir.h \
+ /usr/include/c++/14.2.1/bits/fs_ops.h /usr/include/c++/14.2.1/iostream \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/bits/getopt_posix.h /usr/include/bits/getopt_core.h \
+ /usr/include/bits/unistd_ext.h /usr/include/linux/close_range.h \
+ /usr/include/linux/limits.h /usr/include/libgen.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/ui/../systems/ui/ScalingManager.hpp \
+ /usr/include/c++/14.2.1/fstream \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/include/c++/14.2.1/bits/fstream.tcc \
@@ -279,7 +294,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: \
  /usr/include/bits/mathcalls-helper-functions.h \
  /usr/include/bits/mathcalls.h /usr/include/bits/mathcalls-narrow.h \
  /usr/include/bits/iscanonical.h /usr/include/c++/14.2.1/bits/specfun.h \
- /usr/include/c++/14.2.1/limits /usr/include/c++/14.2.1/tr1/gamma.tcc \
+ /usr/include/c++/14.2.1/tr1/gamma.tcc \
  /usr/include/c++/14.2.1/tr1/special_function_util.h \
  /usr/include/c++/14.2.1/tr1/bessel_function.tcc \
  /usr/include/c++/14.2.1/tr1/beta_function.tcc \
@@ -302,7 +317,6 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: \
  /usr/include/c++/14.2.1/bits/indirect_array.h \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/exceptions.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/value_t.hpp \
- /usr/include/c++/14.2.1/cstdint \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/macro_scope.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/detected.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/void_t.hpp \
@@ -322,14 +336,6 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: \
  /usr/include/strings.h \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/identity_tag.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/std_fs.hpp \
- /usr/include/c++/14.2.1/filesystem /usr/include/c++/14.2.1/bits/fs_fwd.h \
- /usr/include/c++/14.2.1/bits/chrono.h /usr/include/c++/14.2.1/ratio \
- /usr/include/c++/14.2.1/bits/parse_numbers.h \
- /usr/include/c++/14.2.1/bits/fs_path.h /usr/include/c++/14.2.1/iomanip \
- /usr/include/c++/14.2.1/bits/quoted_string.h \
- /usr/include/c++/14.2.1/sstream /usr/include/c++/14.2.1/bits/sstream.tcc \
- /usr/include/c++/14.2.1/codecvt /usr/include/c++/14.2.1/bits/fs_dir.h \
- /usr/include/c++/14.2.1/bits/fs_ops.h \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/conversions/to_json.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/iterators/iteration_proxy.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/byte_container_with_subtype.hpp \

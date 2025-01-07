@@ -268,17 +268,11 @@ void Animation::update(float deltaTime) {
         return;
     }
     
-    std::cout << "Animation::update - deltaTime: " << deltaTime 
-              << ", currentFrame: " << currentFrame 
-              << ", loadedFrames: " << loadedFrames.size() << std::endl;
-    
     currentTime += deltaTime;
     
     // Cap deltaTime to prevent huge frame jumps
     float maxDeltaTime = frameTime * 5.0f;  // Max 5 frame jump
     if (deltaTime > maxDeltaTime) {
-        std::cout << "Animation::update - Capping large deltaTime from " 
-                  << deltaTime << " to " << maxDeltaTime << std::endl;
         deltaTime = maxDeltaTime;
         currentTime = currentFrame * frameTime + deltaTime;
     }
@@ -289,18 +283,14 @@ void Animation::update(float deltaTime) {
         if (isLooping) {
             currentTime = 0.0f;
             newFrame = 0;
-            std::cout << "Animation::update - Looping back to start" << std::endl;
         } else {
             playing = false;
             newFrame = framePaths.size() - 1;
-            std::cout << "Animation::update - Reached end of animation" << std::endl;
             return;
         }
     }
     
     if (newFrame != currentFrame) {
-        std::cout << "Animation::update - Advancing from frame " << currentFrame 
-                  << " to " << newFrame << std::endl;
         currentFrame = newFrame;
         auto texture = ensureFrameLoaded(currentFrame);
         if (texture) {
@@ -315,9 +305,6 @@ void Animation::update(float deltaTime) {
 sf::Sprite& Animation::getCurrentFrame() {
     DEBUG_LOCATION("Animation::getCurrentFrame");
     std::lock_guard<std::recursive_mutex> lock(frameMutex);
-    
-    std::cout << "Animation::getCurrentFrame - Frame " << currentFrame 
-              << ", hasTexture: " << (currentTexture != nullptr) << std::endl;
     
     if (!currentTexture) {
         std::cerr << "Animation::getCurrentFrame - No texture loaded!" << std::endl;

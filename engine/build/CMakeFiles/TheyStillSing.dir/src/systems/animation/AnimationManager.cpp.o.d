@@ -263,4 +263,10 @@ CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: \
  /usr/include/c++/14.2.1/bits/hashtable.h \
  /usr/include/c++/14.2.1/bits/hashtable_policy.h \
  /usr/include/c++/14.2.1/bits/enable_special_members.h \
- /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/../../config/AssetPaths.hpp
+ /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/../../config/AssetPaths.hpp \
+ /usr/include/c++/14.2.1/iostream /usr/include/unistd.h \
+ /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
+ /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h /usr/include/linux/limits.h \
+ /usr/include/libgen.h

@@ -217,6 +217,10 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/c++/14.2.1/bits/exception.h \
   /usr/include/c++/14.2.1/bits/exception_defines.h \
   /usr/include/c++/14.2.1/bits/exception_ptr.h \
+  /usr/include/c++/14.2.1/bits/fs_dir.h \
+  /usr/include/c++/14.2.1/bits/fs_fwd.h \
+  /usr/include/c++/14.2.1/bits/fs_ops.h \
+  /usr/include/c++/14.2.1/bits/fs_path.h \
   /usr/include/c++/14.2.1/bits/functexcept.h \
   /usr/include/c++/14.2.1/bits/functional_hash.h \
   /usr/include/c++/14.2.1/bits/hash_bytes.h \
@@ -295,6 +299,7 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/c++/14.2.1/chrono \
   /usr/include/c++/14.2.1/clocale \
   /usr/include/c++/14.2.1/cmath \
+  /usr/include/c++/14.2.1/codecvt \
   /usr/include/c++/14.2.1/compare \
   /usr/include/c++/14.2.1/concepts \
   /usr/include/c++/14.2.1/cstddef \
@@ -315,6 +320,7 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/c++/14.2.1/ext/numeric_traits.h \
   /usr/include/c++/14.2.1/ext/string_conversions.h \
   /usr/include/c++/14.2.1/ext/type_traits.h \
+  /usr/include/c++/14.2.1/filesystem \
   /usr/include/c++/14.2.1/functional \
   /usr/include/c++/14.2.1/initializer_list \
   /usr/include/c++/14.2.1/iomanip \
@@ -382,9 +388,11 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: /home/jack10/gamedev/They-Still-Sin
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/libgen.h \
   /usr/include/libintl.h \
   /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
@@ -777,9 +785,11 @@ CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o: /home/jack10/gamede
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/libgen.h \
   /usr/include/libintl.h \
   /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -892,15 +902,19 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/asm/errno.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
+  /usr/include/bits/confname.h \
   /usr/include/bits/cpu-set.h \
   /usr/include/bits/endian.h \
   /usr/include/bits/endianness.h \
+  /usr/include/bits/environments.h \
   /usr/include/bits/errno.h \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
   /usr/include/bits/flt-eval-method.h \
   /usr/include/bits/fp-fast.h \
   /usr/include/bits/fp-logb.h \
+  /usr/include/bits/getopt_core.h \
+  /usr/include/bits/getopt_posix.h \
   /usr/include/bits/iscanonical.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/libm-simd-decl-stubs.h \
@@ -910,6 +924,7 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/bits/mathcalls-helper-functions.h \
   /usr/include/bits/mathcalls-narrow.h \
   /usr/include/bits/mathcalls.h \
+  /usr/include/bits/posix_opt.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
@@ -955,6 +970,7 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/bits/types/wint_t.h \
   /usr/include/bits/typesizes.h \
   /usr/include/bits/uintn-identity.h \
+  /usr/include/bits/unistd_ext.h \
   /usr/include/bits/waitflags.h \
   /usr/include/bits/waitstatus.h \
   /usr/include/bits/wchar.h \
@@ -977,6 +993,7 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/c++/14.2.1/bits/basic_string.tcc \
   /usr/include/c++/14.2.1/bits/char_traits.h \
   /usr/include/c++/14.2.1/bits/charconv.h \
+  /usr/include/c++/14.2.1/bits/chrono.h \
   /usr/include/c++/14.2.1/bits/codecvt.h \
   /usr/include/c++/14.2.1/bits/concept_check.h \
   /usr/include/c++/14.2.1/bits/cpp_type_traits.h \
@@ -986,6 +1003,10 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/c++/14.2.1/bits/exception.h \
   /usr/include/c++/14.2.1/bits/exception_defines.h \
   /usr/include/c++/14.2.1/bits/exception_ptr.h \
+  /usr/include/c++/14.2.1/bits/fs_dir.h \
+  /usr/include/c++/14.2.1/bits/fs_fwd.h \
+  /usr/include/c++/14.2.1/bits/fs_ops.h \
+  /usr/include/c++/14.2.1/bits/fs_path.h \
   /usr/include/c++/14.2.1/bits/functexcept.h \
   /usr/include/c++/14.2.1/bits/functional_hash.h \
   /usr/include/c++/14.2.1/bits/hash_bytes.h \
@@ -1008,9 +1029,11 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/c++/14.2.1/bits/node_handle.h \
   /usr/include/c++/14.2.1/bits/ostream.tcc \
   /usr/include/c++/14.2.1/bits/ostream_insert.h \
+  /usr/include/c++/14.2.1/bits/parse_numbers.h \
   /usr/include/c++/14.2.1/bits/postypes.h \
   /usr/include/c++/14.2.1/bits/predefined_ops.h \
   /usr/include/c++/14.2.1/bits/ptr_traits.h \
+  /usr/include/c++/14.2.1/bits/quoted_string.h \
   /usr/include/c++/14.2.1/bits/range_access.h \
   /usr/include/c++/14.2.1/bits/refwrap.h \
   /usr/include/c++/14.2.1/bits/requires_hosted.h \
@@ -1018,6 +1041,7 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/c++/14.2.1/bits/shared_ptr_atomic.h \
   /usr/include/c++/14.2.1/bits/shared_ptr_base.h \
   /usr/include/c++/14.2.1/bits/specfun.h \
+  /usr/include/c++/14.2.1/bits/sstream.tcc \
   /usr/include/c++/14.2.1/bits/std_abs.h \
   /usr/include/c++/14.2.1/bits/stl_algo.h \
   /usr/include/c++/14.2.1/bits/stl_algobase.h \
@@ -1052,8 +1076,10 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/c++/14.2.1/cerrno \
   /usr/include/c++/14.2.1/clocale \
   /usr/include/c++/14.2.1/cmath \
+  /usr/include/c++/14.2.1/codecvt \
   /usr/include/c++/14.2.1/concepts \
   /usr/include/c++/14.2.1/cstddef \
+  /usr/include/c++/14.2.1/cstdint \
   /usr/include/c++/14.2.1/cstdio \
   /usr/include/c++/14.2.1/cstdlib \
   /usr/include/c++/14.2.1/ctime \
@@ -1069,7 +1095,9 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/c++/14.2.1/ext/numeric_traits.h \
   /usr/include/c++/14.2.1/ext/string_conversions.h \
   /usr/include/c++/14.2.1/ext/type_traits.h \
+  /usr/include/c++/14.2.1/filesystem \
   /usr/include/c++/14.2.1/initializer_list \
+  /usr/include/c++/14.2.1/iomanip \
   /usr/include/c++/14.2.1/ios \
   /usr/include/c++/14.2.1/iosfwd \
   /usr/include/c++/14.2.1/iostream \
@@ -1085,6 +1113,8 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/c++/14.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/14.2.1/pstl/glue_memory_defs.h \
   /usr/include/c++/14.2.1/pstl/pstl_config.h \
+  /usr/include/c++/14.2.1/ratio \
+  /usr/include/c++/14.2.1/sstream \
   /usr/include/c++/14.2.1/stdexcept \
   /usr/include/c++/14.2.1/streambuf \
   /usr/include/c++/14.2.1/string \
@@ -1126,8 +1156,11 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/libgen.h \
   /usr/include/libintl.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
@@ -1141,6 +1174,7 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: /home/jack10/gamedev
   /usr/include/sys/single_threaded.h \
   /usr/include/sys/types.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h \
@@ -1614,15 +1648,20 @@ CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: /home
   /usr/include/asm/errno.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
+  /usr/include/bits/confname.h \
   /usr/include/bits/cpu-set.h \
   /usr/include/bits/endian.h \
   /usr/include/bits/endianness.h \
+  /usr/include/bits/environments.h \
   /usr/include/bits/errno.h \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
+  /usr/include/bits/getopt_core.h \
+  /usr/include/bits/getopt_posix.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/locale.h \
   /usr/include/bits/long-double.h \
+  /usr/include/bits/posix_opt.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
@@ -1668,6 +1707,7 @@ CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: /home
   /usr/include/bits/types/wint_t.h \
   /usr/include/bits/typesizes.h \
   /usr/include/bits/uintn-identity.h \
+  /usr/include/bits/unistd_ext.h \
   /usr/include/bits/waitflags.h \
   /usr/include/bits/waitstatus.h \
   /usr/include/bits/wchar.h \
@@ -1804,6 +1844,7 @@ CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: /home
   /usr/include/c++/14.2.1/iomanip \
   /usr/include/c++/14.2.1/ios \
   /usr/include/c++/14.2.1/iosfwd \
+  /usr/include/c++/14.2.1/iostream \
   /usr/include/c++/14.2.1/istream \
   /usr/include/c++/14.2.1/iterator \
   /usr/include/c++/14.2.1/limits \
@@ -1849,8 +1890,11 @@ CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: /home
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/libgen.h \
   /usr/include/libintl.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -1863,6 +1907,7 @@ CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o: /home
   /usr/include/sys/single_threaded.h \
   /usr/include/sys/types.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h \
@@ -2640,15 +2685,19 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: /home/jack10/gamedev/They
   /usr/include/assert.h \
   /usr/include/bits/atomic_wide_counter.h \
   /usr/include/bits/byteswap.h \
+  /usr/include/bits/confname.h \
   /usr/include/bits/cpu-set.h \
   /usr/include/bits/endian.h \
   /usr/include/bits/endianness.h \
+  /usr/include/bits/environments.h \
   /usr/include/bits/errno.h \
   /usr/include/bits/floatn-common.h \
   /usr/include/bits/floatn.h \
   /usr/include/bits/flt-eval-method.h \
   /usr/include/bits/fp-fast.h \
   /usr/include/bits/fp-logb.h \
+  /usr/include/bits/getopt_core.h \
+  /usr/include/bits/getopt_posix.h \
   /usr/include/bits/iscanonical.h \
   /usr/include/bits/libc-header-start.h \
   /usr/include/bits/libm-simd-decl-stubs.h \
@@ -2658,6 +2707,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: /home/jack10/gamedev/They
   /usr/include/bits/mathcalls-helper-functions.h \
   /usr/include/bits/mathcalls-narrow.h \
   /usr/include/bits/mathcalls.h \
+  /usr/include/bits/posix_opt.h \
   /usr/include/bits/pthread_stack_min-dynamic.h \
   /usr/include/bits/pthreadtypes-arch.h \
   /usr/include/bits/pthreadtypes.h \
@@ -2703,6 +2753,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: /home/jack10/gamedev/They
   /usr/include/bits/types/wint_t.h \
   /usr/include/bits/typesizes.h \
   /usr/include/bits/uintn-identity.h \
+  /usr/include/bits/unistd_ext.h \
   /usr/include/bits/waitflags.h \
   /usr/include/bits/waitstatus.h \
   /usr/include/bits/wchar.h \
@@ -2859,6 +2910,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: /home/jack10/gamedev/They
   /usr/include/c++/14.2.1/iomanip \
   /usr/include/c++/14.2.1/ios \
   /usr/include/c++/14.2.1/iosfwd \
+  /usr/include/c++/14.2.1/iostream \
   /usr/include/c++/14.2.1/istream \
   /usr/include/c++/14.2.1/iterator \
   /usr/include/c++/14.2.1/limits \
@@ -2922,8 +2974,11 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: /home/jack10/gamedev/They
   /usr/include/features.h \
   /usr/include/gnu/stubs-64.h \
   /usr/include/gnu/stubs.h \
+  /usr/include/libgen.h \
   /usr/include/libintl.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
@@ -2939,6 +2994,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: /home/jack10/gamedev/They
   /usr/include/sys/single_threaded.h \
   /usr/include/sys/types.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/14.2.1/include/stdarg.h \
@@ -3002,13 +3058,9 @@ TheyStillSing: /usr/lib/libc.so \
 
 /usr/lib32/libpcre2-8.so.0:
 
-/usr/include/SFML/Graphics/Shape.hpp:
+/usr/lib32/libharfbuzz.so.0:
 
-/usr/include/c++/14.2.1/bits/std_abs.h:
-
-/usr/include/c++/14.2.1/bits/stl_bvector.h:
-
-/usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
+/usr/lib32/libglib-2.0.so.0:
 
 _deps/json-src/include/nlohmann/detail/iterators/iterator_traits.hpp:
 
@@ -3019,10 +3071,6 @@ _deps/json-src/include/nlohmann/detail/iterators/iterator_traits.hpp:
 /usr/include/SFML/System/String.inl:
 
 /usr/include/SFML/Window/Event.hpp:
-
-/usr/include/c++/14.2.1/bits/node_handle.h:
-
-/usr/include/c++/14.2.1/bits/new_allocator.h:
 
 /usr/include/c++/14.2.1/bits/memory_resource.h:
 
@@ -3050,15 +3098,21 @@ _deps/json-src/include/nlohmann/ordered_map.hpp:
 
 /usr/include/c++/14.2.1/bits/functional_hash.h:
 
+/usr/include/c++/14.2.1/bits/node_handle.h:
+
+/usr/include/c++/14.2.1/bits/new_allocator.h:
+
+/usr/include/bits/locale.h:
+
 /usr/include/c++/14.2.1/bits/cxxabi_forced.h:
 
 /usr/include/c++/14.2.1/bits/gslice_array.h:
 
 /usr/include/c++/14.2.1/bits/cpp_type_traits.h:
 
-/usr/include/SFML/Window/GlResource.hpp:
-
 /usr/include/c++/14.2.1/bits/fs_path.h:
+
+/usr/include/SFML/Window/GlResource.hpp:
 
 /usr/include/c++/14.2.1/bits/charconv.h:
 
@@ -3134,8 +3188,6 @@ _deps/json-src/include/nlohmann/ordered_map.hpp:
 
 /usr/include/SFML/Window/Sensor.hpp:
 
-/usr/lib32/libharfbuzz.so.0:
-
 /usr/include/bits/types/struct_sched_param.h:
 
 /usr/include/c++/14.2.1/bits/exception_ptr.h:
@@ -3149,10 +3201,6 @@ _deps/json-src/include/nlohmann/ordered_map.hpp:
 /usr/include/c++/14.2.1/bits/valarray_array.h:
 
 /usr/lib/libbz2.so.1.0:
-
-/usr/include/c++/14.2.1/bits/std_mutex.h:
-
-/usr/include/bits/types/sigevent_t.h:
 
 /usr/include/bits/types/mbstate_t.h:
 
@@ -3338,8 +3386,6 @@ _deps/json-src/include/nlohmann/detail/json_ref.hpp:
 
 /usr/lib32/libXdmcp.so.6:
 
-/usr/include/bits/locale.h:
-
 /usr/include/SFML/Graphics/Transform.hpp:
 
 /usr/include/c++/14.2.1/ios:
@@ -3418,8 +3464,6 @@ _deps/json-src/include/nlohmann/detail/value_t.hpp:
 
 /usr/include/bits/byteswap.h:
 
-/usr/lib32/libglib-2.0.so.0:
-
 /home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuHitbox.hpp:
 
 /usr/include/bits/signum-generic.h:
@@ -3435,10 +3479,6 @@ _deps/json-src/include/nlohmann/detail/value_t.hpp:
 /usr/include/bits/types/__locale_t.h:
 
 _deps/json-src/include/nlohmann/detail/exceptions.hpp:
-
-/usr/include/c++/14.2.1/bits/std_function.h:
-
-/usr/include/SFML/Graphics/RenderWindow.hpp:
 
 /usr/include/c++/14.2.1/bits/hash_bytes.h:
 
@@ -3598,6 +3638,12 @@ _deps/json-src/include/nlohmann/detail/json_pointer.hpp:
 
 /usr/include/c++/14.2.1/bits/locale_facets.tcc:
 
+/usr/include/SFML/Graphics/Shape.hpp:
+
+/usr/include/bits/types/sigevent_t.h:
+
+/usr/include/c++/14.2.1/bits/std_mutex.h:
+
 /usr/include/bits/endian.h:
 
 /usr/lib/libxcb.so.1:
@@ -3656,8 +3702,6 @@ _deps/json-src/include/nlohmann/detail/iterators/internal_iterator.hpp:
 
 /usr/lib/libc.so:
 
-/usr/include/c++/14.2.1/bits/std_thread.h:
-
 _deps/json-src/include/nlohmann/detail/input/input_adapters.hpp:
 
 /usr/include/bits/types/wint_t.h:
@@ -3670,6 +3714,12 @@ _deps/json-src/include/nlohmann/detail/input/input_adapters.hpp:
 
 /usr/include/c++/14.2.1/functional:
 
+/usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++locale.h:
+
+/usr/include/c++/14.2.1/bits/fs_dir.h:
+
+/usr/lib/libXcursor.so.1:
+
 /usr/include/bits/sigstack.h:
 
 _deps/json-src/include/nlohmann/detail/meta/call_std/begin.hpp:
@@ -3681,6 +3731,18 @@ _deps/json-src/include/nlohmann/detail/meta/call_std/begin.hpp:
 /usr/include/SFML/Window/Mouse.hpp:
 
 /usr/include/c++/14.2.1/bits/unique_ptr.h:
+
+/usr/include/c++/14.2.1/bits/std_abs.h:
+
+/usr/include/c++/14.2.1/bits/stl_bvector.h:
+
+/usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h:
+
+/usr/include/SFML/Graphics/RenderWindow.hpp:
+
+/usr/include/c++/14.2.1/bits/std_function.h:
+
+/usr/include/c++/14.2.1/bits/std_thread.h:
 
 /usr/include/c++/14.2.1/bits/stl_algo.h:
 
@@ -3800,6 +3862,8 @@ _deps/json-src/include/nlohmann/detail/meta/call_std/end.hpp:
 
 /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.hpp:
 
+/usr/include/c++/14.2.1/filesystem:
+
 /usr/include/c++/14.2.1/initializer_list:
 
 /usr/lib/libudev.so.1:
@@ -3852,6 +3916,12 @@ _deps/json-src/include/nlohmann/detail/meta/type_traits.hpp:
 
 /usr/include/c++/14.2.1/tr1/exp_integral.tcc:
 
+/usr/include/SFML/Graphics/Rect.inl:
+
+_deps/json-src/include/nlohmann/json.hpp:
+
+/usr/include/c++/14.2.1/tr1/gamma.tcc:
+
 /usr/include/c++/14.2.1/ext/alloc_traits.h:
 
 /usr/include/c++/14.2.1/tr1/hypergeometric.tcc:
@@ -3884,9 +3954,17 @@ _deps/json-src/include/nlohmann/detail/meta/type_traits.hpp:
 
 /usr/include/dlfcn.h:
 
+/usr/include/libgen.h:
+
+/usr/include/c++/14.2.1/bits/postypes.h:
+
+_deps/json-src/include/nlohmann/detail/meta/is_sax.hpp:
+
 /usr/include/c++/14.2.1/ostream:
 
 /usr/include/linux/close_range.h:
+
+/usr/include/linux/limits.h:
 
 /usr/include/stdc-predef.h:
 
@@ -3924,21 +4002,7 @@ _deps/json-src/include/nlohmann/detail/meta/type_traits.hpp:
 
 /usr/include/c++/14.2.1/bits/deque.tcc:
 
-/usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++locale.h:
-
-/usr/include/c++/14.2.1/bits/fs_dir.h:
-
-/usr/lib/libXcursor.so.1:
-
 /usr/include/c++/14.2.1/deque:
-
-/usr/include/c++/14.2.1/filesystem:
-
-/usr/include/SFML/Graphics/Rect.inl:
-
-/usr/include/c++/14.2.1/tr1/gamma.tcc:
-
-_deps/json-src/include/nlohmann/json.hpp:
 
 /home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.cpp:
 
@@ -4009,10 +4073,6 @@ _deps/json-src/include/nlohmann/detail/meta/identity_tag.hpp:
 /usr/include/c++/14.2.1/bits/uses_allocator_args.h:
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/basic_file.h:
-
-/usr/include/c++/14.2.1/bits/postypes.h:
-
-_deps/json-src/include/nlohmann/detail/meta/is_sax.hpp:
 
 /usr/lib32/libXau.so.6:
 

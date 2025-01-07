@@ -23,9 +23,7 @@ void WarningState::init() {
 }
 
 void WarningState::handleInput(sf::RenderWindow& window) {
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left) || 
-        sf::Keyboard::isKeyPressed(sf::Keyboard::Space) ||
-        sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
+    if (!startFade && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         startFade = true;
         std::cout << "WarningState: User input received, starting fade" << std::endl;
     }
@@ -45,7 +43,6 @@ void WarningState::update(float deltaTime) {
         if (opacity <= 0) {
             opacity = 0;
             hasTransitioned = true;
-            std::cout << "WarningState: Fade complete, transitioning to MainMenuState" << std::endl;
             StateManager::getInstance().changeState(std::make_unique<MainMenuState>());
             return;  // Exit immediately after state change
         }
