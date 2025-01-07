@@ -2,7 +2,7 @@
 #include "../config/AssetPaths.hpp"
 #include "../systems/animation/AnimationManager.hpp"
 #include "../utils/Debug.hpp"
-#include "../utils/UIScaler.hpp"
+#include "../systems/ui/ScalingManager.hpp"
 #include "../ui/MenuManager.hpp"
 #include <iostream>
 #include <filesystem>
@@ -21,8 +21,8 @@ void MainMenuState::init() {
         std::cerr << "MainMenuState: Failed to load menu text texture!" << std::endl;
     } else {
         menuTextSprite.setTexture(menuTextTexture);
-        // Store base position - will be scaled in draw()
-        menuTextBasePosition = sf::Vector2f(80.f, 68.f);
+        // Store normalized position (0-1 range)
+        menuTextBasePosition = sf::Vector2f(0.0625f, 0.0944f); // 80/1280, 68/720
     }
     
     auto& animManager = AnimationManager::getInstance();
@@ -61,18 +61,10 @@ void MainMenuState::init() {
                     return;
                 }
                 
-                std::cout << "MainMenuState: Animation configured with " << anim->getFrameCount() 
-                          << " frames at 30 FPS" << std::endl;
-                std::cout << "MainMenuState: Using frame streaming with 60 frame window" << std::endl;
-                
                 anim->play();
-                std::cout << "MainMenuState: Started playing animation" << std::endl;
-            } else {
-                std::cerr << "MainMenuState: Failed to get animation after loading!" << std::endl;
             }
         } else {
-            std::cerr << "MainMenuState: Failed to load main menu animation from: " 
-                      << AssetPaths::MAIN_MENU_ANIM << std::endl;
+            std::cerr << "MainMenuState: Failed to load main menu animation!" << std::endl;
         }
     } catch (const std::exception& e) {
         std::cerr << "MainMenuState: Error during initialization: " << e.what() << std::endl;
@@ -128,50 +120,19 @@ void MainMenuState::draw(sf::RenderWindow& window) {
                 return;
             }
             
-            // Get the sprite
+            // Get the sprite and scale it
             DEBUG_LOCATION("MainMenuState::draw - Getting current frame");
             sf::Sprite& sprite = anim->getCurrentFrame();
             
-            // Verify the sprite has a valid texture
-            DEBUG_LOCATION("MainMenuState::draw - Verifying texture");
-            const sf::Texture* texture = sprite.getTexture();
-            if (!texture) {
-                std::cerr << "MainMenuState::draw: Sprite has no texture!" << std::endl;
-                return;
-            }
-            
-            // Get current sprite bounds and window size
-            DEBUG_LOCATION("MainMenuState::draw - Calculating scale");
-            sf::Vector2u textureSize = texture->getSize();
-            sf::Vector2u windowSize = window.getSize();
-            
-            // Calculate scale to fill window completely (no black borders)
-            float scaleX = static_cast<float>(windowSize.x) / static_cast<float>(textureSize.x);
-            float scaleY = static_cast<float>(windowSize.y) / static_cast<float>(textureSize.y);
-            float scale = std::max(scaleX, scaleY); // Use max instead of min to ensure no black borders
-            
-            // Set sprite origin to center
-            sprite.setOrigin(
-                static_cast<float>(textureSize.x) / 2.f,
-                static_cast<float>(textureSize.y) / 2.f
-            );
-            
-            // Set sprite scale
-            DEBUG_LOCATION("MainMenuState::draw - Setting sprite properties");
-            sprite.setScale(scale, scale);
-            
-            // Center the sprite in the window
-            sprite.setPosition(
-                static_cast<float>(windowSize.x) / 2.f,
-                static_cast<float>(windowSize.y) / 2.f
-            );
+            // Scale the sprite to fill the screen
+            Engine::ScalingManager::getInstance().scaleSpriteToFill(sprite);
             
             // Draw the sprite
             DEBUG_LOCATION("MainMenuState::draw - Drawing sprite");
             window.draw(sprite);
             
-            // Scale and draw the menu text
-            UIScaler::scaleSprite(menuTextSprite, window, menuTextBasePosition);
+            // Scale and draw the menu text using normalized coordinates
+            Engine::ScalingManager::getInstance().scaleSprite(menuTextSprite, menuTextBasePosition);
             window.draw(menuTextSprite);
         }
         

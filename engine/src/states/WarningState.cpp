@@ -1,33 +1,25 @@
 #include "WarningState.hpp"
-#include "MainMenuState.hpp"
 #include "../core/StateManager.hpp"
+#include "MainMenuState.hpp"
+#include "../systems/ui/ScalingManager.hpp"
 #include "../config/AssetPaths.hpp"
-#include <cmath>
 #include <iostream>
-#include <memory>
+#include <cmath>
 
-WarningState::WarningState() {
-    std::cout << "WarningState: Initializing..." << std::endl;
+WarningState::WarningState() : startFade(false), hasTransitioned(false), opacity(255), fadeTime(5.0f) {
     init();
 }
 
 void WarningState::init() {
     if (!warningTexture.loadFromFile(AssetPaths::WARNING_TEXTURE)) {
-        std::cerr << "WarningState: Failed to load warning texture from: " 
-                  << AssetPaths::WARNING_TEXTURE << std::endl;
         throw std::runtime_error("Failed to load warning texture");
     }
-    std::cout << "WarningState: Successfully loaded warning texture" << std::endl;
-    
     warningSprite.setTexture(warningTexture);
-    
-    // Center the origin of the sprite
-    sf::Vector2u textureSize = warningTexture.getSize();
-    warningSprite.setOrigin(textureSize.x / 2.0f, textureSize.y / 2.0f);
-    
+    warningSprite.setOrigin(
+        warningTexture.getSize().x / 2.f,
+        warningTexture.getSize().y / 2.f
+    );
     timer.restart();
-    opacity = 255.0f;
-    std::cout << "WarningState: Initialization complete" << std::endl;
 }
 
 void WarningState::handleInput(sf::RenderWindow& window) {
@@ -65,21 +57,11 @@ void WarningState::update(float deltaTime) {
 }
 
 void WarningState::draw(sf::RenderWindow& window) {
-    // Get current window size
-    sf::Vector2u windowSize = window.getSize();
-    sf::Vector2u textureSize = warningTexture.getSize();
-
-    // Calculate scale to fill window completely (no black borders)
-    float scaleX = static_cast<float>(windowSize.x) / static_cast<float>(textureSize.x);
-    float scaleY = static_cast<float>(windowSize.y) / static_cast<float>(textureSize.y);
-    float scale = std::max(scaleX, scaleY); // Use max to ensure no black borders
+    // Update ScalingManager with current window size
+    Engine::ScalingManager::getInstance().updateWindowSize(window.getSize().x, window.getSize().y);
     
-    // Update sprite scale and position
-    warningSprite.setScale(scale, scale);
-    warningSprite.setPosition(
-        static_cast<float>(windowSize.x) / 2.0f,
-        static_cast<float>(windowSize.y) / 2.0f
-    );
+    // Scale the warning sprite to fill the screen
+    Engine::ScalingManager::getInstance().scaleSpriteToFill(warningSprite);
     
     window.draw(warningSprite);
 } 

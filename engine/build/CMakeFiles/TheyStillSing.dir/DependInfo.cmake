@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/jack10/gamedev/They-Still-Sing/engine/src/states/WarningState.cpp" "CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o.d"
   "/home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/Animation.cpp" "CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o.d"
   "/home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/AnimationManager.cpp" "CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o.d"
+  "/home/jack10/gamedev/They-Still-Sing/engine/src/systems/ui/ScalingManager.cpp" "CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o.d"
   "/home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuHitbox.cpp" "CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o.d"
   "/home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuManager.cpp" "CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o" "gcc" "CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o.d"
   "" "TheyStillSing" "gcc" "CMakeFiles/TheyStillSing.dir/link.d"

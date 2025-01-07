@@ -231,7 +231,6 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
- /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/../core/StateManager.hpp \
  /usr/include/c++/14.2.1/memory \
  /usr/include/c++/14.2.1/bits/stl_raw_storage_iter.h \
@@ -246,9 +245,13 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: \
  /usr/include/c++/14.2.1/bits/atomic_lockfree_defines.h \
  /usr/include/c++/14.2.1/backward/auto_ptr.h \
  /usr/include/c++/14.2.1/pstl/glue_memory_defs.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/MainMenuState.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/states/../systems/ui/ScalingManager.hpp \
  /home/jack10/gamedev/They-Still-Sing/engine/src/states/../config/AssetPaths.hpp \
- /usr/include/c++/14.2.1/cmath /usr/include/math.h \
- /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
+ /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
+ /usr/include/c++/14.2.1/bits/istream.tcc /usr/include/c++/14.2.1/cmath \
+ /usr/include/math.h /usr/include/bits/math-vector.h \
+ /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
  /usr/include/bits/fp-fast.h \
  /usr/include/bits/mathcalls-helper-functions.h \
@@ -265,6 +268,4 @@ CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o: \
  /usr/include/c++/14.2.1/tr1/modified_bessel_func.tcc \
  /usr/include/c++/14.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/14.2.1/tr1/poly_laguerre.tcc \
- /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc \
- /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
- /usr/include/c++/14.2.1/bits/istream.tcc
+ /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc

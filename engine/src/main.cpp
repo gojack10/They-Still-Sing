@@ -8,11 +8,15 @@
 #include "config/AssetPaths.hpp"
 #include "utils/Debug.hpp"
 #include "ui/MenuManager.hpp"
+#include "systems/ui/ScalingManager.hpp"
 
 const unsigned int BASE_WIDTH = 1280;
 const unsigned int BASE_HEIGHT = 720;
 
 void updateView(sf::RenderWindow& window) {
+    // Update ScalingManager with new window size
+    Engine::ScalingManager::getInstance().updateWindowSize(window.getSize().x, window.getSize().y);
+    
     // Create a view that covers the entire window
     sf::View view;
     view.setSize(window.getSize().x, window.getSize().y);
@@ -30,6 +34,9 @@ int main() {
         bool isFullscreen = false;
         bool showHitboxes = false;
         
+        // Initialize ScalingManager with base window size
+        Engine::ScalingManager::getInstance().updateWindowSize(BASE_WIDTH, BASE_HEIGHT);
+        
         // Set frame limit to 30 FPS
         window.setFramerateLimit(30);
 
@@ -42,7 +49,7 @@ int main() {
         // Create FPS text
         sf::Text fpsText;
         fpsText.setFont(font);
-        fpsText.setCharacterSize(20);
+        fpsText.setCharacterSize(30);
         fpsText.setFillColor(sf::Color::White);
 
         // Initialize state manager with warning state
@@ -86,8 +93,10 @@ int main() {
                 }
                 else if (event.type == sf::Event::Resized) {
                     updateView(window);
-                    float scaleFactor = window.getSize().x / static_cast<float>(BASE_WIDTH);
-                    fpsText.setCharacterSize(static_cast<unsigned int>(24 * scaleFactor));
+                    // Scale FPS text size using ScalingManager
+                    fpsText.setCharacterSize(static_cast<unsigned int>(
+                        Engine::ScalingManager::getInstance().getScaledFontSize(20.0f)
+                    ));
                 }
             }
             
@@ -121,7 +130,12 @@ int main() {
             std::stringstream ss;
             ss << "FPS: " << displayFps;
             fpsText.setString(ss.str());
-            fpsText.setPosition(window.getSize().x - fpsText.getGlobalBounds().width - 10, 10);
+            
+            // Position FPS text using normalized coordinates
+            sf::Vector2f fpsPos = Engine::ScalingManager::getInstance().convertNormalizedToScreen(
+                0.98f, 0.02f, Engine::Anchor::TopRight
+            );
+            fpsText.setPosition(fpsPos.x - fpsText.getGlobalBounds().width, fpsPos.y);
             
             // Update and draw current state
             auto& stateManager = StateManager::getInstance();

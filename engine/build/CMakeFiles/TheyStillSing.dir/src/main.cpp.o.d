@@ -307,4 +307,5 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: \
  /usr/include/c++/14.2.1/bits/hashtable.h \
  /usr/include/c++/14.2.1/bits/hashtable_policy.h \
  /usr/include/c++/14.2.1/bits/enable_special_members.h \
- /usr/include/c++/14.2.1/array /usr/include/c++/14.2.1/compare
+ /usr/include/c++/14.2.1/array /usr/include/c++/14.2.1/compare \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/systems/ui/ScalingManager.hpp

@@ -40,6 +40,7 @@ set(SOURCES
     ${ASSET_HEADERS}
     src/ui/MenuHitbox.cpp
     src/ui/MenuManager.cpp
+    src/systems/ui/ScalingManager.cpp
 )
 
 # Add executable

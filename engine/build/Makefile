@@ -249,6 +249,30 @@ src/systems/animation/AnimationManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s
 .PHONY : src/systems/animation/AnimationManager.cpp.s
 
+src/systems/ui/ScalingManager.o: src/systems/ui/ScalingManager.cpp.o
+.PHONY : src/systems/ui/ScalingManager.o
+
+# target to build an object file
+src/systems/ui/ScalingManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o
+.PHONY : src/systems/ui/ScalingManager.cpp.o
+
+src/systems/ui/ScalingManager.i: src/systems/ui/ScalingManager.cpp.i
+.PHONY : src/systems/ui/ScalingManager.i
+
+# target to preprocess a source file
+src/systems/ui/ScalingManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.i
+.PHONY : src/systems/ui/ScalingManager.cpp.i
+
+src/systems/ui/ScalingManager.s: src/systems/ui/ScalingManager.cpp.s
+.PHONY : src/systems/ui/ScalingManager.s
+
+# target to generate assembly for a file
+src/systems/ui/ScalingManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.s
+.PHONY : src/systems/ui/ScalingManager.cpp.s
+
 src/ui/MenuHitbox.o: src/ui/MenuHitbox.cpp.o
 .PHONY : src/ui/MenuHitbox.o
 
@@ -321,6 +345,9 @@ help:
 	@echo "... src/systems/animation/AnimationManager.o"
 	@echo "... src/systems/animation/AnimationManager.i"
 	@echo "... src/systems/animation/AnimationManager.s"
+	@echo "... src/systems/ui/ScalingManager.o"
+	@echo "... src/systems/ui/ScalingManager.i"
+	@echo "... src/systems/ui/ScalingManager.s"
 	@echo "... src/ui/MenuHitbox.o"
 	@echo "... src/ui/MenuHitbox.i"
 	@echo "... src/ui/MenuHitbox.s"

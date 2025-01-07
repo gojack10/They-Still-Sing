@@ -253,6 +253,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: \
  /usr/include/c++/14.2.1/bits/enable_special_members.h \
  /usr/include/c++/14.2.1/array /usr/include/c++/14.2.1/compare \
  /home/jack10/gamedev/They-Still-Sing/engine/src/ui/../config/AssetPaths.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/ui/../systems/ui/ScalingManager.hpp \
  /usr/include/c++/14.2.1/fstream /usr/include/c++/14.2.1/istream \
  /usr/include/c++/14.2.1/bits/istream.tcc \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/basic_file.h \
