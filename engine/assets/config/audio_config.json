@@ -1,5 +1,10 @@
 {
     "sounds": {
+        "menu-hover": {
+            "file": "assets/sound/sfx/ui/menu-hover.ogg",
+            "base_volume": 100,
+            "category": "sfx"
+        }
     },
     "music": {
         "menu-start": {

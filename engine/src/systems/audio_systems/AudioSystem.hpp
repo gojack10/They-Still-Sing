@@ -28,6 +28,10 @@ public:
     void stopSound(const std::string& name);
     void stopMusic(const std::string& name);
     
+    // Debug control
+    static void setDebugEnabled(bool enabled) { debugEnabled = enabled; }
+    static bool isDebugEnabled() { return debugEnabled; }
+    
     // Virtual 3D audio
     void updateVirtualPosition(const std::string& name, float angle);
     void setPlayerRotation(float angle); // Angle in degrees, 0 is forward
@@ -60,6 +64,9 @@ private:
     ~AudioSystem() = default;
     AudioSystem(const AudioSystem&) = delete;
     AudioSystem& operator=(const AudioSystem&) = delete;
+
+    // Debug flag
+    static inline bool debugEnabled = false;
 
     struct SoundData {
         sf::SoundBuffer buffer;

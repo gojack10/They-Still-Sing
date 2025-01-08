@@ -26,4 +26,5 @@ private:
     sf::Texture menuTextTexture;
     sf::Sprite menuTextSprite;
     MenuTextPlacement menuTextPlacement;
+    std::string lastHoveredButton; // Track the last hovered button to avoid sound spam
 };

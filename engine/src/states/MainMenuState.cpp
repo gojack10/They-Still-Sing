@@ -4,12 +4,27 @@
 #include "../utils/Debug.hpp"
 #include "../systems/ui/ScalingManager.hpp"
 #include "../ui/MenuManager.hpp"
+#include "../systems/audio_systems/AudioSystem.hpp"
 #include <iostream>
 #include <filesystem>
 #include <fstream>
 #include <nlohmann/json.hpp>
 
-MainMenuState::MainMenuState() {
+MainMenuState::MainMenuState() : lastHoveredButton("") {
+    std::cout << "MainMenuState: Constructor called" << std::endl;
+    
+    // Verify audio system initialization
+    auto& audio = Engine::AudioSystem::getInstance();
+    try {
+        if (audio.getSoundStatus("menu-hover") == sf::SoundSource::Stopped) {
+            std::cout << "MainMenuState: Audio system initialized and menu-hover sound is loaded" << std::endl;
+        } else {
+            std::cout << "MainMenuState: Warning - Unexpected menu-hover sound status" << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "MainMenuState: Error checking audio system - " << e.what() << std::endl;
+    }
+    
     init();
     // Initialize menu hitboxes and load menu text placement
     MenuManager::getInstance().loadFromJson(AssetPaths::MENU_CONFIG);
@@ -92,6 +107,24 @@ void MainMenuState::cleanup() {
 
 void MainMenuState::handleInput(sf::RenderWindow& window) {
     MenuManager::getInstance().handleInput(window);
+    
+    // Get currently hovered button
+    const std::string& currentHoveredButton = MenuManager::getInstance().getHoveredButton();
+    
+    // Debug: Print button hover state changes
+    if (currentHoveredButton != lastHoveredButton) {
+        std::cout << "MainMenuState: Button hover changed from '" << lastHoveredButton 
+                  << "' to '" << currentHoveredButton << "'" << std::endl;
+                  
+        // Only play sound when entering a new button (not when leaving one)
+        if (!currentHoveredButton.empty()) {
+            std::cout << "MainMenuState: Attempting to play hover sound for button: " << currentHoveredButton << std::endl;
+            Engine::AudioSystem::getInstance().playSound("menu-hover");
+        }
+    }
+    
+    // Update last hovered button
+    lastHoveredButton = currentHoveredButton;
 }
 
 void MainMenuState::update(float deltaTime) {

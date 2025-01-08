@@ -2,6 +2,7 @@
 #include "../../config/AssetPaths.hpp"
 #include "../../utils/Debug.hpp"
 #include <fstream>
+#include <filesystem>
 
 namespace Engine {
 
@@ -55,42 +56,60 @@ void AudioSystem::initialize(const std::string& configPath) {
                 std::string filePath = AssetPaths::resolvePath(data["file"].get<std::string>());
                 std::cout << "AudioSystem: Loading sound '" << name << "' from " << filePath << std::endl;
                 
+                // Verify file exists
+                if (!std::filesystem::exists(filePath)) {
+                    std::cerr << "AudioSystem: Sound file does not exist: " << filePath << std::endl;
+                    continue;
+                }
+                
                 if (!soundData.buffer.loadFromFile(filePath)) {
                     std::cerr << "Failed to load sound: " << filePath << std::endl;
                     continue;
                 }
                 
+                // Verify buffer loaded correctly
+                if (soundData.buffer.getSampleCount() == 0) {
+                    std::cerr << "AudioSystem: Error - Loaded buffer is empty for " << name << std::endl;
+                    continue;
+                }
+                
+                // Create and attach sound
                 soundData.sound.setBuffer(soundData.buffer);
+                
+                // Verify sound has buffer
+                if (!soundData.sound.getBuffer()) {
+                    std::cerr << "AudioSystem: Error - Failed to attach buffer to sound for " << name << std::endl;
+                    continue;
+                }
+                
                 soundData.baseVolume = data["base_volume"];
                 soundData.currentVolume = soundData.baseVolume;
                 soundData.targetVolume = soundData.baseVolume;
                 soundData.category = data["category"];
                 
-                std::cout << "AudioSystem: Sound '" << name << "' base volume: " << soundData.baseVolume 
-                         << ", category: " << soundData.category << std::endl;
-                
-                if (data.contains("spatial")) {
-                    soundData.spatial = data["spatial"];
-                    if (data.contains("min_volume")) {
-                        soundData.minVolume = data["min_volume"];
-                    }
-                }
+                std::cout << "AudioSystem: Sound '" << name << "' loaded successfully:" << std::endl;
+                std::cout << "  - File: " << filePath << std::endl;
+                std::cout << "  - Duration: " << soundData.buffer.getDuration().asSeconds() << "s" << std::endl;
+                std::cout << "  - Sample Count: " << soundData.buffer.getSampleCount() << std::endl;
+                std::cout << "  - Channel Count: " << soundData.buffer.getChannelCount() << std::endl;
+                std::cout << "  - Sample Rate: " << soundData.buffer.getSampleRate() << " Hz" << std::endl;
                 
                 // Apply initial volume based on category
                 if (auto it = categoryVolumes.find(soundData.category); it != categoryVolumes.end()) {
                     float finalVolume = (soundData.baseVolume * it->second) / 100.f;
                     soundData.sound.setVolume(finalVolume);
-                    std::cout << "AudioSystem: Setting initial sound '" << name 
-                             << "' volume to " << finalVolume 
-                             << " (base: " << soundData.baseVolume 
-                             << " * category: " << it->second << ")" << std::endl;
-                } else {
-                    std::cerr << "Warning: Sound '" << name << "' has unknown category: " 
-                             << soundData.category << std::endl;
+                    std::cout << "  - Initial Volume: " << finalVolume << std::endl;
                 }
                 
+                // Store the sound data
                 sounds[name] = std::move(soundData);
-                std::cout << "AudioSystem: Successfully loaded sound '" << name << "'" << std::endl;
+                
+                // Verify sound was stored correctly
+                if (auto it = sounds.find(name); it != sounds.end()) {
+                    if (!it->second.sound.getBuffer()) {
+                        std::cerr << "AudioSystem: Error - Buffer lost after storing sound!" << std::endl;
+                    }
+                }
             }
         }
         
@@ -153,10 +172,58 @@ void AudioSystem::initialize(const std::string& configPath) {
 }
 
 void AudioSystem::playSound(const std::string& name) {
+    if (debugEnabled) std::cout << "AudioSystem: Attempting to play sound '" << name << "'" << std::endl;
+    
     if (auto it = sounds.find(name); it != sounds.end()) {
+        if (debugEnabled) std::cout << "AudioSystem: Found sound '" << name << "' in loaded sounds" << std::endl;
+        
+        // Verify buffer is valid
+        if (!it->second.buffer.getSampleCount()) {
+            std::cerr << "AudioSystem: Error - Sound buffer is empty!" << std::endl;
+            return;
+        }
+        
+        // Print current sound properties if debug enabled
+        if (debugEnabled) {
+            std::cout << "AudioSystem: Sound properties before play:" << std::endl;
+            std::cout << "  - Base Volume: " << it->second.baseVolume << std::endl;
+            std::cout << "  - Current Volume: " << it->second.currentVolume << std::endl;
+            std::cout << "  - Category: " << it->second.category << std::endl;
+            std::cout << "  - Buffer Duration: " << it->second.buffer.getDuration().asSeconds() << "s" << std::endl;
+            std::cout << "  - Buffer Sample Count: " << it->second.buffer.getSampleCount() << std::endl;
+            std::cout << "  - Buffer Channel Count: " << it->second.buffer.getChannelCount() << std::endl;
+        }
+        
+        // Verify sound has buffer attached
+        if (!it->second.sound.getBuffer()) {
+            std::cerr << "AudioSystem: Error - Sound has no buffer attached!" << std::endl;
+            // Try re-attaching buffer
+            it->second.sound.setBuffer(it->second.buffer);
+            if (debugEnabled) std::cout << "AudioSystem: Re-attached buffer to sound" << std::endl;
+        }
+        
         // Update volume before playing
         updateSoundProperties(it->second);
+        
+        // Print final volume and status if debug enabled
+        if (debugEnabled) {
+            std::cout << "AudioSystem: Final volume after properties update: " << it->second.sound.getVolume() << std::endl;
+            std::cout << "AudioSystem: Sound buffer address: " << &(it->second.buffer) << std::endl;
+            std::cout << "AudioSystem: Sound object address: " << &(it->second.sound) << std::endl;
+        }
+        
+        // Play the sound
         it->second.sound.play();
+        if (debugEnabled) std::cout << "AudioSystem: Started playing sound '" << name << "'" << std::endl;
+        
+    } else {
+        std::cerr << "AudioSystem: Sound '" << name << "' not found in loaded sounds!" << std::endl;
+        if (debugEnabled) {
+            std::cout << "AudioSystem: Currently loaded sounds:" << std::endl;
+            for (const auto& [soundName, _] : sounds) {
+                std::cout << "  - " << soundName << std::endl;
+            }
+        }
     }
 }
 
