@@ -1,0 +1,10 @@
+.git
+.gitignore
+engine/build/
+**/*.o
+**/*.a
+**/*.so
+**/*.cmake
+**/CMakeCache.txt
+**/CMakeFiles/
+**/*.log 

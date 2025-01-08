@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  game:
+    build: .
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=/tmp/.Xauthority
+    devices:
+      - /dev/dri:/dev/dri
+    network_mode: host
+    working_dir: /app/engine
+    command: ./build/TheyStillSing 
