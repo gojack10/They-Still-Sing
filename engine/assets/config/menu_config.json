@@ -1,12 +1,16 @@
 {
-  "buttons": [
+  "button_hitboxes": [
     {
       "name": "NEW_GAME",
       "w": 255,
       "h": 61,
       "x": 70,
       "y": 333,
-      "anchor": "TopLeft"
+      "anchor": "TopLeft",
+      "selector": {
+        "x": 40,
+        "y": 342
+      }
     },
     {
       "name": "CONTINUE",
@@ -14,7 +18,11 @@
       "h": 52,
       "x": 70,
       "y": 458,
-      "anchor": "TopLeft"
+      "anchor": "TopLeft",
+      "selector": {
+        "x": 40,
+        "y": 465
+      }
     },
     {
       "name": "OPTIONS",
@@ -22,6 +30,18 @@
       "h": 55,
       "x": 70,
       "y": 575,
+      "anchor": "TopLeft",
+      "selector": {
+        "x": 40,
+        "y": 585
+      }
+    }
+  ],
+  "button_placement": [
+    {
+      "name": "MENU_TEXT",
+      "x": 80,
+      "y": 68,
       "anchor": "TopLeft"
     }
   ],

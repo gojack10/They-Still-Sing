@@ -14,7 +14,7 @@ void MenuManager::loadFromJson(const std::string& filepath) {
     file >> j;
 
     hitboxes.clear();
-    for (const auto& button : j["buttons"]) {
+    for (const auto& button : j["button_hitboxes"]) {
         // Convert JSON coordinates from normalized (0-1) to screen space
         sf::Vector2f normalizedPos(
             button["x"].get<float>(),
@@ -24,8 +24,12 @@ void MenuManager::loadFromJson(const std::string& filepath) {
             button["w"].get<float>(),
             button["h"].get<float>()
         );
+        sf::Vector2f selectorPos(
+            button["selector"]["x"].get<float>(),
+            button["selector"]["y"].get<float>()
+        );
         
-        hitboxes.emplace_back(normalizedPos, normalizedSize, button["name"].get<std::string>());
+        hitboxes.emplace_back(normalizedPos, normalizedSize, button["name"].get<std::string>(), selectorPos);
     }
 }
 
@@ -41,9 +45,8 @@ void MenuManager::handleInput(const sf::RenderWindow& window) {
     for (const auto& hitbox : hitboxes) {
         if (hitbox.contains(normalizedPos)) {
             hoveredButton = hitbox.getName();
-            // Position selector sprite at hitbox position using normalized coordinates
-            sf::Vector2f hitboxPos = hitbox.getNormalizedPosition();
-            scalingManager.scaleSprite(selectorSprite, hitboxPos);
+            // Position selector sprite at the hitbox's selector position
+            scalingManager.scaleSprite(selectorSprite, hitbox.getSelectorPosition());
             break;
         }
     }

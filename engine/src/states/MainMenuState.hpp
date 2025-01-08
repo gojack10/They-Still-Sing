@@ -2,6 +2,12 @@
 
 #include "GameState.hpp"
 #include <SFML/Graphics.hpp>
+#include <string>
+
+struct MenuTextPlacement {
+    sf::Vector2f position;
+    sf::Vector2f normalizedPosition;
+};
 
 class MainMenuState : public GameState {
 public:
@@ -14,7 +20,9 @@ public:
     void draw(sf::RenderWindow& window) override;
 
 private:
+    void loadMenuTextPlacement();
+    
     sf::Texture menuTextTexture;
     sf::Sprite menuTextSprite;
-    sf::Vector2f menuTextBasePosition;  // Store original position for scaling
+    MenuTextPlacement menuTextPlacement;
 };

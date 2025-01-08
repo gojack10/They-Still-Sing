@@ -6,11 +6,34 @@
 #include "../ui/MenuManager.hpp"
 #include <iostream>
 #include <filesystem>
+#include <fstream>
+#include <nlohmann/json.hpp>
 
 MainMenuState::MainMenuState() {
     init();
-    // Initialize menu hitboxes
+    // Initialize menu hitboxes and load menu text placement
     MenuManager::getInstance().loadFromJson(AssetPaths::MENU_CONFIG);
+    loadMenuTextPlacement();
+}
+
+void MainMenuState::loadMenuTextPlacement() {
+    // Load menu text placement from config
+    std::ifstream file(AssetPaths::MENU_CONFIG);
+    if (!file.is_open()) {
+        std::cerr << "MainMenuState: Failed to open menu configuration file!" << std::endl;
+        return;
+    }
+
+    nlohmann::json j;
+    file >> j;
+
+    // Get the menu text placement
+    const auto& placement = j["button_placement"][0];
+    menuTextPlacement.position = sf::Vector2f(placement["x"].get<float>(), placement["y"].get<float>());
+    menuTextPlacement.normalizedPosition = Engine::ScalingManager::absoluteToNormalized(menuTextPlacement.position);
+    
+    // Setup the sprite
+    menuTextSprite.setTexture(menuTextTexture);
 }
 
 void MainMenuState::init() {
@@ -19,10 +42,7 @@ void MainMenuState::init() {
     // Load menu text texture
     if (!menuTextTexture.loadFromFile(AssetPaths::MENU_TEXT_TEXTURE)) {
         std::cerr << "MainMenuState: Failed to load menu text texture!" << std::endl;
-    } else {
-        menuTextSprite.setTexture(menuTextTexture);
-        // Store normalized position (0-1 range)
-        menuTextBasePosition = sf::Vector2f(0.0625f, 0.0944f); // 80/1280, 68/720
+        return;
     }
     
     auto& animManager = AnimationManager::getInstance();
@@ -48,14 +68,10 @@ void MainMenuState::init() {
                     return;
                 }
                 
-                // Configure memory management - keep 2 seconds worth of frames in memory
                 anim->setMaxLoadedFrames(60);  // 2 seconds at 30 FPS
-                
-                // Set animation properties
                 anim->setFrameTime(1.0f/30.0f);  // 30 FPS
                 anim->setLooping(true);
                 
-                // Ensure first frame is loaded before starting
                 if (!anim->loadFrame(0)) {
                     std::cerr << "MainMenuState: Failed to load first frame!" << std::endl;
                     return;
@@ -73,12 +89,6 @@ void MainMenuState::init() {
 
 void MainMenuState::handleInput(sf::RenderWindow& window) {
     MenuManager::getInstance().handleInput(window);
-    
-    // Check if NEW_GAME is selected and clicked
-    if (MenuManager::getInstance().getHoveredButton() == "NEW_GAME" && 
-        sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        // Handle new game action
-    }
 }
 
 void MainMenuState::update(float deltaTime) {
@@ -87,10 +97,8 @@ void MainMenuState::update(float deltaTime) {
         static float timeAccumulator = 0.0f;
         timeAccumulator += deltaTime;
         
-        // Cap deltaTime for animation update to prevent huge jumps
-        float cappedDeltaTime = std::min(deltaTime, 0.1f);  // Cap at 100ms
+        float cappedDeltaTime = std::min(deltaTime, 0.1f);
         
-        // Update animation
         DEBUG_LOCATION("MainMenuState::update - Updating animation");
         AnimationManager::getInstance().update(cappedDeltaTime);
         
@@ -112,19 +120,17 @@ void MainMenuState::draw(sf::RenderWindow& window) {
                 return;
             }
             
-            // Get the sprite and scale it
             DEBUG_LOCATION("MainMenuState::draw - Getting current frame");
             sf::Sprite& sprite = anim->getCurrentFrame();
             
-            // Scale the sprite to fill the screen
             Engine::ScalingManager::getInstance().scaleSpriteToFill(sprite);
             
-            // Draw the sprite
             DEBUG_LOCATION("MainMenuState::draw - Drawing sprite");
             window.draw(sprite);
             
-            // Scale and draw the menu text using normalized coordinates
-            Engine::ScalingManager::getInstance().scaleSprite(menuTextSprite, menuTextBasePosition);
+            // Draw menu text at its configured position
+            auto& scalingManager = Engine::ScalingManager::getInstance();
+            scalingManager.scaleSprite(menuTextSprite, menuTextPlacement.normalizedPosition);
             window.draw(menuTextSprite);
         }
         

@@ -2,9 +2,11 @@
 #include "../systems/ui/ScalingManager.hpp"
 #include <random>
 
-MenuHitbox::MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f& absoluteSize, const std::string& name)
+MenuHitbox::MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f& absoluteSize, 
+                       const std::string& name, const sf::Vector2f& selectorPosition)
     : normalizedPosition(Engine::ScalingManager::absoluteToNormalized(absolutePosition))
     , normalizedSize(Engine::ScalingManager::absoluteToNormalized(absoluteSize))
+    , selectorPosition(Engine::ScalingManager::absoluteToNormalized(selectorPosition))
     , name(name) {
     // Generate random color for debug visualization
     std::random_device rd;
