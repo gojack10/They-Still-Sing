@@ -312,4 +312,88 @@ CMakeFiles/TheyStillSing.dir/src/main.cpp.o: \
  /usr/include/c++/14.2.1/bits/hashtable_policy.h \
  /usr/include/c++/14.2.1/bits/enable_special_members.h \
  /usr/include/c++/14.2.1/array /usr/include/c++/14.2.1/compare \
- /home/jack10/gamedev/They-Still-Sing/engine/src/systems/ui/ScalingManager.hpp
+ /home/jack10/gamedev/They-Still-Sing/engine/src/systems/ui/ScalingManager.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/src/systems/audio_systems/AudioSystem.hpp \
+ /usr/include/SFML/Audio.hpp /usr/include/SFML/Audio/InputSoundFile.hpp \
+ /usr/include/SFML/Audio/Export.hpp /usr/include/SFML/Audio/Listener.hpp \
+ /usr/include/SFML/Audio/Music.hpp \
+ /usr/include/SFML/Audio/SoundStream.hpp \
+ /usr/include/SFML/Audio/SoundSource.hpp \
+ /usr/include/SFML/Audio/AlResource.hpp \
+ /usr/include/SFML/Audio/OutputSoundFile.hpp \
+ /usr/include/SFML/Audio/Sound.hpp \
+ /usr/include/SFML/Audio/SoundBuffer.hpp /usr/include/c++/14.2.1/set \
+ /usr/include/c++/14.2.1/bits/stl_set.h \
+ /usr/include/c++/14.2.1/bits/stl_multiset.h \
+ /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+ /usr/include/SFML/Audio/SoundRecorder.hpp \
+ /usr/include/SFML/Audio/SoundFileFactory.hpp \
+ /usr/include/SFML/Audio/SoundFileFactory.inl \
+ /usr/include/SFML/Audio/SoundFileReader.hpp \
+ /usr/include/SFML/Audio/SoundFileWriter.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/json.hpp \
+ /usr/include/c++/14.2.1/numeric \
+ /usr/include/c++/14.2.1/bits/stl_numeric.h \
+ /usr/include/c++/14.2.1/pstl/glue_numeric_defs.h \
+ /usr/include/c++/14.2.1/utility \
+ /usr/include/c++/14.2.1/bits/stl_relops.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/adl_serializer.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/abi_macros.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/conversions/from_json.hpp \
+ /usr/include/c++/14.2.1/forward_list \
+ /usr/include/c++/14.2.1/bits/forward_list.h \
+ /usr/include/c++/14.2.1/bits/forward_list.tcc \
+ /usr/include/c++/14.2.1/valarray \
+ /usr/include/c++/14.2.1/bits/valarray_array.h \
+ /usr/include/c++/14.2.1/bits/valarray_array.tcc \
+ /usr/include/c++/14.2.1/bits/valarray_before.h \
+ /usr/include/c++/14.2.1/bits/slice_array.h \
+ /usr/include/c++/14.2.1/bits/valarray_after.h \
+ /usr/include/c++/14.2.1/bits/gslice.h \
+ /usr/include/c++/14.2.1/bits/gslice_array.h \
+ /usr/include/c++/14.2.1/bits/mask_array.h \
+ /usr/include/c++/14.2.1/bits/indirect_array.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/exceptions.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/value_t.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/macro_scope.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/detected.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/void_t.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/thirdparty/hedley/hedley.hpp \
+ /usr/include/c++/14.2.1/version /usr/include/c++/14.2.1/cassert \
+ /usr/include/assert.h \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/string_escape.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/input/position_t.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/cpp_future.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/type_traits.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/iterators/iterator_traits.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/call_std/begin.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/call_std/end.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/json_fwd.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/string_concat.hpp \
+ /usr/include/c++/14.2.1/cstring \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/identity_tag.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/std_fs.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/conversions/to_json.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/byte_container_with_subtype.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/hash.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/input/binary_reader.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/input/input_adapters.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/input/json_sax.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/input/lexer.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/meta/is_sax.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/input/parser.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/iterators/internal_iterator.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/iterators/iter_impl.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/json_pointer.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/json_ref.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/output/binary_writer.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/output/output_adapters.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/output/serializer.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/conversions/to_chars.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/ordered_map.hpp \
+ /usr/include/c++/14.2.1/any \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/detail/macro_unscope.hpp \
+ /home/jack10/gamedev/They-Still-Sing/engine/build/_deps/json-src/include/nlohmann/thirdparty/hedley/hedley_undef.hpp

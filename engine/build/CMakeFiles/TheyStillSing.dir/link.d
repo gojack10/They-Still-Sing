@@ -18,6 +18,12 @@ TheyStillSing: \
   /usr/lib/libXcursor.so.1 \
   /usr/lib32/libudev.so.1 \
   /usr/lib/libudev.so.1 \
+  /usr/lib/libopenal.so.1 \
+  /usr/lib/libvorbisenc.so.2 \
+  /usr/lib/libvorbisfile.so.3 \
+  /usr/lib/libvorbis.so.0 \
+  /usr/lib/libogg.so.0 \
+  /usr/lib/libFLAC.so.12 \
   /usr/lib32/libz.so.1 \
   /usr/lib/libz.so.1 \
   /usr/lib32/libbz2.so.1.0 \
@@ -87,6 +93,18 @@ TheyStillSing: \
 /usr/lib32/libudev.so.1:
 
 /usr/lib/libudev.so.1:
+
+/usr/lib/libopenal.so.1:
+
+/usr/lib/libvorbisenc.so.2:
+
+/usr/lib/libvorbisfile.so.3:
+
+/usr/lib/libvorbis.so.0:
+
+/usr/lib/libogg.so.0:
+
+/usr/lib/libFLAC.so.12:
 
 /usr/lib32/libz.so.1:
 

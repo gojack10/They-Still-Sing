@@ -9,6 +9,7 @@ public:
     virtual ~WarningState() = default;
     
     void init() override;
+    void cleanup() override;
     void handleInput(sf::RenderWindow& window) override;
     void update(float deltaTime) override;
     void draw(sf::RenderWindow& window) override;

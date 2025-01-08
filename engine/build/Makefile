@@ -249,6 +249,30 @@ src/systems/animation/AnimationManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s
 .PHONY : src/systems/animation/AnimationManager.cpp.s
 
+src/systems/audio_systems/AudioSystem.o: src/systems/audio_systems/AudioSystem.cpp.o
+.PHONY : src/systems/audio_systems/AudioSystem.o
+
+# target to build an object file
+src/systems/audio_systems/AudioSystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o
+.PHONY : src/systems/audio_systems/AudioSystem.cpp.o
+
+src/systems/audio_systems/AudioSystem.i: src/systems/audio_systems/AudioSystem.cpp.i
+.PHONY : src/systems/audio_systems/AudioSystem.i
+
+# target to preprocess a source file
+src/systems/audio_systems/AudioSystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.i
+.PHONY : src/systems/audio_systems/AudioSystem.cpp.i
+
+src/systems/audio_systems/AudioSystem.s: src/systems/audio_systems/AudioSystem.cpp.s
+.PHONY : src/systems/audio_systems/AudioSystem.s
+
+# target to generate assembly for a file
+src/systems/audio_systems/AudioSystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TheyStillSing.dir/build.make CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.s
+.PHONY : src/systems/audio_systems/AudioSystem.cpp.s
+
 src/systems/ui/ScalingManager.o: src/systems/ui/ScalingManager.cpp.o
 .PHONY : src/systems/ui/ScalingManager.o
 
@@ -345,6 +369,9 @@ help:
 	@echo "... src/systems/animation/AnimationManager.o"
 	@echo "... src/systems/animation/AnimationManager.i"
 	@echo "... src/systems/animation/AnimationManager.s"
+	@echo "... src/systems/audio_systems/AudioSystem.o"
+	@echo "... src/systems/audio_systems/AudioSystem.i"
+	@echo "... src/systems/audio_systems/AudioSystem.s"
 	@echo "... src/systems/ui/ScalingManager.o"
 	@echo "... src/systems/ui/ScalingManager.i"
 	@echo "... src/systems/ui/ScalingManager.s"

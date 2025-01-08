@@ -52,6 +52,15 @@ namespace AssetPaths {
     const std::string TEXTURES_DIR = ASSETS_DIR + "/textures";
     const std::string FONTS_DIR = ASSETS_DIR + "/fonts";
     
+    // Audio paths
+    const std::string AUDIO_DIR = ASSETS_DIR + "/sound";
+    const std::string MUSIC_DIR = AUDIO_DIR + "/music";
+    const std::string SFX_DIR = AUDIO_DIR + "/sfx";
+    
+    // Music files
+    const std::string MENU_MUSIC_START = resolvePath(MUSIC_DIR + "/menu-music-start.ogg");
+    const std::string MENU_MUSIC_LOOP = resolvePath(MUSIC_DIR + "/menu-music-loop.ogg");
+    
     // Animation paths
     const std::string ANIMATIONS_DIR = TEXTURES_DIR + "/animations";
     const std::string MAIN_MENU_ANIM = resolvePath(ANIMATIONS_DIR + "/main-menu-anim");
@@ -68,4 +77,7 @@ namespace AssetPaths {
     // UI Elements
     inline const std::string UI_SELECTOR = resolvePath(TEXTURES_DIR + "/ui/selector.png");
     inline const std::string MENU_CONFIG = resolvePath(ASSETS_DIR + "/config/menu_config.json");
+    
+    // Audio config
+    inline const std::string AUDIO_CONFIG = resolvePath(ASSETS_DIR + "/config/audio_config.json");
 } 

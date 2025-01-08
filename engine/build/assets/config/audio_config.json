@@ -1,0 +1,29 @@
+{
+    "sounds": {
+    },
+    "music": {
+        "menu-start": {
+            "file": "assets/sound/music/menu-music-start.ogg",
+            "base_volume": 100,
+            "category": "music",
+            "loop": false
+        },
+        "menu-loop": {
+            "file": "assets/sound/music/menu-music-loop.ogg",
+            "base_volume": 100,
+            "category": "music",
+            "loop": true
+        }
+    },
+    "categories": {
+        "sfx": {
+            "volume": 100
+        },
+        "music": {
+            "volume": 100
+        },
+        "ambient": {
+            "volume": 100
+        }
+    }
+} 

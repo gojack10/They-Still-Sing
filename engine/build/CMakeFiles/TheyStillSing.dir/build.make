@@ -142,10 +142,24 @@ CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s: cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jack10/gamedev/They-Still-Sing/engine/src/systems/animation/AnimationManager.cpp -o CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.s
 
+CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o: CMakeFiles/TheyStillSing.dir/flags.make
+CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o: /home/jack10/gamedev/They-Still-Sing/engine/src/systems/audio_systems/AudioSystem.cpp
+CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o -MF CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o.d -o CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o -c /home/jack10/gamedev/They-Still-Sing/engine/src/systems/audio_systems/AudioSystem.cpp
+
+CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jack10/gamedev/They-Still-Sing/engine/src/systems/audio_systems/AudioSystem.cpp > CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.i
+
+CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jack10/gamedev/They-Still-Sing/engine/src/systems/audio_systems/AudioSystem.cpp -o CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.s
+
 CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o: CMakeFiles/TheyStillSing.dir/flags.make
 CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o: /home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuHitbox.cpp
 CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o -MF CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o.d -o CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o -c /home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuHitbox.cpp
 
 CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.i: cmake_force
@@ -159,7 +173,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.s: cmake_force
 CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: CMakeFiles/TheyStillSing.dir/flags.make
 CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: /home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuManager.cpp
 CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o -MF CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o.d -o CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o -c /home/jack10/gamedev/They-Still-Sing/engine/src/ui/MenuManager.cpp
 
 CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.i: cmake_force
@@ -173,7 +187,7 @@ CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.s: cmake_force
 CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o: CMakeFiles/TheyStillSing.dir/flags.make
 CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o: /home/jack10/gamedev/They-Still-Sing/engine/src/systems/ui/ScalingManager.cpp
 CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o -MF CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o.d -o CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o -c /home/jack10/gamedev/They-Still-Sing/engine/src/systems/ui/ScalingManager.cpp
 
 CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.i: cmake_force
@@ -191,6 +205,7 @@ TheyStillSing_OBJECTS = \
 "CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o" \
 "CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o" \
 "CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o" \
+"CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o" \
 "CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o" \
 "CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o" \
 "CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o"
@@ -203,6 +218,7 @@ TheyStillSing: CMakeFiles/TheyStillSing.dir/src/states/WarningState.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/states/MainMenuState.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/systems/animation/Animation.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/systems/animation/AnimationManager.cpp.o
+TheyStillSing: CMakeFiles/TheyStillSing.dir/src/systems/audio_systems/AudioSystem.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/ui/MenuHitbox.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/ui/MenuManager.cpp.o
 TheyStillSing: CMakeFiles/TheyStillSing.dir/src/systems/ui/ScalingManager.cpp.o
@@ -210,9 +226,10 @@ TheyStillSing: CMakeFiles/TheyStillSing.dir/build.make
 TheyStillSing: CMakeFiles/TheyStillSing.dir/compiler_depend.ts
 TheyStillSing: /usr/lib/libsfml-graphics.so.2.6.2
 TheyStillSing: /usr/lib/libsfml-window.so.2.6.2
+TheyStillSing: /usr/lib/libsfml-audio.so.2.6.2
 TheyStillSing: /usr/lib/libsfml-system.so.2.6.2
 TheyStillSing: CMakeFiles/TheyStillSing.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable TheyStillSing"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/jack10/gamedev/They-Still-Sing/engine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable TheyStillSing"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TheyStillSing.dir/link.txt --verbose=$(VERBOSE)
 	/usr/bin/cmake -E copy_directory /home/jack10/gamedev/They-Still-Sing/engine/assets /home/jack10/gamedev/They-Still-Sing/engine/build/assets
 

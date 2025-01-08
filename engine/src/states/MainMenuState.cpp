@@ -87,6 +87,9 @@ void MainMenuState::init() {
     }
 }
 
+void MainMenuState::cleanup() {
+}
+
 void MainMenuState::handleInput(sf::RenderWindow& window) {
     MenuManager::getInstance().handleInput(window);
 }

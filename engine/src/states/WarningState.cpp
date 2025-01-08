@@ -22,6 +22,9 @@ void WarningState::init() {
     timer.restart();
 }
 
+void WarningState::cleanup() {
+}
+
 void WarningState::handleInput(sf::RenderWindow& window) {
     if (!startFade && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         startFade = true;

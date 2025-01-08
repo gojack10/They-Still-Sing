@@ -9,6 +9,7 @@
 #include "utils/Debug.hpp"
 #include "ui/MenuManager.hpp"
 #include "systems/ui/ScalingManager.hpp"
+#include "systems/audio_systems/AudioSystem.hpp"
 
 const unsigned int BASE_WIDTH = 1280;
 const unsigned int BASE_HEIGHT = 720;
@@ -36,6 +37,22 @@ int main() {
         
         // Initialize ScalingManager with base window size
         Engine::ScalingManager::getInstance().updateWindowSize(BASE_WIDTH, BASE_HEIGHT);
+        
+        // Initialize AudioSystem
+        auto& audio = Engine::AudioSystem::getInstance();
+        audio.initialize(AssetPaths::AUDIO_CONFIG);
+        
+        // Set up menu music transition callback
+        bool menuLoopStarted = false;
+        audio.setMusicStopCallback([&audio, &menuLoopStarted](const std::string& musicName) {
+            if (musicName == "menu-start" && !menuLoopStarted) {
+                audio.playMusic("menu-loop");
+                menuLoopStarted = true;
+            }
+        });
+        
+        // Start menu intro music
+        audio.playMusic("menu-start");
         
         // Set frame limit to 30 FPS
         window.setFramerateLimit(30);
@@ -103,6 +120,9 @@ int main() {
             // Calculate delta time
             float deltaTime = deltaClock.restart().asSeconds();
             
+            // Update audio system
+            audio.update(deltaTime);
+
             // Calculate FPS with smoothing
             float currentTime = fpsClock.getElapsedTime().asSeconds();
             static float lastTime = currentTime;
@@ -154,6 +174,11 @@ int main() {
             window.draw(fpsText);
             window.display();
         }
+
+        // Stop all music before closing
+        audio.stopMusic("menu-start");
+        audio.stopMusic("menu-loop");
+        
     } catch (const std::exception& e) {
         std::cerr << "Fatal error: " << e.what() << std::endl;
         Debug::printBacktrace();

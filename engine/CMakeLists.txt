@@ -27,7 +27,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(json)
 
 # Find SFML with more detailed error reporting
-find_package(SFML 2.5 COMPONENTS graphics window system REQUIRED)
+find_package(SFML 2.5 COMPONENTS graphics window system audio REQUIRED)
 if(NOT SFML_FOUND)
     message(FATAL_ERROR "SFML not found. Please install SFML 2.5 or later.")
 endif()
@@ -44,6 +44,7 @@ set(SOURCES
     src/states/MainMenuState.cpp
     src/systems/animation/Animation.cpp
     src/systems/animation/AnimationManager.cpp
+    src/systems/audio_systems/AudioSystem.cpp
     src/utils/UIScaler.hpp
     ${ASSET_HEADERS}
     src/ui/MenuHitbox.cpp
@@ -65,6 +66,7 @@ target_link_libraries(${PROJECT_NAME}
     sfml-graphics 
     sfml-window 
     sfml-system
+    sfml-audio
     nlohmann_json::nlohmann_json
 )
 
