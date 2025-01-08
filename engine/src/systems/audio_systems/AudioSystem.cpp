@@ -6,7 +6,7 @@
 namespace Engine {
 
 void AudioSystem::initialize(const std::string& configPath) {
-    std::cout << "AudioSystem: Initializing with config: " << configPath << std::endl;
+    std::cout << "AudioSystem: Loading config from absolute path: " << configPath << std::endl;
     
     // Load configuration
     std::ifstream configFile(configPath);
@@ -15,68 +15,147 @@ void AudioSystem::initialize(const std::string& configPath) {
         return;
     }
     
-    config = nlohmann::json::parse(configFile);
-    std::cout << "AudioSystem: Successfully parsed config file" << std::endl;
+    // Clear existing audio data
+    sounds.clear();
+    music.clear();
+    categoryVolumes.clear();
     
-    // Initialize category volumes
-    for (const auto& [category, data] : config["categories"].items()) {
-        categoryVolumes[category] = data["volume"];
-        std::cout << "AudioSystem: Set " << category << " volume to " << data["volume"] << std::endl;
-    }
-    
-    // Load sounds
-    for (const auto& [name, data] : config["sounds"].items()) {
-        SoundData soundData;
-        std::string filePath = AssetPaths::resolvePath(data["file"].get<std::string>());
-        std::cout << "AudioSystem: Loading sound " << name << " from " << filePath << std::endl;
+    try {
+        config = nlohmann::json::parse(configFile);
+        if (!config.is_object()) {
+            std::cerr << "Invalid audio config format: Root must be an object" << std::endl;
+            return;
+        }
+        std::cout << "AudioSystem: Successfully parsed config file" << std::endl;
         
-        if (!soundData.buffer.loadFromFile(filePath)) {
-            std::cerr << "Failed to load sound: " << filePath << std::endl;
-            continue;
+        // Debug print entire config
+        std::cout << "AudioSystem: Full config contents:" << std::endl;
+        std::cout << config.dump(2) << std::endl;
+        
+        // Initialize category volumes
+        if (!config.contains("categories")) {
+            std::cerr << "Audio config missing 'categories' section" << std::endl;
+            return;
         }
         
-        soundData.sound.setBuffer(soundData.buffer);
-        soundData.baseVolume = data["base_volume"];
-        soundData.currentVolume = soundData.baseVolume;
-        soundData.targetVolume = soundData.baseVolume;
-        soundData.category = data["category"];
+        for (const auto& [category, data] : config["categories"].items()) {
+            if (!data.contains("volume")) {
+                std::cerr << "Category " << category << " missing volume setting" << std::endl;
+                continue;
+            }
+            float volume = data["volume"].get<float>();
+            categoryVolumes[category] = volume;
+            std::cout << "AudioSystem: Category '" << category << "' volume initialized to " << volume << std::endl;
+        }
         
-        if (data.contains("spatial")) {
-            soundData.spatial = data["spatial"];
-            if (data.contains("min_volume")) {
-                soundData.minVolume = data["min_volume"];
+        // Load sounds
+        if (config.contains("sounds")) {
+            for (const auto& [name, data] : config["sounds"].items()) {
+                SoundData soundData;
+                std::string filePath = AssetPaths::resolvePath(data["file"].get<std::string>());
+                std::cout << "AudioSystem: Loading sound '" << name << "' from " << filePath << std::endl;
+                
+                if (!soundData.buffer.loadFromFile(filePath)) {
+                    std::cerr << "Failed to load sound: " << filePath << std::endl;
+                    continue;
+                }
+                
+                soundData.sound.setBuffer(soundData.buffer);
+                soundData.baseVolume = data["base_volume"];
+                soundData.currentVolume = soundData.baseVolume;
+                soundData.targetVolume = soundData.baseVolume;
+                soundData.category = data["category"];
+                
+                std::cout << "AudioSystem: Sound '" << name << "' base volume: " << soundData.baseVolume 
+                         << ", category: " << soundData.category << std::endl;
+                
+                if (data.contains("spatial")) {
+                    soundData.spatial = data["spatial"];
+                    if (data.contains("min_volume")) {
+                        soundData.minVolume = data["min_volume"];
+                    }
+                }
+                
+                // Apply initial volume based on category
+                if (auto it = categoryVolumes.find(soundData.category); it != categoryVolumes.end()) {
+                    float finalVolume = (soundData.baseVolume * it->second) / 100.f;
+                    soundData.sound.setVolume(finalVolume);
+                    std::cout << "AudioSystem: Setting initial sound '" << name 
+                             << "' volume to " << finalVolume 
+                             << " (base: " << soundData.baseVolume 
+                             << " * category: " << it->second << ")" << std::endl;
+                } else {
+                    std::cerr << "Warning: Sound '" << name << "' has unknown category: " 
+                             << soundData.category << std::endl;
+                }
+                
+                sounds[name] = std::move(soundData);
+                std::cout << "AudioSystem: Successfully loaded sound '" << name << "'" << std::endl;
             }
         }
         
-        sounds[name] = std::move(soundData);
-        std::cout << "AudioSystem: Successfully loaded sound " << name << std::endl;
+        // Load music
+        if (config.contains("music")) {
+            for (const auto& [name, data] : config["music"].items()) {
+                auto musicPtr = std::make_unique<MusicData>();
+                std::string filePath = AssetPaths::resolvePath(data["file"].get<std::string>());
+                std::cout << "AudioSystem: Loading music '" << name << "' from " << filePath << std::endl;
+                
+                if (!musicPtr->music.openFromFile(filePath)) {
+                    std::cerr << "Failed to load music: " << filePath << std::endl;
+                    continue;
+                }
+                
+                musicPtr->baseVolume = data["base_volume"];
+                musicPtr->category = data["category"];
+                
+                std::cout << "AudioSystem: Music '" << name << "' base volume: " << musicPtr->baseVolume 
+                         << ", category: " << musicPtr->category << std::endl;
+                
+                // Apply initial volume based on category
+                if (auto it = categoryVolumes.find(musicPtr->category); it != categoryVolumes.end()) {
+                    float finalVolume = (musicPtr->baseVolume * it->second) / 100.f;
+                    musicPtr->music.setVolume(finalVolume);
+                    std::cout << "AudioSystem: Setting initial music '" << name 
+                             << "' volume to " << finalVolume 
+                             << " (base: " << musicPtr->baseVolume 
+                             << " * category: " << it->second << ")" << std::endl;
+                } else {
+                    std::cerr << "Warning: Music '" << name << "' has unknown category: " 
+                             << musicPtr->category << std::endl;
+                }
+                
+                if (data.contains("loop")) {
+                    musicPtr->music.setLoop(data["loop"]);
+                }
+                
+                music[name] = std::move(musicPtr);
+                std::cout << "AudioSystem: Successfully loaded music '" << name << "'" << std::endl;
+            }
+        }
+        
+    } catch (const nlohmann::json::exception& e) {
+        std::cerr << "JSON parsing error: " << e.what() << std::endl;
+        return;
+    } catch (const std::exception& e) {
+        std::cerr << "Error during audio initialization: " << e.what() << std::endl;
+        return;
     }
     
-    // Load music
-    for (const auto& [name, data] : config["music"].items()) {
-        auto musicPtr = std::make_unique<MusicData>();
-        std::string filePath = AssetPaths::resolvePath(data["file"].get<std::string>());
-        std::cout << "AudioSystem: Loading music " << name << " from " << filePath << std::endl;
-        
-        if (!musicPtr->music.openFromFile(filePath)) {
-            std::cerr << "Failed to load music: " << filePath << std::endl;
-            continue;
-        }
-        
-        musicPtr->baseVolume = data["base_volume"];
-        musicPtr->category = data["category"];
-        
-        if (data.contains("loop")) {
-            musicPtr->music.setLoop(data["loop"]);
-        }
-        
-        music[name] = std::move(musicPtr);
-        std::cout << "AudioSystem: Successfully loaded music " << name << std::endl;
+    // Final verification of loaded data
+    std::cout << "\nAudioSystem: Initialization Summary:" << std::endl;
+    std::cout << "Categories loaded: " << categoryVolumes.size() << std::endl;
+    for (const auto& [category, volume] : categoryVolumes) {
+        std::cout << "  - " << category << ": " << volume << std::endl;
     }
+    std::cout << "Sounds loaded: " << sounds.size() << std::endl;
+    std::cout << "Music tracks loaded: " << music.size() << std::endl;
 }
 
 void AudioSystem::playSound(const std::string& name) {
     if (auto it = sounds.find(name); it != sounds.end()) {
+        // Update volume before playing
+        updateSoundProperties(it->second);
         it->second.sound.play();
     }
 }
@@ -84,6 +163,11 @@ void AudioSystem::playSound(const std::string& name) {
 void AudioSystem::playMusic(const std::string& name) {
     std::cout << "AudioSystem: Attempting to play music " << name << std::endl;
     if (auto it = music.find(name); it != music.end()) {
+        // Update volume before playing
+        if (auto catIt = categoryVolumes.find(it->second->category); catIt != categoryVolumes.end()) {
+            float finalVolume = (it->second->baseVolume * catIt->second) / 100.f;
+            it->second->music.setVolume(finalVolume);
+        }
         it->second->music.play();
         std::cout << "AudioSystem: Started playing music " << name << std::endl;
     } else {
@@ -126,7 +210,9 @@ void AudioSystem::setPlayerRotation(float angle) {
 }
 
 void AudioSystem::setCategoryVolume(const std::string& category, float volume) {
-    categoryVolumes[category] = volume;
+    // Only clamp volume to prevent negative values
+    float clampedVolume = std::max(0.f, volume);
+    categoryVolumes[category] = clampedVolume;
     
     // Update all sounds in this category
     for (auto& [name, soundData] : sounds) {
@@ -138,7 +224,7 @@ void AudioSystem::setCategoryVolume(const std::string& category, float volume) {
     // Update all music in this category
     for (auto& [name, musicPtr] : music) {
         if (musicPtr->category == category) {
-            float finalVolume = (musicPtr->baseVolume * volume) / 100.f;
+            float finalVolume = (musicPtr->baseVolume * clampedVolume) / 100.f;
             musicPtr->music.setVolume(finalVolume);
         }
     }
@@ -270,7 +356,8 @@ void AudioSystem::updateSoundProperties(SoundData& soundData) {
     
     // Apply category volume
     if (auto it = categoryVolumes.find(soundData.category); it != categoryVolumes.end()) {
-        finalVolume = (finalVolume * it->second) / 100.f;
+        // Only prevent negative values, allow volumes above 100
+        finalVolume = std::max(0.f, (finalVolume * it->second) / 100.f);
     }
     
     soundData.sound.setVolume(finalVolume);
