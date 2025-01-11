@@ -1,6 +1,16 @@
 cmake_minimum_required(VERSION 3.10)
 project(TheyStillSing)
 
+# Enable ccache if available
+find_program(CCACHE_PROGRAM ccache)
+if(CCACHE_PROGRAM)
+    set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+endif()
+
+# Optimize build speed
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pipe")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Disable verbose output
 set(CMAKE_VERBOSE_MAKEFILE OFF)
 
@@ -14,17 +24,27 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -rdynamic")
 # Enable backtracing
 add_definitions(-DBACKTRACE_ENABLE)
 
-# Include FetchContent for downloading dependencies
-include(FetchContent)
+# Download CPM.cmake
+set(CPM_DOWNLOAD_VERSION 0.38.6)
+set(CPM_DOWNLOAD_LOCATION "${CMAKE_BINARY_DIR}/cmake/CPM_${CPM_DOWNLOAD_VERSION}.cmake")
 
-# Add nlohmann_json
-FetchContent_Declare(
-    json
-    GIT_REPOSITORY https://github.com/nlohmann/json.git
-    GIT_TAG v3.11.2
-    DOWNLOAD_EXTRACT_TIMESTAMP true
+if(NOT (EXISTS ${CPM_DOWNLOAD_LOCATION}))
+    message(STATUS "Downloading CPM.cmake...")
+    file(DOWNLOAD
+        https://github.com/cpm-cmake/CPM.cmake/releases/download/v${CPM_DOWNLOAD_VERSION}/CPM.cmake
+        ${CPM_DOWNLOAD_LOCATION}
+    )
+endif()
+include(${CPM_DOWNLOAD_LOCATION})
+
+# Add nlohmann_json using CPM
+CPMAddPackage(
+    NAME nlohmann_json
+    VERSION 3.11.2
+    GITHUB_REPOSITORY nlohmann/json
+    OPTIONS 
+        "JSON_BuildTests OFF"
 )
-FetchContent_MakeAvailable(json)
 
 # Find SFML with more detailed error reporting
 find_package(SFML 2.5 COMPONENTS graphics window system audio REQUIRED)
@@ -42,6 +62,7 @@ set(SOURCES
     src/main.cpp
     src/states/WarningState.cpp
     src/states/MainMenuState.cpp
+    src/states/OptionsState.cpp
     src/systems/animation/Animation.cpp
     src/systems/animation/AnimationManager.cpp
     src/systems/audio_systems/AudioSystem.cpp

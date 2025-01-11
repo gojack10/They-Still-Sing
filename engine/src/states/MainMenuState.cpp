@@ -5,6 +5,8 @@
 #include "../systems/ui/ScalingManager.hpp"
 #include "../ui/MenuManager.hpp"
 #include "../systems/audio_systems/AudioSystem.hpp"
+#include "../core/StateManager.hpp"
+#include "OptionsState.hpp"
 #include <iostream>
 #include <filesystem>
 #include <fstream>
@@ -110,6 +112,16 @@ void MainMenuState::handleInput(sf::RenderWindow& window) {
     
     // Get currently hovered button
     const std::string& currentHoveredButton = MenuManager::getInstance().getHoveredButton();
+    
+    // Handle button clicks
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (currentHoveredButton == "OPTIONS") {
+            // Save current music state and transition to options
+            auto& audio = Engine::AudioSystem::getInstance();
+            StateManager::getInstance().changeState(std::make_unique<OptionsState>());
+            return;
+        }
+    }
     
     // Debug: Print button hover state changes
     if (currentHoveredButton != lastHoveredButton) {

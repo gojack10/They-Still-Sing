@@ -68,6 +68,8 @@ namespace AssetPaths {
     // Animation paths
     const std::string ANIMATIONS_DIR = TEXTURES_DIR + "/animations";
     const std::string MAIN_MENU_ANIM = resolvePath(ANIMATIONS_DIR + "/main-menu-anim");
+    const std::string OPTIONS_ENTER_ANIM = resolvePath(ANIMATIONS_DIR + "/options-enter");
+    const std::string OPTIONS_EXIT_ANIM = resolvePath(ANIMATIONS_DIR + "/options-exit");
     
     // UI paths
     const std::string UI_DIR = TEXTURES_DIR + "/ui";
