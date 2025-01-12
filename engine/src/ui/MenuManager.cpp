@@ -24,12 +24,22 @@ void MenuManager::loadFromJson(const std::string& filepath) {
             button["w"].get<float>(),
             button["h"].get<float>()
         );
-        sf::Vector2f selectorPos(
-            button["selector"]["x"].get<float>(),
-            button["selector"]["y"].get<float>()
-        );
+
+        // Handle optional selector field
+        sf::Vector2f selectorPos(0.f, 0.f);
+        bool hasSelector = false;
+        if (button.contains("selector")) {
+            const auto& selector = button["selector"];
+            if (selector.contains("x") && selector.contains("y")) {
+                selectorPos = sf::Vector2f(
+                    selector["x"].get<float>(),
+                    selector["y"].get<float>()
+                );
+                hasSelector = true;
+            }
+        }
         
-        hitboxes.emplace_back(normalizedPos, normalizedSize, button["name"].get<std::string>(), selectorPos);
+        hitboxes.emplace_back(normalizedPos, normalizedSize, button["name"].get<std::string>(), selectorPos, hasSelector);
     }
 }
 
@@ -45,8 +55,10 @@ void MenuManager::handleInput(const sf::RenderWindow& window) {
     for (const auto& hitbox : hitboxes) {
         if (hitbox.contains(normalizedPos)) {
             hoveredButton = hitbox.getName();
-            // Position selector sprite at the hitbox's selector position
-            scalingManager.scaleSprite(selectorSprite, hitbox.getSelectorPosition());
+            // Only update selector position if the hitbox has a selector
+            if (hitbox.getHasSelector()) {
+                scalingManager.scaleSprite(selectorSprite, hitbox.getSelectorPosition());
+            }
             break;
         }
     }
@@ -63,8 +75,14 @@ void MenuManager::draw(sf::RenderWindow& window) {
         }
     }
 
-    // Draw selector if a button is hovered
+    // Draw selector if a button is hovered and it has a selector
     if (!hoveredButton.empty()) {
-        window.draw(selectorSprite);
+        // Find the hovered hitbox
+        auto it = std::find_if(hitboxes.begin(), hitboxes.end(),
+            [this](const MenuHitbox& hitbox) { return hitbox.getName() == hoveredButton; });
+        
+        if (it != hitboxes.end() && it->getHasSelector()) {
+            window.draw(selectorSprite);
+        }
     }
 } 

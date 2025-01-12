@@ -7,7 +7,8 @@
 class MenuHitbox {
 public:
     MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f& absoluteSize, 
-               const std::string& name, const sf::Vector2f& selectorPosition);
+               const std::string& name, const sf::Vector2f& selectorPosition = sf::Vector2f(0, 0), 
+               bool hasSelector = false);
     
     bool contains(const sf::Vector2f& normalizedPoint) const;
     void draw(sf::RenderWindow& window, bool debugMode) const;
@@ -15,6 +16,7 @@ public:
     const sf::Vector2f& getNormalizedPosition() const { return normalizedPosition; }
     const sf::Vector2f& getNormalizedSize() const { return normalizedSize; }
     const sf::Vector2f& getSelectorPosition() const { return selectorPosition; }
+    bool getHasSelector() const { return hasSelector; }
 
 private:
     sf::Vector2f normalizedPosition;  // Stored in normalized coordinates (0-1)
@@ -23,4 +25,5 @@ private:
     std::string name;
     sf::Color debugColor;
     mutable sf::RectangleShape debugRect;  // Mutable because we update it in draw()
+    bool hasSelector;                      // Flag to indicate if this hitbox has a selector
 }; 

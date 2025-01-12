@@ -35,6 +35,54 @@
         "x": 40,
         "y": 585
       }
+    },
+    {
+      "name": "FULLSCREEN_CHECKBOX",
+      "w": 53,
+      "h": 53,
+      "x": 380,
+      "y": 147,
+      "anchor": "TopLeft"
+    },
+    {
+      "name": "SFX_VOL_DOWN_BUTTON",
+      "w": 32,
+      "h": 75,
+      "x": 380,
+      "y": 280,
+      "anchor": "Center"
+    },
+    {
+      "name": "SFX_VOL_UP_BUTTON",
+      "w": 31,
+      "h": 76,
+      "x": 659,
+      "y": 279,
+      "anchor": "Center"
+    },
+    {
+      "name": "MUSIC_VOL_DOWN_BUTTON",
+      "w": 32,
+      "h": 75,
+      "x": 380,
+      "y": 422,
+      "anchor": "Center"
+    },
+    {
+      "name": "MUSIC_VOL_UP_BUTTON",
+      "w": 31,
+      "h": 76,
+      "x": 660,
+      "y": 422,
+      "anchor": "Center"
+    },
+    {
+      "name": "RESET_ALL_PROGRESS_BUTTON",
+      "w": 428,
+      "h": 68,
+      "x": 800,
+      "y": 443,
+      "anchor": "Center"
     }
   ],
   "button_placement": [
@@ -42,7 +90,29 @@
       "name": "MENU_TEXT",
       "x": 80,
       "y": 68,
-      "anchor": "TopLeft"
+      "anchor": "TopLeft",
+      "file": "menu-text.png"
+    },
+    {
+      "name": "OPTIONS_MENU_BUTTONS",
+      "x": 60,
+      "y": 147,
+      "anchor": "Center",
+      "file": "options-buttons.png"
+    },
+    {
+      "name": "RESET_ALL_PROGRESS",
+      "x": 800,
+      "y": 443,
+      "anchor": "Center",
+      "file": "reset-game-button.png"
+    },
+    {
+      "name": "FULLSCREEN_CHECK",
+        "x": 386,
+      "y": 153,
+      "anchor": "Center",
+      "file": "check.jpg"
     }
   ],
   "fps-counter": [

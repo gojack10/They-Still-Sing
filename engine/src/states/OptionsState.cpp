@@ -3,10 +3,11 @@
 #include "MainMenuState.hpp"
 #include "../systems/animation/AnimationManager.hpp"
 #include "../systems/ui/ScalingManager.hpp"
-
 #include "../config/AssetPaths.hpp"
 #include <iostream>
 #include <cmath>
+#include <fstream>
+#include <nlohmann/json.hpp>
 
 OptionsState::OptionsState() 
     : backgroundColor(sf::Color(8, 16, 123)) // #08107b
@@ -50,6 +51,72 @@ void OptionsState::init() {
             std::cout << "OptionsState: Successfully loaded options exit animation" << std::endl;
         } else {
             std::cerr << "OptionsState: Failed to load options exit animation!" << std::endl;
+        }
+
+        // Load UI textures
+        if (!optionsButtonsTexture.loadFromFile(AssetPaths::OPTIONS_BUTTONS_TEXTURE)) {
+            std::cerr << "OptionsState: Failed to load options buttons texture!" << std::endl;
+        }
+        optionsButtonsSprite.setTexture(optionsButtonsTexture);
+
+        if (!resetGameButtonTexture.loadFromFile(AssetPaths::RESET_ALL_PROGRESS_TEXTURE)) {
+            std::cerr << "OptionsState: Failed to load reset game button texture!" << std::endl;
+        }
+        resetGameButtonSprite.setTexture(resetGameButtonTexture);
+
+        if (!checkTexture.loadFromFile(AssetPaths::UI_CHECK)) {
+            std::cerr << "OptionsState: Failed to load check texture!" << std::endl;
+        }
+        checkSprite.setTexture(checkTexture);
+
+        // Load menu config
+        std::ifstream configFile(AssetPaths::MENU_CONFIG);
+        if (!configFile.is_open()) {
+            throw std::runtime_error("Failed to open menu config file");
+        }
+        nlohmann::json config = nlohmann::json::parse(configFile);
+
+        // Position UI elements according to menu config
+        auto& placements = config["button_placement"];
+        for (const auto& placement : placements) {
+            std::string name = placement["name"];
+            float x = placement["x"];
+            float y = placement["y"];
+
+            if (name == "OPTIONS_MENU_BUTTONS") {
+                optionsButtonsSprite.setPosition(x, y);
+            } else if (name == "RESET_ALL_PROGRESS") {
+                resetGameButtonSprite.setPosition(x, y);
+            } else if (name == "FULLSCREEN_CHECK") {
+                checkSprite.setPosition(x, y);
+            }
+        }
+
+        // Setup hitboxes
+        auto& hitboxes = config["button_hitboxes"];
+        for (const auto& hitbox : hitboxes) {
+            std::string name = hitbox["name"];
+            float x = hitbox["x"];
+            float y = hitbox["y"];
+            float w = hitbox["w"];
+            float h = hitbox["h"];
+
+            sf::RectangleShape* targetHitbox = nullptr;
+
+            if (name == "FULLSCREEN_CHECKBOX") targetHitbox = &fullscreenHitbox;
+            else if (name == "SFX_VOL_DOWN_BUTTON") targetHitbox = &sfxVolDownHitbox;
+            else if (name == "SFX_VOL_UP_BUTTON") targetHitbox = &sfxVolUpHitbox;
+            else if (name == "MUSIC_VOL_DOWN_BUTTON") targetHitbox = &musicVolDownHitbox;
+            else if (name == "MUSIC_VOL_UP_BUTTON") targetHitbox = &musicVolUpHitbox;
+            else if (name == "RESET_ALL_PROGRESS_BUTTON") targetHitbox = &resetAllHitbox;
+
+            if (targetHitbox) {
+                targetHitbox->setSize(sf::Vector2f(w, h));
+                targetHitbox->setPosition(x, y);
+                targetHitbox->setFillColor(sf::Color::Transparent);
+                targetHitbox->setOutlineColor(sf::Color::Green);
+                targetHitbox->setOutlineThickness(1.0f);
+            }
         }
         
     } catch (const std::exception& e) {
@@ -113,6 +180,19 @@ void OptionsState::draw(sf::RenderWindow& window) {
                     window.draw(sprite);
                 }
             }
+        } else {
+            // Draw UI elements when not transitioning
+            window.draw(optionsButtonsSprite);
+            window.draw(resetGameButtonSprite);
+            window.draw(checkSprite);
+
+            // Draw hitboxes
+            window.draw(fullscreenHitbox);
+            window.draw(sfxVolDownHitbox);
+            window.draw(sfxVolUpHitbox);
+            window.draw(musicVolDownHitbox);
+            window.draw(musicVolUpHitbox);
+            window.draw(resetAllHitbox);
         }
         
     } catch (const std::exception& e) {

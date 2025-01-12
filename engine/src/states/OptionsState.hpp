@@ -25,4 +25,20 @@ private:
     // Animation related
     std::string currentAnimation;
     bool animationComplete;
+
+    // UI Elements
+    sf::Texture optionsButtonsTexture;
+    sf::Sprite optionsButtonsSprite;
+    sf::Texture resetGameButtonTexture;
+    sf::Sprite resetGameButtonSprite;
+    sf::Texture checkTexture;
+    sf::Sprite checkSprite;
+
+    // Hitboxes for UI elements
+    sf::RectangleShape fullscreenHitbox;
+    sf::RectangleShape sfxVolDownHitbox;
+    sf::RectangleShape sfxVolUpHitbox;
+    sf::RectangleShape musicVolDownHitbox;
+    sf::RectangleShape musicVolUpHitbox;
+    sf::RectangleShape resetAllHitbox;
 }; 

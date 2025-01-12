@@ -3,11 +3,12 @@
 #include <random>
 
 MenuHitbox::MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f& absoluteSize, 
-                       const std::string& name, const sf::Vector2f& selectorPosition)
+                       const std::string& name, const sf::Vector2f& selectorPosition, bool hasSelector)
     : normalizedPosition(Engine::ScalingManager::absoluteToNormalized(absolutePosition))
     , normalizedSize(Engine::ScalingManager::absoluteToNormalized(absoluteSize))
     , selectorPosition(Engine::ScalingManager::absoluteToNormalized(selectorPosition))
-    , name(name) {
+    , name(name)
+    , hasSelector(hasSelector) {
     // Generate random color for debug visualization
     std::random_device rd;
     std::mt19937 gen(rd());
