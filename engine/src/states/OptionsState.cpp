@@ -73,7 +73,7 @@ void OptionsState::init() {
         }
         checkSprite.setTexture(checkTexture);
 
-        // Load menu config
+        // Load menu config for UI element placement
         std::ifstream configFile(AssetPaths::MENU_CONFIG);
         if (!configFile.is_open()) {
             throw std::runtime_error("Failed to open menu config file");
@@ -93,33 +93,6 @@ void OptionsState::init() {
                 resetGameButtonSprite.setPosition(x, y);
             } else if (name == "FULLSCREEN_CHECK") {
                 checkSprite.setPosition(x, y);
-            }
-        }
-
-        // Setup hitboxes
-        auto& hitboxes = config["button_hitboxes"];
-        for (const auto& hitbox : hitboxes) {
-            std::string name = hitbox["name"];
-            float x = hitbox["x"];
-            float y = hitbox["y"];
-            float w = hitbox["w"];
-            float h = hitbox["h"];
-
-            sf::RectangleShape* targetHitbox = nullptr;
-
-            if (name == "FULLSCREEN_CHECKBOX") targetHitbox = &fullscreenHitbox;
-            else if (name == "SFX_VOL_DOWN_BUTTON") targetHitbox = &sfxVolDownHitbox;
-            else if (name == "SFX_VOL_UP_BUTTON") targetHitbox = &sfxVolUpHitbox;
-            else if (name == "MUSIC_VOL_DOWN_BUTTON") targetHitbox = &musicVolDownHitbox;
-            else if (name == "MUSIC_VOL_UP_BUTTON") targetHitbox = &musicVolUpHitbox;
-            else if (name == "RESET_ALL_PROGRESS_BUTTON") targetHitbox = &resetAllHitbox;
-
-            if (targetHitbox) {
-                targetHitbox->setSize(sf::Vector2f(w, h));
-                targetHitbox->setPosition(x, y);
-                targetHitbox->setFillColor(sf::Color::Transparent);
-                targetHitbox->setOutlineColor(sf::Color::Green);
-                targetHitbox->setOutlineThickness(1.0f);
             }
         }
         
@@ -190,13 +163,8 @@ void OptionsState::draw(sf::RenderWindow& window) {
             window.draw(resetGameButtonSprite);
             window.draw(checkSprite);
 
-            // Draw hitboxes
-            window.draw(fullscreenHitbox);
-            window.draw(sfxVolDownHitbox);
-            window.draw(sfxVolUpHitbox);
-            window.draw(musicVolDownHitbox);
-            window.draw(musicVolUpHitbox);
-            window.draw(resetAllHitbox);
+            // Draw hitboxes through MenuManager
+            MenuManager::getInstance().draw(window);
         }
         
     } catch (const std::exception& e) {

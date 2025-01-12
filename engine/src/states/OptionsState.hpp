@@ -33,12 +33,4 @@ private:
     sf::Sprite resetGameButtonSprite;
     sf::Texture checkTexture;
     sf::Sprite checkSprite;
-
-    // Hitboxes for UI elements
-    sf::RectangleShape fullscreenHitbox;
-    sf::RectangleShape sfxVolDownHitbox;
-    sf::RectangleShape sfxVolUpHitbox;
-    sf::RectangleShape musicVolDownHitbox;
-    sf::RectangleShape musicVolUpHitbox;
-    sf::RectangleShape resetAllHitbox;
 }; 
