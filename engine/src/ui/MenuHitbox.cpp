@@ -4,13 +4,14 @@
 
 MenuHitbox::MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f& absoluteSize, 
                        const std::string& name, const sf::Vector2f& selectorPosition, bool hasSelector,
-                       const std::string& state)
+                       const std::string& state, Engine::Anchor anchor)
     : normalizedPosition(Engine::ScalingManager::absoluteToNormalized(absolutePosition))
     , normalizedSize(Engine::ScalingManager::absoluteToNormalized(absoluteSize))
     , selectorPosition(Engine::ScalingManager::absoluteToNormalized(selectorPosition))
     , name(name)
     , state(state)
-    , hasSelector(hasSelector) {
+    , hasSelector(hasSelector)
+    , anchor(anchor) {
     // Generate random color for debug visualization
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -20,10 +21,17 @@ MenuHitbox::MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f&
 }
 
 bool MenuHitbox::contains(const sf::Vector2f& normalizedPoint) const {
-    return normalizedPoint.x >= normalizedPosition.x &&
-           normalizedPoint.x <= normalizedPosition.x + normalizedSize.x &&
-           normalizedPoint.y >= normalizedPosition.y &&
-           normalizedPoint.y <= normalizedPosition.y + normalizedSize.y;
+    auto& scalingManager = Engine::ScalingManager::getInstance();
+    sf::Vector2f screenPos = scalingManager.convertNormalizedToScreen(normalizedPosition.x, normalizedPosition.y, anchor);
+    sf::Vector2f screenSize(normalizedSize.x * scalingManager.BASE_WIDTH, normalizedSize.y * scalingManager.BASE_HEIGHT);
+    
+    // Convert the test point to screen coordinates
+    sf::Vector2f screenTestPoint = scalingManager.convertNormalizedToScreen(normalizedPoint.x, normalizedPoint.y);
+    
+    return screenTestPoint.x >= screenPos.x &&
+           screenTestPoint.x <= screenPos.x + screenSize.x &&
+           screenTestPoint.y >= screenPos.y &&
+           screenTestPoint.y <= screenPos.y + screenSize.y;
 }
 
 void MenuHitbox::draw(sf::RenderWindow& window, bool debugMode, const std::string& currentState) const {
@@ -31,12 +39,11 @@ void MenuHitbox::draw(sf::RenderWindow& window, bool debugMode, const std::strin
     if (debugMode && state == currentState) {
         auto& scalingManager = Engine::ScalingManager::getInstance();
         
-        // Convert normalized coordinates to screen coordinates
+        // Convert normalized coordinates to screen coordinates with anchor
         sf::Vector2f screenPos = scalingManager.convertNormalizedToScreen(
-            normalizedPosition.x, normalizedPosition.y);
+            normalizedPosition.x, normalizedPosition.y, anchor);
         
-        // Convert normalized size to screen size using scale factors
-        sf::Vector2f scale = scalingManager.getScaleFactors();
+        // Convert normalized size to screen size
         sf::Vector2f screenSize(
             normalizedSize.x * window.getSize().x,
             normalizedSize.y * window.getSize().y

@@ -6,7 +6,6 @@
 #include "states/WarningState.hpp"
 #include "core/StateManager.hpp"
 #include "config/AssetPaths.hpp"
-#include "utils/Debug.hpp"
 #include "ui/MenuManager.hpp"
 #include "systems/ui/ScalingManager.hpp"
 #include "systems/audio_systems/AudioSystem.hpp"
@@ -26,9 +25,6 @@ void updateView(sf::RenderWindow& window) {
 }
 
 int main() {
-    // Install signal handlers for debugging
-    Debug::installSignalHandlers();
-    
     try {
         // Create a window with 1280x720 resolution
         sf::RenderWindow window(sf::VideoMode(BASE_WIDTH, BASE_HEIGHT), "They Still Sing", sf::Style::Default | sf::Style::Resize);
@@ -41,6 +37,7 @@ int main() {
         // Initialize AudioSystem
         auto& audio = Engine::AudioSystem::getInstance();
         audio.initialize(AssetPaths::AUDIO_CONFIG);
+        audio.setDebugEnabled(false);  // Disable debug output
         
         // Set up menu music transition callback
         bool menuLoopStarted = false;
@@ -181,11 +178,9 @@ int main() {
         
     } catch (const std::exception& e) {
         std::cerr << "Fatal error: " << e.what() << std::endl;
-        Debug::printBacktrace();
         return 1;
     } catch (...) {
         std::cerr << "Fatal error: Unknown exception" << std::endl;
-        Debug::printBacktrace();
         return 1;
     }
     

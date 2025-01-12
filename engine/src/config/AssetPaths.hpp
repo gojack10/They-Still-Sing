@@ -76,13 +76,13 @@ namespace AssetPaths {
     const std::string WARNING_TEXTURE = resolvePath(UI_DIR + "/warning.jpg");
     const std::string MENU_TEXT_TEXTURE = resolvePath(UI_DIR + "/menu-text.png");
     const std::string OPTIONS_BUTTONS_TEXTURE = resolvePath(UI_DIR + "/options-buttons.png");
-    const std::string RESET_ALL_PROGRESS_TEXTURE = resolvePath(UI_DIR + "/reset-all-progress.png");
+    const std::string RESET_ALL_PROGRESS_TEXTURE = resolvePath(UI_DIR + "/reset-game-button.png");
     // Font paths
     const std::string DEJAVU_SANS = resolvePath(FONTS_DIR + "/DejaVuSans.ttf");
     const std::string OCRAEXT = resolvePath(FONTS_DIR + "/OCRAEXT.ttf");
     
     // UI Elements
-    inline const std::string UI_CHECK = resolvePath(UI_DIR + "/check.png");
+    inline const std::string UI_CHECK = resolvePath(UI_DIR + "/check.jpg");
     inline const std::string UI_SELECTOR = resolvePath(UI_DIR + "/selector.png");
     // inline const std::string UI_VOLUME_LINE = resolvePath(UI_DIR + "/volume-line.png");
     inline const std::string MENU_CONFIG = resolvePath(ASSETS_DIR + "/config/menu_config.json");

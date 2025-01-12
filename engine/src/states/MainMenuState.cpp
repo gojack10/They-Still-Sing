@@ -1,7 +1,6 @@
 #include "MainMenuState.hpp"
 #include "../config/AssetPaths.hpp"
 #include "../systems/animation/AnimationManager.hpp"
-#include "../utils/Debug.hpp"
 #include "../systems/ui/ScalingManager.hpp"
 #include "../ui/MenuManager.hpp"
 #include "../systems/audio_systems/AudioSystem.hpp"
@@ -126,16 +125,9 @@ void MainMenuState::handleInput(sf::RenderWindow& window) {
         }
     }
     
-    // Debug: Print button hover state changes
-    if (currentHoveredButton != lastHoveredButton) {
-        std::cout << "MainMenuState: Button hover changed from '" << lastHoveredButton 
-                  << "' to '" << currentHoveredButton << "'" << std::endl;
-                  
-        // Only play sound when entering a new button (not when leaving one)
-        if (!currentHoveredButton.empty()) {
-            std::cout << "MainMenuState: Attempting to play hover sound for button: " << currentHoveredButton << std::endl;
-            Engine::AudioSystem::getInstance().playSound("menu-hover");
-        }
+    // Play sound when entering a new button (not when leaving one)
+    if (currentHoveredButton != lastHoveredButton && !currentHoveredButton.empty()) {
+        Engine::AudioSystem::getInstance().playSound("menu-hover");
     }
     
     // Update last hovered button
@@ -144,13 +136,11 @@ void MainMenuState::handleInput(sf::RenderWindow& window) {
 
 void MainMenuState::update(float deltaTime) {
     try {
-        DEBUG_LOCATION("MainMenuState::update - Start");
         static float timeAccumulator = 0.0f;
         timeAccumulator += deltaTime;
         
         float cappedDeltaTime = std::min(deltaTime, 0.1f);
         
-        DEBUG_LOCATION("MainMenuState::update - Updating animation");
         AnimationManager::getInstance().update(cappedDeltaTime);
         
         timeAccumulator = 0.0f;
@@ -161,22 +151,18 @@ void MainMenuState::update(float deltaTime) {
 
 void MainMenuState::draw(sf::RenderWindow& window) {
     try {
-        DEBUG_LOCATION("MainMenuState::draw - Start");
         window.clear(sf::Color::Black);
         
         if (auto* anim = AnimationManager::getInstance().getAnimation("main_menu")) {
-            DEBUG_LOCATION("MainMenuState::draw - Got animation");
             if (!anim->hasFrames()) {
                 std::cerr << "MainMenuState::draw: Animation has no frames!" << std::endl;
                 return;
             }
             
-            DEBUG_LOCATION("MainMenuState::draw - Getting current frame");
             sf::Sprite& sprite = anim->getCurrentFrame();
             
             Engine::ScalingManager::getInstance().scaleSpriteToFill(sprite);
             
-            DEBUG_LOCATION("MainMenuState::draw - Drawing sprite");
             window.draw(sprite);
             
             // Draw menu text at its configured position

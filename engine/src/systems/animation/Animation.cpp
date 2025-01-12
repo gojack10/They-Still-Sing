@@ -1,5 +1,5 @@
 #include "Animation.hpp"
-#include "../../utils/Debug.hpp"
+#include <filesystem>
 #include <algorithm>
 #include <iostream>
 #include <numeric>
@@ -14,13 +14,11 @@ Animation::Animation()
     , maxLoadedFrames(DEFAULT_MAX_FRAMES)
     , isInitialLoad(true)
 {
-    DEBUG_LOCATION("Animation::Constructor");
     std::cout << "Animation: Constructor called" << std::endl;
     currentSprite.setPosition(0, 0);
 }
 
 Animation::~Animation() {
-    DEBUG_LOCATION("Animation::Destructor");
     std::cout << "Animation: Destructor called, cleaning up " << loadedFrames.size() << " frames" << std::endl;
     std::lock_guard<std::recursive_mutex> lock(frameMutex);
     loadedFrames.clear();
@@ -30,7 +28,6 @@ Animation::~Animation() {
 }
 
 bool Animation::loadFromDirectory(const std::string& path, const std::string& extension) {
-    DEBUG_LOCATION("Animation::loadFromDirectory - Start");
     namespace fs = std::filesystem;
     
     try {
@@ -46,8 +43,6 @@ bool Animation::loadFromDirectory(const std::string& path, const std::string& ex
         
         // Clear existing frames and reset state
         {
-            DEBUG_LOCATION("Animation::loadFromDirectory - Clearing frames");
-            std::lock_guard<std::recursive_mutex> lock(frameMutex);
             std::cout << "Animation::loadFromDirectory: Clearing existing frames" << std::endl;
             stop();
             loadedFrames.clear();
@@ -75,15 +70,12 @@ bool Animation::loadFromDirectory(const std::string& path, const std::string& ex
         
         // Store paths
         {
-            DEBUG_LOCATION("Animation::loadFromDirectory - Storing paths");
-            std::lock_guard<std::recursive_mutex> lock(frameMutex);
             framePaths = std::move(files);
         }
         
         std::cout << "Animation::loadFromDirectory: Found " << framePaths.size() << " frames" << std::endl;
         
         // Load initial frame to get dimensions
-        DEBUG_LOCATION("Animation::loadFromDirectory - Loading first frame");
         auto firstTexture = ensureFrameLoaded(0);
         if (!firstTexture) {
             std::cerr << "Animation::loadFromDirectory: Failed to load first frame" << std::endl;
@@ -104,7 +96,6 @@ bool Animation::loadFromDirectory(const std::string& path, const std::string& ex
 }
 
 std::shared_ptr<sf::Texture> Animation::ensureFrameLoaded(size_t index) {
-    DEBUG_LOCATION("Animation::ensureFrameLoaded - Start");
     std::lock_guard<std::recursive_mutex> lock(frameMutex);
     
     if (index >= framePaths.size()) {
@@ -112,14 +103,9 @@ std::shared_ptr<sf::Texture> Animation::ensureFrameLoaded(size_t index) {
         return nullptr;
     }
     
-    // Track current state
-    DEBUG_MEMORY_WRITE(&currentFrame);
-    DEBUG_MEMORY_READ(&loadedFrames);
-    
     // First, check if we already have this frame
     for (const auto& pair : loadedFrames) {
         if (pair.first == index) {
-            DEBUG_MEMORY_READ(pair.second.get());
             return pair.second;
         }
     }
@@ -134,7 +120,6 @@ std::shared_ptr<sf::Texture> Animation::ensureFrameLoaded(size_t index) {
         
         texture->setSmooth(true);
         
-        DEBUG_LOCATION("Animation::ensureFrameLoaded - Loading texture from file: " + framePaths[index].string());
         if (!texture->loadFromFile(framePaths[index].string())) {
             std::cerr << "Animation::ensureFrameLoaded: Failed to load texture: " << framePaths[index] << std::endl;
             return nullptr;
@@ -144,19 +129,13 @@ std::shared_ptr<sf::Texture> Animation::ensureFrameLoaded(size_t index) {
         auto size = texture->getSize();
         size_t frameMemory = size.x * size.y * 4;
         
-        // Track texture memory
-        DEBUG_MEMORY_WRITE(texture.get());
-        
         // Add to loaded frames
         loadedFrames.push_back({index, texture});
         totalMemoryUsage += frameMemory;
         
         // If this is the first frame ever loaded, set up the sprite
         if (loadedFrames.size() == 1 && !currentTexture) {
-            DEBUG_LOCATION("Animation::ensureFrameLoaded - Setting up first frame");
-            DEBUG_MEMORY_WRITE(&currentTexture);
             currentTexture = texture;
-            DEBUG_MEMORY_WRITE(&currentSprite);
             currentSprite.setTexture(*texture, true);
             auto bounds = currentSprite.getLocalBounds();
             currentSprite.setOrigin(bounds.width / 2.f, bounds.height / 2.f);
@@ -175,7 +154,6 @@ std::shared_ptr<sf::Texture> Animation::ensureFrameLoaded(size_t index) {
 }
 
 bool Animation::loadFrame(size_t index) {
-    DEBUG_LOCATION("Animation::loadFrame - Start");
     std::lock_guard<std::recursive_mutex> lock(frameMutex);
     
     if (index >= framePaths.size()) {
@@ -188,14 +166,6 @@ bool Animation::loadFrame(size_t index) {
 }
 
 void Animation::maintainFrameWindow() {
-    DEBUG_LOCATION("Animation::maintainFrameWindow");
-    
-    DEBUG_MEMORY_READ(&currentFrame);
-    DEBUG_MEMORY_READ(&maxLoadedFrames);
-    DEBUG_MEMORY_READ(&framePaths);
-    DEBUG_MEMORY_READ(&loadedFrames);
-    DEBUG_MEMORY_READ(&currentTexture);
-    
     // Calculate the window of frames we want to keep
     size_t halfWindow = maxLoadedFrames / 2;
     size_t windowStart = (currentFrame >= halfWindow) ? currentFrame - halfWindow : 0;
@@ -256,14 +226,10 @@ void Animation::maintainFrameWindow() {
     }
     
     // Finally, swap in our new frame collection
-    DEBUG_MEMORY_WRITE(&loadedFrames);
     loadedFrames.swap(newFrames);
 }
 
 void Animation::update(float deltaTime) {
-    DEBUG_LOCATION("Animation::update - Start");
-    std::lock_guard<std::recursive_mutex> lock(frameMutex);
-    
     if (!playing || framePaths.empty()) {
         return;
     }
@@ -303,11 +269,7 @@ void Animation::update(float deltaTime) {
 }
 
 sf::Sprite& Animation::getCurrentFrame() {
-    DEBUG_LOCATION("Animation::getCurrentFrame");
-    std::lock_guard<std::recursive_mutex> lock(frameMutex);
-    
     if (!currentTexture) {
-        std::cerr << "Animation::getCurrentFrame - No texture loaded!" << std::endl;
         // Try to recover by loading current frame
         auto texture = ensureFrameLoaded(currentFrame);
         if (texture) {
@@ -320,9 +282,6 @@ sf::Sprite& Animation::getCurrentFrame() {
 }
 
 void Animation::play() {
-    DEBUG_LOCATION("Animation::play");
-    std::lock_guard<std::recursive_mutex> lock(frameMutex);
-    
     if (framePaths.empty()) {
         std::cerr << "Animation::play: Cannot play animation with no frames" << std::endl;
         return;
@@ -338,22 +297,16 @@ void Animation::play() {
 }
 
 void Animation::pause() {
-    DEBUG_LOCATION("Animation::pause");
-    std::lock_guard<std::recursive_mutex> lock(frameMutex);
     playing = false;
 }
 
 void Animation::stop() {
-    DEBUG_LOCATION("Animation::stop");
-    std::lock_guard<std::recursive_mutex> lock(frameMutex);
     playing = false;
     currentFrame = 0;
     currentTime = 0;
 }
 
 void Animation::reset() {
-    DEBUG_LOCATION("Animation::reset");
-    std::lock_guard<std::recursive_mutex> lock(frameMutex);
     currentFrame = 0;
     currentTime = 0;
 } 

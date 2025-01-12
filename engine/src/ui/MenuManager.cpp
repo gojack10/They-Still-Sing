@@ -15,15 +15,22 @@ void MenuManager::loadFromJson(const std::string& filepath) {
 
     hitboxes.clear();
     for (const auto& button : j["button_hitboxes"]) {
-        sf::Vector2f normalizedPos(
+        // Get position and size
+        sf::Vector2f position(
             button["x"].get<float>(),
             button["y"].get<float>()
         );
-        sf::Vector2f normalizedSize(
+        sf::Vector2f size(
             button["w"].get<float>(),
             button["h"].get<float>()
         );
 
+        // Get anchor type
+        Engine::Anchor anchor = Engine::Anchor::TopLeft;  // Default
+        if (button.contains("anchor")) {
+            anchor = Engine::ScalingManager::getAnchorFromString(button["anchor"].get<std::string>());
+        }
+        
         // Handle optional selector field
         sf::Vector2f selectorPos(0.f, 0.f);
         bool hasSelector = false;
@@ -41,7 +48,7 @@ void MenuManager::loadFromJson(const std::string& filepath) {
         // Get the state for this hitbox, default to MainMenu if not specified
         std::string state = button.value("state", "MainMenu");
         
-        hitboxes.emplace_back(normalizedPos, normalizedSize, button["name"].get<std::string>(), selectorPos, hasSelector, state);
+        hitboxes.emplace_back(position, size, button["name"].get<std::string>(), selectorPos, hasSelector, state, anchor);
     }
 }
 
