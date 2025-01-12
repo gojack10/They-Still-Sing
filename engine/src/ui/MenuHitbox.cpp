@@ -22,8 +22,16 @@ MenuHitbox::MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f&
 
 bool MenuHitbox::contains(const sf::Vector2f& normalizedPoint) const {
     auto& scalingManager = Engine::ScalingManager::getInstance();
+    
+    // Convert normalized position to screen coordinates using anchor
     sf::Vector2f screenPos = scalingManager.convertNormalizedToScreen(normalizedPosition.x, normalizedPosition.y, anchor);
-    sf::Vector2f screenSize(normalizedSize.x * scalingManager.BASE_WIDTH, normalizedSize.y * scalingManager.BASE_HEIGHT);
+    
+    // Convert normalized size to screen size using scale factors
+    sf::Vector2f scaleFactors = scalingManager.getScaleFactors();
+    sf::Vector2f screenSize(
+        normalizedSize.x * Engine::ScalingManager::BASE_WIDTH * scaleFactors.x,
+        normalizedSize.y * Engine::ScalingManager::BASE_HEIGHT * scaleFactors.y
+    );
     
     // Convert the test point to screen coordinates
     sf::Vector2f screenTestPoint = scalingManager.convertNormalizedToScreen(normalizedPoint.x, normalizedPoint.y);
@@ -43,13 +51,15 @@ void MenuHitbox::draw(sf::RenderWindow& window, bool debugMode, const std::strin
         sf::Vector2f screenPos = scalingManager.convertNormalizedToScreen(
             normalizedPosition.x, normalizedPosition.y, anchor);
         
-        // Convert normalized size to screen size
+        // Convert normalized size to screen size using scale factors
+        sf::Vector2f scaleFactors = scalingManager.getScaleFactors();
         sf::Vector2f screenSize(
-            normalizedSize.x * window.getSize().x,
-            normalizedSize.y * window.getSize().y
+            normalizedSize.x * Engine::ScalingManager::BASE_WIDTH * scaleFactors.x,
+            normalizedSize.y * Engine::ScalingManager::BASE_HEIGHT * scaleFactors.y
         );
         
         // Update debug rectangle
+        sf::RectangleShape debugRect;
         debugRect.setPosition(screenPos);
         debugRect.setSize(screenSize);
         debugRect.setFillColor(debugColor);

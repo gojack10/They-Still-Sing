@@ -4,6 +4,11 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
+struct OptionsUIPlacement {
+    sf::Vector2f position;
+    sf::Vector2f normalizedPosition;
+};
+
 class OptionsState : public GameState {
 public:
     OptionsState();
@@ -16,6 +21,8 @@ public:
     void draw(sf::RenderWindow& window) override;
 
 private:
+    void loadUIPlacement();
+    
     sf::Color backgroundColor;
     bool isTransitioningIn;
     bool isTransitioningOut;
@@ -33,4 +40,9 @@ private:
     sf::Sprite resetGameButtonSprite;
     sf::Texture checkTexture;
     sf::Sprite checkSprite;
+    
+    // UI Placement
+    OptionsUIPlacement optionsButtonsPlacement;
+    OptionsUIPlacement resetGameButtonPlacement;
+    OptionsUIPlacement checkPlacement;
 }; 

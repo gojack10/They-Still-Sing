@@ -21,6 +21,34 @@ OptionsState::OptionsState()
     init();
 }
 
+void OptionsState::loadUIPlacement() {
+    // Load menu config for UI element placement
+    std::ifstream configFile(AssetPaths::MENU_CONFIG);
+    if (!configFile.is_open()) {
+        throw std::runtime_error("Failed to open menu config file");
+    }
+    nlohmann::json config = nlohmann::json::parse(configFile);
+
+    // Position UI elements according to menu config
+    auto& placements = config["button_placement"];
+    for (const auto& placement : placements) {
+        std::string name = placement["name"];
+        float x = placement["x"];
+        float y = placement["y"];
+
+        if (name == "OPTIONS_MENU_BUTTONS") {
+            optionsButtonsPlacement.position = sf::Vector2f(x, y);
+            optionsButtonsPlacement.normalizedPosition = Engine::ScalingManager::absoluteToNormalized(x, y);
+        } else if (name == "RESET_ALL_PROGRESS") {
+            resetGameButtonPlacement.position = sf::Vector2f(x, y);
+            resetGameButtonPlacement.normalizedPosition = Engine::ScalingManager::absoluteToNormalized(x, y);
+        } else if (name == "FULLSCREEN_CHECK") {
+            checkPlacement.position = sf::Vector2f(x, y);
+            checkPlacement.normalizedPosition = Engine::ScalingManager::absoluteToNormalized(x, y);
+        }
+    }
+}
+
 void OptionsState::init() {
     std::cout << "OptionsState: Initializing..." << std::endl;
     
@@ -73,28 +101,8 @@ void OptionsState::init() {
         }
         checkSprite.setTexture(checkTexture);
 
-        // Load menu config for UI element placement
-        std::ifstream configFile(AssetPaths::MENU_CONFIG);
-        if (!configFile.is_open()) {
-            throw std::runtime_error("Failed to open menu config file");
-        }
-        nlohmann::json config = nlohmann::json::parse(configFile);
-
-        // Position UI elements according to menu config
-        auto& placements = config["button_placement"];
-        for (const auto& placement : placements) {
-            std::string name = placement["name"];
-            float x = placement["x"];
-            float y = placement["y"];
-
-            if (name == "OPTIONS_MENU_BUTTONS") {
-                optionsButtonsSprite.setPosition(x, y);
-            } else if (name == "RESET_ALL_PROGRESS") {
-                resetGameButtonSprite.setPosition(x, y);
-            } else if (name == "FULLSCREEN_CHECK") {
-                checkSprite.setPosition(x, y);
-            }
-        }
+        // Load UI placement
+        loadUIPlacement();
         
     } catch (const std::exception& e) {
         std::cerr << "OptionsState: Error during initialization: " << e.what() << std::endl;
@@ -175,7 +183,14 @@ void OptionsState::draw(sf::RenderWindow& window) {
                 }
             }
         } else {
-            // Draw UI elements when not transitioning
+            auto& scalingManager = Engine::ScalingManager::getInstance();
+            
+            // Scale and position UI elements
+            scalingManager.scaleSprite(optionsButtonsSprite, optionsButtonsPlacement.normalizedPosition);
+            scalingManager.scaleSprite(resetGameButtonSprite, resetGameButtonPlacement.normalizedPosition);
+            scalingManager.scaleSprite(checkSprite, checkPlacement.normalizedPosition);
+            
+            // Draw UI elements
             window.draw(optionsButtonsSprite);
             window.draw(resetGameButtonSprite);
             window.draw(checkSprite);
