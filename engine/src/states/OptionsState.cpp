@@ -106,15 +106,32 @@ void OptionsState::cleanup() {
     if (auto* anim = AnimationManager::getInstance().getAnimation(currentAnimation)) {
         anim->stop();
     }
+    
+    // Clear all sprites and hitboxes
+    optionsButtonsSprite = sf::Sprite();
+    resetGameButtonSprite = sf::Sprite();
+    checkSprite = sf::Sprite();
+    MenuManager::getInstance().clearHitboxes();
 }
 
 void OptionsState::handleInput(sf::RenderWindow& window) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) && !isTransitioningOut && animationComplete) {
-        isTransitioningOut = true;
-        currentAnimation = "options_exit";
-        if (auto* anim = AnimationManager::getInstance().getAnimation("options_exit")) {
-            anim->reset();
-            anim->play();
+    if (!isTransitioningOut && animationComplete) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape) || 
+            (sf::Mouse::isButtonPressed(sf::Mouse::Left) && 
+             MenuManager::getInstance().isHitboxClicked("BACK_TO_MAIN_MENU_BUTTON", window))) {
+            
+            isTransitioningOut = true;
+            currentAnimation = "options_exit";
+            if (auto* anim = AnimationManager::getInstance().getAnimation("options_exit")) {
+                anim->reset();
+                anim->play();
+            }
+            
+            // Clear all sprites and hitboxes
+            optionsButtonsSprite = sf::Sprite();
+            resetGameButtonSprite = sf::Sprite();
+            checkSprite = sf::Sprite();
+            MenuManager::getInstance().clearHitboxes();
         }
     }
 }

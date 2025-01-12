@@ -22,6 +22,8 @@ public:
     const std::string& getHoveredButton() const { return hoveredButton; }
     void setCurrentState(const std::string& state) { currentState = state; }
     const std::string& getCurrentState() const { return currentState; }
+    void clearHitboxes() { hitboxes.clear(); }
+    bool isHitboxClicked(const std::string& name, const sf::RenderWindow& window) const;
 
 private:
     MenuManager() : debugMode(false), currentState("MainMenu") {

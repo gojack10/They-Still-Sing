@@ -95,4 +95,22 @@ void MenuManager::draw(sf::RenderWindow& window) {
             window.draw(selectorSprite);
         }
     }
+}
+
+bool MenuManager::isHitboxClicked(const std::string& name, const sf::RenderWindow& window) const {
+    auto& scalingManager = Engine::ScalingManager::getInstance();
+    scalingManager.updateWindowSize(window.getSize().x, window.getSize().y);
+
+    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+    sf::Vector2f worldPos = window.mapPixelToCoords(mousePos);
+    sf::Vector2f normalizedPos = scalingManager.convertScreenToNormalized(worldPos.x, worldPos.y);
+
+    auto it = std::find_if(hitboxes.begin(), hitboxes.end(),
+        [&name, &normalizedPos, this](const MenuHitbox& hitbox) {
+            return hitbox.getName() == name && 
+                   hitbox.getState() == currentState && 
+                   hitbox.contains(normalizedPos);
+        });
+
+    return it != hitboxes.end();
 } 
