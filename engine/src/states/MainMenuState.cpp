@@ -56,6 +56,9 @@ void MainMenuState::loadMenuTextPlacement() {
 void MainMenuState::init() {
     std::cout << "MainMenuState: Initializing..." << std::endl;
     
+    // Set current state in MenuManager
+    MenuManager::getInstance().setCurrentState("MainMenu");
+    
     // Load menu text texture
     if (!menuTextTexture.loadFromFile(AssetPaths::MENU_TEXT_TEXTURE)) {
         std::cerr << "MainMenuState: Failed to load menu text texture!" << std::endl;

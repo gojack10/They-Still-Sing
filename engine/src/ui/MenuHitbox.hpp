@@ -7,23 +7,24 @@
 class MenuHitbox {
 public:
     MenuHitbox(const sf::Vector2f& absolutePosition, const sf::Vector2f& absoluteSize, 
-               const std::string& name, const sf::Vector2f& selectorPosition = sf::Vector2f(0, 0), 
-               bool hasSelector = false);
+               const std::string& name, const sf::Vector2f& selectorPosition, bool hasSelector,
+               const std::string& state);
     
     bool contains(const sf::Vector2f& normalizedPoint) const;
-    void draw(sf::RenderWindow& window, bool debugMode) const;
+    void draw(sf::RenderWindow& window, bool debugMode, const std::string& currentState) const;
+    
     const std::string& getName() const { return name; }
-    const sf::Vector2f& getNormalizedPosition() const { return normalizedPosition; }
-    const sf::Vector2f& getNormalizedSize() const { return normalizedSize; }
+    const std::string& getState() const { return state; }
     const sf::Vector2f& getSelectorPosition() const { return selectorPosition; }
     bool getHasSelector() const { return hasSelector; }
 
 private:
-    sf::Vector2f normalizedPosition;  // Stored in normalized coordinates (0-1)
-    sf::Vector2f normalizedSize;      // Stored in normalized coordinates (0-1)
-    sf::Vector2f selectorPosition;    // Position for the selector when this hitbox is hovered
+    sf::Vector2f normalizedPosition;
+    sf::Vector2f normalizedSize;
+    sf::Vector2f selectorPosition;
     std::string name;
+    std::string state;
+    bool hasSelector;
+    mutable sf::RectangleShape debugRect;
     sf::Color debugColor;
-    mutable sf::RectangleShape debugRect;  // Mutable because we update it in draw()
-    bool hasSelector;                      // Flag to indicate if this hitbox has a selector
 }; 

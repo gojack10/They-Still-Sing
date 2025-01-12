@@ -15,7 +15,6 @@ void MenuManager::loadFromJson(const std::string& filepath) {
 
     hitboxes.clear();
     for (const auto& button : j["button_hitboxes"]) {
-        // Convert JSON coordinates from normalized (0-1) to screen space
         sf::Vector2f normalizedPos(
             button["x"].get<float>(),
             button["y"].get<float>()
@@ -39,7 +38,10 @@ void MenuManager::loadFromJson(const std::string& filepath) {
             }
         }
         
-        hitboxes.emplace_back(normalizedPos, normalizedSize, button["name"].get<std::string>(), selectorPos, hasSelector);
+        // Get the state for this hitbox, default to MainMenu if not specified
+        std::string state = button.value("state", "MainMenu");
+        
+        hitboxes.emplace_back(normalizedPos, normalizedSize, button["name"].get<std::string>(), selectorPos, hasSelector, state);
     }
 }
 
@@ -53,7 +55,8 @@ void MenuManager::handleInput(const sf::RenderWindow& window) {
 
     hoveredButton.clear();
     for (const auto& hitbox : hitboxes) {
-        if (hitbox.contains(normalizedPos)) {
+        // Only check hitboxes for the current state
+        if (hitbox.getState() == currentState && hitbox.contains(normalizedPos)) {
             hoveredButton = hitbox.getName();
             // Only update selector position if the hitbox has a selector
             if (hitbox.getHasSelector()) {
@@ -71,7 +74,7 @@ void MenuManager::draw(sf::RenderWindow& window) {
     // Draw hitboxes in debug mode
     if (debugMode) {
         for (const auto& hitbox : hitboxes) {
-            hitbox.draw(window, true);
+            hitbox.draw(window, true, currentState);
         }
     }
 
@@ -80,7 +83,7 @@ void MenuManager::draw(sf::RenderWindow& window) {
         // Find the hovered hitbox
         auto it = std::find_if(hitboxes.begin(), hitboxes.end(),
             [this](const MenuHitbox& hitbox) { return hitbox.getName() == hoveredButton; });
-        
+     
         if (it != hitboxes.end() && it->getHasSelector()) {
             window.draw(selectorSprite);
         }

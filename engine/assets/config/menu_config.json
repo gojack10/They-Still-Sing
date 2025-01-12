@@ -7,6 +7,7 @@
       "x": 70,
       "y": 333,
       "anchor": "TopLeft",
+      "state": "MainMenu",
       "selector": {
         "x": 40,
         "y": 342
@@ -19,6 +20,7 @@
       "x": 70,
       "y": 458,
       "anchor": "TopLeft",
+      "state": "MainMenu",
       "selector": {
         "x": 40,
         "y": 465
@@ -31,6 +33,7 @@
       "x": 70,
       "y": 575,
       "anchor": "TopLeft",
+      "state": "MainMenu",
       "selector": {
         "x": 40,
         "y": 585
@@ -42,7 +45,8 @@
       "h": 53,
       "x": 380,
       "y": 147,
-      "anchor": "TopLeft"
+      "anchor": "TopLeft",
+      "state": "Options"
     },
     {
       "name": "SFX_VOL_DOWN_BUTTON",
@@ -50,7 +54,8 @@
       "h": 75,
       "x": 380,
       "y": 280,
-      "anchor": "Center"
+      "anchor": "Center",
+      "state": "Options"
     },
     {
       "name": "SFX_VOL_UP_BUTTON",
@@ -58,7 +63,8 @@
       "h": 76,
       "x": 659,
       "y": 279,
-      "anchor": "Center"
+      "anchor": "Center",
+      "state": "Options"
     },
     {
       "name": "MUSIC_VOL_DOWN_BUTTON",
@@ -66,7 +72,8 @@
       "h": 75,
       "x": 380,
       "y": 422,
-      "anchor": "Center"
+      "anchor": "Center",
+      "state": "Options"
     },
     {
       "name": "MUSIC_VOL_UP_BUTTON",
@@ -74,7 +81,8 @@
       "h": 76,
       "x": 660,
       "y": 422,
-      "anchor": "Center"
+      "anchor": "Center",
+      "state": "Options"
     },
     {
       "name": "RESET_ALL_PROGRESS_BUTTON",
@@ -82,7 +90,8 @@
       "h": 68,
       "x": 800,
       "y": 443,
-      "anchor": "Center"
+      "anchor": "Center",
+      "state": "Options"
     }
   ],
   "button_placement": [

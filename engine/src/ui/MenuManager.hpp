@@ -20,9 +20,11 @@ public:
     void toggleDebugMode() { debugMode = !debugMode; }
     bool isDebugMode() const { return debugMode; }
     const std::string& getHoveredButton() const { return hoveredButton; }
+    void setCurrentState(const std::string& state) { currentState = state; }
+    const std::string& getCurrentState() const { return currentState; }
 
 private:
-    MenuManager() : debugMode(false) {
+    MenuManager() : debugMode(false), currentState("MainMenu") {
         if (!selector.loadFromFile(AssetPaths::UI_SELECTOR)) {
             throw std::runtime_error("Failed to load selector texture");
         }
@@ -34,6 +36,7 @@ private:
     std::vector<MenuHitbox> hitboxes;
     bool debugMode;
     std::string hoveredButton;
+    std::string currentState;
     sf::Texture selector;
     sf::Sprite selectorSprite;
 }; 

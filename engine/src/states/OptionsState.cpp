@@ -4,6 +4,7 @@
 #include "../systems/animation/AnimationManager.hpp"
 #include "../systems/ui/ScalingManager.hpp"
 #include "../config/AssetPaths.hpp"
+#include "../ui/MenuManager.hpp"
 #include <iostream>
 #include <cmath>
 #include <fstream>
@@ -26,6 +27,9 @@ void OptionsState::init() {
     auto& animManager = AnimationManager::getInstance();
     
     try {
+        // Set current state in MenuManager
+        MenuManager::getInstance().setCurrentState("Options");
+        
         // Load the options-enter animation
         if (animManager.loadAnimation("options_enter", AssetPaths::OPTIONS_ENTER_ANIM, false)) {
             std::cout << "OptionsState: Successfully loaded options enter animation" << std::endl;
